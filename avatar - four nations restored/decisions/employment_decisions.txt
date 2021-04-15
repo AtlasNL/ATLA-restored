@@ -51,8 +51,10 @@ decisions = {
 		}
 	}
 	employ_bender = {
+		ai = no
+		only_playable = yes
+		
 		potential = {
-			ai = no
 			OR = {
 				culture_group = earth_kingdom_culture
 				culture_group = fire_nation_culture
@@ -63,6 +65,9 @@ decisions = {
 		allow = {
 			prestige = 20
 			scaled_wealth = 0.3
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
 		}
 		effect = {
 			prestige = -20
@@ -147,7 +152,6 @@ decisions = {
 		only_playable = yes
 
 		potential = {
-			NOT = { has_religion_feature = religion_matriarchal }
 		}
 		allow = {
 			piety = 25
@@ -239,7 +243,6 @@ decisions = {
 		only_playable = yes
 
 		potential = {
-			has_religion_feature = religion_matriarchal
 		}
 		allow = {
 			piety = 25
@@ -326,7 +329,6 @@ decisions = {
 		only_playable = yes
 
 		potential = {
-			NOT = { has_religion_feature = religion_matriarchal }
 		}
 		allow = {
 			scaled_wealth = 0.25
@@ -412,7 +414,6 @@ decisions = {
 		only_playable = yes
 
 		potential = {
-			has_religion_feature = religion_matriarchal
 		}
 		allow = {
 			scaled_wealth = 0.25
@@ -499,9 +500,6 @@ decisions = {
 		only_playable = yes
 
 		potential = {
-			NOT = {
-				has_religion_feature = religion_matriarchal
-			}
 		}
 		allow = {
 			scaled_wealth = 0.20
@@ -534,5 +532,40 @@ decisions = {
 			factor = 0
 		}
 	}
-	
+	present_male_debutante = {
+		ai = no
+		only_playable = yes
+
+		potential = {
+		}
+		allow = {
+			scaled_wealth = 0.20
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
+		}
+		effect = {
+			scaled_wealth = -0.20
+			create_character = {
+				random_traits = yes
+				dynasty = actually_culture
+				age = 17
+			}
+			new_character = {
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				
+				set_character_flag = debutante
+				save_event_target_as = invited_character
+			}
+			character_event = { id = NE.1 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
 }
