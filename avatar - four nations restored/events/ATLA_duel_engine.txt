@@ -13,10 +13,7 @@ character_event = {
 			NOT = { has_character_flag = agni_def }
 			FROM = {
 				trait = firebender
-				NOT = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
+				NOT = { trait = avatar }
 			}
 		}
 	}
@@ -26,10 +23,7 @@ character_event = {
 			NOT = { has_character_flag = agni_def }
 			FROM = {
 				trait = airbender
-				NOT = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
+				NOT = { trait = avatar }
 			}
 		}
 	}
@@ -39,10 +33,7 @@ character_event = {
 			NOT = { has_character_flag = agni_def }
 			FROM = {
 				trait = waterbender
-				NOT = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
+				NOT = { trait = avatar }
 			}
 		}
 	}
@@ -52,28 +43,7 @@ character_event = {
 			NOT = { has_character_flag = agni_def }
 			FROM = {
 				trait = earthbender
-				NOT = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
-			}
-		}
-	}
-	desc = {
-		text = "EVTDESCFduel.1"
-		trigger = {
-			NOT = { has_character_flag = agni_def }
-			FROM = {
-				NOT = {
-					trait = earthbender
-					trait = airbender
-					trait = waterbender
-					trait = firebender
-				}
-				NOT = { 
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
+				NOT = { trait = avatar }
 			}
 		}
 	}
@@ -82,15 +52,12 @@ character_event = {
 		trigger = {
 			NOT = { has_character_flag = agni_def }
 			FROM = {
-				OR = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
+				NOT = { trait = avatar }
 			}
 		}
 	}
 	desc = { #Agni Kai defender makes ready for first attack
-		text = EVTDESCFduel.1
+		text = "EVTDESCFduel.1"
 		trigger = {
 			ROOT = {
 				has_character_flag = agni_def
@@ -104,7 +71,7 @@ character_event = {
 		}
 	}
 	desc = { #the agni kai duel is continuing
-		text = EVTDESCGduel.1
+		text = "EVTDESCGduel.1"
 		trigger = {
 			AND = {
 				has_character_flag = agni_def
@@ -117,6 +84,13 @@ character_event = {
 			}
 		}
 	}
+	desc = {
+		text = "EVTDESCHduel.1"
+		trigger = {
+			NOT = { has_character_flag = agni_def }
+			FROM = { is_bender_trigger = no }
+		}
+	}
 	
 	picture = GFX_evt_desert
 	
@@ -125,13 +99,11 @@ character_event = {
 	immediate = {
 		if = {
 			limit = {
-				NOT = {
-					OR = {
-						has_character_flag = first_round
-						has_character_flag = second_round
-						has_character_flag = third_round
-						has_character_flag = fourth_round
-					}
+				NOR = {
+					has_character_flag = first_round
+					has_character_flag = second_round
+					has_character_flag = third_round
+					has_character_flag = fourth_round
 				}
 			}
 			set_character_flag = first_round
@@ -141,17 +113,10 @@ character_event = {
 		name = "EVTOPTAduel.1" #agg attack the head
 		trigger = {
 			ROOT = {
-				NOT = {
+				NOR = {
 					has_character_flag = fourth_round
 					trait = avatar
-					trait = fullyrealisedavatar
-					trait = voidbender
-					trait = lavabender
-					trait = sandbender
-					trait = metalbender
-					trait = bloodbender
-					trait = lightningbender
-					trait = combustionbender
+					is_specialist_bender_trigger = yes
 				}
 			}
 		}
@@ -182,15 +147,7 @@ character_event = {
 						trait = legendary_bender
 					}
 					ROOT = {
-						NOT = {
-							OR = {
-								trait = legendary_bender
-								trait = master_bender
-								trait = powerful_bender
-								trait = competent_bender
-								trait = incompetent_bender
-							}
-						}
+						is_bender_trigger = no
 					}
 				}
 			}
@@ -210,7 +167,7 @@ character_event = {
 								trait = brave
 							}
 						}
-						modifier = {
+						modifier = { ##Is a better bender
 							factor = 2
 							OR = {
 								AND = {
@@ -247,15 +204,7 @@ character_event = {
 								}
 								AND = {
 									FROM = {
-										NOT = {
-											OR = {
-												trait = legendary_bender
-												trait = master_bender
-												trait = powerful_bender
-												trait = competent_bender
-												trait = incompetent_bender
-											}
-										}
+										is_bender_trigger = no
 									}
 									ROOT = {
 										trait = incompetent_bender
@@ -300,26 +249,10 @@ character_event = {
 								}
 								AND = {
 									FROM = {
-										NOT = {
-											OR = {
-												trait = legendary_bender
-												trait = master_bender
-												trait = powerful_bender
-												trait = competent_bender
-												trait = incompetent_bender
-											}
-										}
+										is_bender_trigger = no
 									}
 									ROOT = {
-										NOT = {
-											OR = {
-												trait = legendary_bender
-												trait = master_bender
-												trait = powerful_bender
-												trait = competent_bender
-												trait = incompetent_bender
-											}
-										}
+										is_bender_trigger = no
 									}
 								}
 							}
@@ -1164,7 +1097,6 @@ character_event = {
 				NOT = {
 					has_character_flag = fourth_round
 					trait = avatar
-					trait = fullyrealisedavatar
 					trait = voidbender
 					trait = lavabender
 					trait = sandbender
@@ -2656,7 +2588,6 @@ character_event = {
 				NOT = {
 					has_character_flag = fourth_round
 					trait = avatar
-					trait = fullyrealisedavatar
 					trait = voidbender
 					trait = lavabender
 					trait = sandbender
@@ -4206,21 +4137,13 @@ character_event = {
 	option = {
 		name = "EVTOPTEduel.1"
 		trigger = {
-			ROOT = {
-				OR = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
-			}
+			ROOT = { trait = avatar }
 		}
 		ai_chance = {
 			factor = 10
 			modifier = {
 				factor = 5
-				OR = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
+				trait = avatar
 			}
 		}
 		custom_tooltip = {
@@ -10990,10 +10913,7 @@ character_event = {
 			FROM = {
 				NOT = { has_character_flag = agni_def }
 				trait = firebender
-				NOT = {
-					trait = avatar 
-					trait = fullyrealisedavatar
-				}
+				NOT = { trait = avatar }
 			}
 		}
 	}
@@ -11003,10 +10923,7 @@ character_event = {
 			FROM = {
 				NOT = { has_character_flag = agni_def }
 				trait = airbender
-				NOT = {
-					trait = avatar 
-					trait = fullyrealisedavatar
-				}
+				NOT = { trait = avatar }
 			}
 		}
 	}
@@ -11016,10 +10933,7 @@ character_event = {
 			FROM = {
 				NOT = { has_character_flag = agni_def }
 				trait = earthbender
-				NOT = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
+				NOT = { trait = avatar }
 			}
 		}
 	}
@@ -11029,10 +10943,7 @@ character_event = {
 			FROM = {
 				NOT = { has_character_flag = agni_def }
 				trait = waterbender
-				NOT = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
+				NOT = { trait = avatar }
 			}
 		}
 	}
@@ -11041,16 +10952,7 @@ character_event = {
 		trigger = {
 			FROM = {
 				NOT = { has_character_flag = agni_def }
-				NOT = {
-					trait = firebender
-					trait = waterbender
-					trait = airbender
-					trait = earthbender
-				}
-				NOT = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
+				is_bender_trigger = no
 			}
 		}
 	}
@@ -11058,12 +10960,7 @@ character_event = {
 		text = "EVTDESCEduel.1"
 		trigger = {
 			NOT = { has_character_flag = agni_def }
-			FROM = {
-				OR = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
-			}
+			FROM = { trait = avatar }
 		}
 	}
 	desc = { #agni kai challenger reacts
@@ -11136,10 +11033,9 @@ character_event = {
 		name = "EVTOPTAduel.2" #agg attack the head
 		trigger = {
 			ROOT = {
-				NOT = {
+				NOR = {
 					has_character_flag = fourth_round
 					trait = avatar
-					trait = fullyrealisedavatar
 					trait = voidbender
 					trait = lavabender
 					trait = sandbender
@@ -12156,10 +12052,9 @@ character_event = {
 		name = "EVTOPTBduel.2" #agg attack the torso
 		trigger = {
 			ROOT = {
-				NOT = {
+				NOR = {
 					has_character_flag = fourth_round
 					trait = avatar
-					trait = fullyrealisedavatar
 					trait = voidbender
 					trait = lavabender
 					trait = sandbender
@@ -13645,10 +13540,9 @@ character_event = {
 		name = "EVTOPTCduel.2" #agg attack the outer limps
 		trigger = {
 			ROOT = {
-				NOT = {
+				NOR = {
 					has_character_flag = fourth_round
 					trait = avatar
-					trait = fullyrealisedavatar
 					trait = voidbender
 					trait = lavabender
 					trait = sandbender
@@ -15195,21 +15089,13 @@ character_event = {
 	option = {
 		name = "EVTOPTEduel.1"
 		trigger = {
-			ROOT = {
-				OR = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
-			}
+			ROOT = { trait = avatar }
 		}
 		ai_chance = {
 			factor = 10
 			modifier = {
 				factor = 5
-				OR = {
-					trait = avatar
-					trait = fullyrealisedavatar
-				}
+				trait = avatar
 			}
 		}
 		custom_tooltip = {
@@ -21972,80 +21858,6 @@ character_event = {
 }
 
 character_event = {
-	id = duel.100
-	desc = "EVTDESCduel.100"
-	picture = GFX_evt_desert
-	
-	is_triggered_only = yes
-	hide_window = yes
-	
-	option = {
-		name = "EVTOPTAduel.100"
-		FROM = {
-			character_event = { id = duel.1 }
-		}
-	}
-}
-
-character_event = { #agg wound opponent
-	id = duel.101
-	picture = GFX_evt_desert
-	desc = {
-		text = EVTDESCAduel.101
-		trigger = {
-			ROOT = {
-				trait = firebender
-			}
-		}
-	}
-	desc = {
-		text = EVTDESCBduel.101
-		trigger = {
-			ROOT = {
-				trait = airbender
-			}
-		}
-	}
-	desc = {
-		text = EVTDESCCduel.101
-		trigger = {
-			ROOT = {
-				trait = earthbender
-			}
-		}
-	}
-	desc = {
-		text = EVTDESCDduel.101
-		trigger = {
-			ROOT = {
-				trait = waterbender
-			}
-		}
-	}
-	desc = {
-		text = EVTDESCEduel.101
-		trigger = {
-			ROOT = {
-				NOT = {
-					trait = firebender
-					trait = airbender
-					trait = waterbender
-					trait = earthbender
-				}
-			}
-		}
-	}
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTAduel.101"
-		custom_tooltip = {
-			text = "EVTTOOLTIPduel.101"
-		}
-	}
-}
-
-character_event = {
 	id = duel.102
 	picture = GFX_evt_desert
 	desc = "EVTDESCduel.102"
@@ -22059,7 +21871,7 @@ character_event = {
 				factor = 5
 				OR = {
 					trait = airbender
-					trait = fullyrealisedavatar
+					trait = fully_realised_avatar
 				}
 			}
 		}

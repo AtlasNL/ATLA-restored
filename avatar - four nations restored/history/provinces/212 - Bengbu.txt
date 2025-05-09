@@ -11,8 +11,9 @@ b_hexicun = city
 #b_dadocun = temple
 
 # Misc
-culture = northern_earth
+culture = northern_earth_culture
 religion = fortune_telling
+terrain = forest
 
 #History
 579.10.13 = { religion = earth_spirituality }

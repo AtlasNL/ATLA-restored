@@ -1,0 +1,10 @@
+###################################
+#
+# THE OLD GODS
+# - Defensive pagan events
+#
+###################################
+
+# Written by Mathilda Bjarnehed & Milla Isaksson
+
+namespace = TOG

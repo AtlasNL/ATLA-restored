@@ -4,12 +4,12 @@
 	law = cognatic_succession
 	law = law_voting_power_1
 	law = war_voting_power_1
-	liege = "k_hu_xin"
+	liege = "k_northern_chin"
 }
 580.5.3 = {
 	holder = 29884
 }
-589.3.13 = { 
+589.3.13 = {
 	liege = "d_yantai"
 }
 627.12.27 = {
@@ -47,4 +47,3 @@
 1002.5.25 = {
 	holder = 29961
 }
-

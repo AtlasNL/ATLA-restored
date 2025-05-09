@@ -12,8 +12,9 @@ b_yabei = castle
 #b_waixi = city
 
 # Misc
-culture = ba_sing_se
+culture = ba_sing_se_culture
 religion = earth_monarchism
+terrain = farmlands
 
 #History
 587.1.8 = { b_songzhong = city }

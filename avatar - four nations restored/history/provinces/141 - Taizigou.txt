@@ -11,8 +11,9 @@ b_nyan = castle
 #b_liupanshui = temple
 
 # Misc
-culture = eastern_earth
+culture = eastern_earth_culture
 religion = earth_spirituality
+terrain = farmlands
 
 #History
 574.7.8 = { b_liupanshui = temple }
@@ -20,5 +21,5 @@ religion = earth_spirituality
 #923.2.12 = { religion = fire_nation_imperialism }
 #923.2.12 = { culture = colonial }
 #925.1.4 = { religion = earth_spirituality }
-#925.1.4 = { culture = eastern_earth }
+#925.1.4 = { culture = eastern_earth_culture }
 1002.6.13 = { religion = unificationism }

@@ -1,0 +1,78 @@
+pet;Pet;;;;;;;;;;;;x
+petOstrichHorse;Ostrich Horse;;;;;;;;;;;;x
+petOstrichHorse_desc;The Ostrich Horse is a common beast of burden in the Earth Kingdom & Fire Nation, as well as the primary choice of mount in the Earth Kingdom Army, who have a longstanding tradition of utilising Ostrich Horse riders in battle.;;;;;;;;;;;;x
+petDragon;Dragon;;;;;;;;;;;;x
+petDragon_desc;A Dragon can never be tamed or 'domesticated'. These intelligent creatures only accompany their riders willingly, and when they do, they are a powerful ally and a mighty force to be reckoned with.;;;;;;;;;;;;x
+petSkybison;Skybison;;;;;;;;;;;;x
+petSkybison_desc;A Skybison is an amazing creature capable of flight. They are mostly friendly creatures with strong spiritual ties with the Airbenders, who have cared for, tamed, and travelled with the Skybison for many generations.;;;;;;;;;;;;x
+petCat;Pet Cat;;;;;;;;;;;;x
+petCat_desc;Odd creatures that prove to be quite empathetic companions.;;;;;;;;;;;;x
+petFireFerret;Fire Ferret;;;;;;;;;;;;x
+petFireFerret_desc;A native animal to the Central Earth Kingdom. They are renowned for their cuteness and are a popular pet within the Earth Kingdom.;;;;;;;;;;;;x
+petWingedLemur;Winged Lemur;;;;;;;;;;;;x
+petWingedLemur_desc;Found near Airbender Temples, these animals are known for their floppy ears and flying capabilities. They are a preferred pet for airbenders of all ages, though they can be mischievous.;;;;;;;;;;;;x
+petDog;Dog;;;;;;;;;;;;x
+petDog_desc;Dogs are four legged canines. There are a great many breeds, and they remain popular across the world.;;;;;;;;;;;;x
+petGoatGorilla;Goat Gorilla;;;;;;;;;;;;x
+petGoatGorilla_desc;While their demeanor and stature may seem scary to most, in reality, they are compassionate and caring creatures.;;;;;;;;;;;;x
+petBear;Bear;;;;;;;;;;;;x
+petBear_desc;A... bear? JUST a bear?;;;;;;;;;;;;x
+petArmadilloLion;Armadillo Lion;;;;;;;;;;;;x
+petArmadilloLion_desc;Armadillo Lions are common throughout the Earth Kingdom. They are vicious predators whose pelts are highly valued.;;;;;;;;;;;;x
+petKomodoRhino;Komodo Rhino;;;;;;;;;;;;x
+petKomodoRhino_desc;Komodo Rhinos are the preferred mounts within the Fire Nation. Their ferocious temperament makes them a dangerous enemy when their rider is dismounted.;;;;;;;;;;;;x
+petCatgator;Catgator;;;;;;;;;;;;x
+petCatgator_desc;These reptilian felines are a common sight within the swampy marshes in the Earth Kingdom. They are territorial predators and are often aggressive. A domesticated Catgator is a rare sight to see.;;;;;;;;;;;;x
+petArcticCamel;Arctic Camel;;;;;;;;;;;;x
+petArcticCamel_desc;A beast of burden in the Southern Water Tribe, these dual-humped mammals are used to transport people and supplies across the snowy wasteland.;;;;;;;;;;;;x
+petSpidercat;Spidercat;;;;;;;;;;;;x
+petSpidercat_desc;A cross between a cat and a spider, they are said to lure their prey in with their cuteness, only to ensnare and eat them. But those are just stories, right?;;;;;;;;;;;;x
+petGiantRhinocerosBeetle;Giant Rhinoceros Beetle;;;;;;;;;;;;x
+petGiantRhinocerosBeetle_desc;Native to the Si Wong Desert, these beetles are larger than any man. They are most commonly used by the Beetle Headed Merchants as a beast of burden to transport things across the desert.;;;;;;;;;;;;x
+petBuffaloYak;Buffalo Yak;;;;;;;;;;;;x
+petBuffaloYak_desc;The Buffalo Yak is the most common form of transportation and beast of burden in the Northern Water Tribe. They are easily domesticated as well as a common mount seen within Northern Water Tribe armies.;;;;;;;;;;;;x 
+petEelHound;Eel Hound;;;;;;;;;;;;x
+petEelHound_desc;These creatures are renowned for their wild temperament and amphibious capabilities. It is a rare sight to see one domesticated and an even rarer sight to see one being ridden.;;;;;;;;;;;;x
+petPolarBearDog;Polar Bear Dog;;;;;;;;;;;;x
+petPolarBearDog_desc;The Polar Bear Dog has been hunted by both the Northern and Southern Water Tribes for centuries. In the wild, they are vicious and ruthless creatures. When domesticated however, they display affection and loyalty to their owners.;;;;;;;;;;;;x
+petCatDeer;Cat Deer;;;;;;;;;;;;x
+petCatDeer_desc;An animal that originated from the Spirit Wilds, not many are seen today. Considered extinct, having one is a true sight to see.;;;;;;;;;;;;x
+
+PET.1.D;Every animal, great and small, can make for an appropriate pet - but only a few are fit for a ruler such as myself. What kind of pet am I looking for?;;;;;;;;;;;;x
+PET.1.OPTA;Something normal;;;;;;;;;;;;x
+PET.1.OPTB;Something regional;;;;;;;;;;;;x
+PET.1.OPTC;Something truly rare;;;;;;;;;;;;x
+PET.1.OPTD;Actually, I don't want a pet right now;;;;;;;;;;;;x
+PET.2.D;One can't go wrong with a cat or a dog. They're the most classic companions of mankind for a reason! But an ostrich-horse can be just as fast a friend, if one raises it right.;;;;;;;;;;;;x
+PET.2.OPTA;I'll take a cat;;;;;;;;;;;;x
+PET.2.OPTB;I'll take a dog;;;;;;;;;;;;x
+PET.2.OPTC;I'll take an ostrich-horse;;;;;;;;;;;;x
+PET.2.OPTD;On second thought...;;;;;;;;;;;;x
+PET.3.D;There are so many strange and wonderful creatures through the world! But a ruler doesn't have time to keep a managerie. I'll have to content myself with...;;;;;;;;;;;;x
+PET.3.OPTA;A local specialty;;;;;;;;;;;;x
+PET.3.OPTB;An Arctic Camel;;;;;;;;;;;;x
+PET.3.OPTC;A Sky Bison, if I can find one;;;;;;;;;;;;x
+PET.3.OPTD;On second thought...;;;;;;;;;;;;x
+PET.4.D;There are legendary creatures through out the world. Those thought extinct, those thought unreal, and those thought untameable. If I could claim one as my pet, they could make for a valuable and trusted friend. Not to mention how impressive it would be! It will take a great deal of time and money, of course.;;;;;;;;;;;;x
+PET.4.OPTA;I'll find the extinct Cat-Deer!;;;;;;;;;;;;x
+PET.4.OPTB;I'll seek out an ordinary Bear!;;;;;;;;;;;;x
+PET.4.OPTC;I'll tame a mighty Dragon!;;;;;;;;;;;;x
+PET.4.OPTD;On second thought...;;;;;;;;;;;;x
+PETS_RARE_TT;You will begin the search for your legendary animal! It will take at least a few months, and could take years, assuming you ever find one. You'll be able to cancel your search if you want to, periodically.;;;;;;;;;;;;x
+PETS.6.D;My search for a legendary pet is still proving fruitless. Is it worth carrying on?;;;;;;;;;;;;x
+PETS.6.OPTA;I'll keep up the search;;;;;;;;;;;;x
+PETS.6.OPTB;I should stop while I can, and recoup some costs;;;;;;;;;;;;x
+PETS.7.D;Finally! After pouring through tomes, practising my taming, and paying absolutely inordinate sums for guides and beastmasters alike, my prospective pet has been brought before me! While it seems hesitant at first, I approach carefully, and lay my hand upon its cheek.;;;;;;;;;;;;x
+PETS.7.OPTA;This bear and I will be best friends;;;;;;;;;;;;x
+PETS.7.OPTB;This dragon and I will be close allies;;;;;;;;;;;;x
+PETS.7.OPTC;This cat-deer and I will be inseperable;;;;;;;;;;;;x
+PETS.9.D;Today, my pet finally closed their eyes for the last time. While they may only have been an animal, they were still part of my family. The sadness I feel now was only matched by the joy I felt when I first bought them home. All that remains is to lay them to rest.;;;;;;;;;;;;x
+PETS.9.OPTA;I will cremate them, as is tradition;;;;;;;;;;;;x
+PETS.9.OPTB;I will bury my friend myself;;;;;;;;;;;;x
+PETS.9.OPTC;They will be consigned to the ocean;;;;;;;;;;;;x
+PETS.9.OPTD;A Sky Burial, as is tradition;;;;;;;;;;;;x
+PETS.9.OPTE;A state funeral for my companion;;;;;;;;;;;;x
+
+go_to_pet_shop_decision;Go to a Pet Shop;;;;;;;;;;;;x
+go_to_pet_shop_decision_desc;Go shopping for a pet;;;;;;;;;;;;x
+PET_SHOP_TT;Cannot be currently looking for a pet;;;;;;;;;;;;x

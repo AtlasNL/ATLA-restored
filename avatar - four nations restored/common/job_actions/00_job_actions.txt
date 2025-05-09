@@ -7,14 +7,14 @@
 # All modifiers (like 'local_build_time_modifier') are multiplied by the attribute
 
 # display_on_map = {
-#	tooltip = JOB_PROSELYTIZE_DIFFERENT_RELIGION  # Key of the loc to add to the tooltip
-#	trigger = {                                   # Trigger for when this should happen. Same scopes as the allow/potential for the job action itself
+#	tooltip = JOB_PROSELYTIZE_DIFFERENT_RELIGION	# Key of the loc to add to the tooltip
+#	trigger = {										# Trigger for when this should happen. Same scopes as the allow/potential for the job action itself
 #		NOT = { religion = FROM }
 #	}
-#	color = { 255 0 0 }                           # What color to use on the map
+#	color = { 255 0 0 }								# What color to use on the map
 # }
 
- 
+
 # Chancellor
 action_improve_relations = {
 	attribute = diplomacy
@@ -29,6 +29,7 @@ action_improve_relations = {
 			FROM = {
 				job_chancellor = {
 					NOT = { character = PREVPREV } # Can't be sent to improve relations with himself...
+
 				}
 			}
 		}
@@ -41,15 +42,13 @@ action_improve_relations = {
 action_fabricate_claims = {
 	attribute = diplomacy
 	
-	potential = {
-	}
-	
 	trigger = {
 		any_province_lord = {
 			NOT = { character = FROM }
 			FROM = {
 				job_chancellor = {
 					NOT = { character = PREVPREV } # Can't be sent to improve relations with himself...
+
 				}
 			}
 		}
@@ -87,7 +86,7 @@ action_statecraft = {
 
 	offmap = yes
 	
-	events = { MNM.78000 MNM.78003 } 
+	events = { MNM.78000 MNM.78003 }
 }
 
 # Steward
@@ -126,14 +125,14 @@ action_settle_tribe = {
 		}
 		NOT = { culture = FROM }
 		OR = {
-			NOT = { 
+			NOT = {
 				has_game_rule = {
 					name = culture_conversion
 					value = restricted
 				}
 			}
-			any_neighbor_province = { culture = FROM } 
-			any_neighbor_province = { port = yes } 
+			any_neighbor_province = { culture = FROM }
+			any_neighbor_province = { port = yes }
 		}
 	}
 	
@@ -253,7 +252,10 @@ action_study_technology = {
 	}
 	
 	trigger = {
-		has_higher_tech_than = FROM
+		OR = {
+			has_higher_tech_than = FROM
+			province = 287 #Always allow tech studying at library's province
+		}
 		any_province_lord = {
 			NOT = { is_liege_or_above = FROM }
 			NOT = { character = FROM }
@@ -420,7 +422,7 @@ action_organize_army = {
 	
 	attribute_cap = 25
 	
-	events = { MNM.70010 MNM.70012 MNM.70015 } 
+	events = { MNM.70010 MNM.70012 MNM.70015 }
 }
 
 # Court Chaplain
@@ -429,14 +431,21 @@ action_inquisition = {
 	
 	potential = {
 		OR = {
-			NOT = { religion = the_eternal_flame }
+			NOR = {
+				religion = the_eternal_flame
+				religion = the_eternal_flame_reformed
+			}
 			has_global_flag = eternal_flame_conversion_enabled
 		}
 	}
 	
 	trigger = {
 		num_of_settlements = 1
+		NAND = {
+			FROM = { job_spiritual = { has_character_modifier = spiritual_refused_pagans } }  # See Event ZE.5040
+		}
 		OR = {
+			proselytize_convert_independent_trigger = yes
 			any_province_lord = {
 				OR = {
 					character = FROM
@@ -464,7 +473,13 @@ action_inquisition = {
 		tooltip = JOB_PROSELYTIZE_DIFFERENT_RELIGION
 		trigger = {
 			NOT = { religion = FROM }
-			religion_group = FROM
+			OR = {
+				religion_group = FROM
+				AND = {
+					FROM = { religion = the_great_serpent }
+					has_global_flag = sages_of_the_pass_founded
+				}
+			}
 			any_province_lord = {
 				OR = {
 					character = FROM
@@ -474,29 +489,41 @@ action_inquisition = {
 		}
 		color = { 0 255 0 }
 	}
-	
+
 	display_on_map = {
 		tooltip = JOB_PROSELYTIZE_DIFFERENT_RELIGION_GROUP
 		trigger = {
-			NOT = { religion_group = FROM }
+			AND = {
+				NOT = { religion_group = FROM }
+				AND = {
+					FROM = { religion = the_great_serpent }
+					has_global_flag = sages_of_the_pass_founded
+				}
+			}
 			any_province_lord = {
 				OR = {
 					character = FROM
 					is_liege_or_above = FROM
 				}
 			}
+			proselytize_convert_independent_trigger = yes
 		}
 		color = { 255 0 0 }
 	}
+	
+	display_on_map = {
+		tooltip = JOB_PROSELYTIZE_CONVERT_INDEPENDENT
+		trigger = {
+			proselytize_convert_independent_trigger = yes
+		}
+		color = { 255 35 35 }
+	}
 
-	events = { 900 }
+	events = { 900 901 902 903 }
 }
 
 action_improve_rel_relations = {
 	attribute = learning
-	
-	potential = {
-	}
 	
 	trigger = {
 		any_province_lord = {
@@ -558,20 +585,16 @@ action_build_zeal = {
 	events = { 20218 }
 }
 
-# Lord Spiritual
-action_charity = {
+action_hunt_heretics = {
 	attribute = learning
-	
+
 	potential = {
+		has_dlc = Mystics
 	}
 	
-	trigger = {
-		any_province_lord = {
-			character = FROM
-		}
-	}
+	liege_modifier = apostate_liege_mod
+
+	offmap = yes
 	
-	local_revolt_risk = -0.01
-	
-	events = { }
+	events = { MNM.70031 } #TODO main game uses 70100
 }

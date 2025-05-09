@@ -15,11 +15,15 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_statecraft
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		liege = {
-			NOT = { 
+			NOT = {
 				has_character_modifier = popular_ruler
 			}
 		}
@@ -27,47 +31,7 @@ character_event = {
 	
 	mean_time_to_happen = {
 		months = 120
-		
-		modifier = {
-			factor = 1.25
-			NOT = { diplomacy = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { diplomacy = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { diplomacy = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { diplomacy = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			diplomacy = 10
-		}
-		modifier = {
-			factor = 0.75
-			diplomacy = 11
-		}
-		modifier = {
-			factor = 0.75
-			diplomacy = 12
-		}
-		modifier = {
-			factor = 0.75
-			diplomacy = 13
-		}
-		modifier = {
-			factor = 0.75
-			diplomacy = 15
-		}
-		modifier = {
-			factor = 0.75
-			diplomacy = 18
-		}
+		job_event_mtth_modifier_diplomacy_score = yes
 	}
 	
 	option = {
@@ -323,7 +287,9 @@ letter_event = {
 	
 	notification = yes
 	
-	option = { }
+	option = {
+		name = EXCELLENT
+	}
 	
 	after = {
 		if = {
@@ -367,12 +333,14 @@ letter_event = {
 	notification = yes
 	
 	trigger = {
-		NOT = { 
+		NOT = {
 			has_character_modifier = popular_ruler
 		}
 	}
 	
-	option = { }
+	option = {
+		name = I_SEE
+	}
 	
 	after = {
 		if = {
@@ -403,7 +371,7 @@ letter_event = {
 				modifier = opinion_improved_relations
 				who = event_target:chancellor_employer
 				years = 4
-			} 
+			}
 		}
 	}
 }
@@ -419,10 +387,14 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_improve_relations
-		liege = { 
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
+		liege = {
 			any_vassal = {
 				is_priest = no
 				NOT = { character = ROOT }
@@ -431,48 +403,8 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 220
-		
-		modifier = {
-			factor = 0.75
-			NOT = { diplomacy = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { diplomacy = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { diplomacy = 4 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { diplomacy = 5 }
-		}
-		modifier = {
-			factor = 1.25
-			diplomacy = 10
-		}
-		modifier = {
-			factor = 1.25
-			diplomacy = 11
-		}
-		modifier = {
-			factor = 1.25
-			diplomacy = 12
-		}
-		modifier = {
-			factor = 1.25
-			diplomacy = 13
-		}
-		modifier = {
-			factor = 1.25
-			diplomacy = 15
-		}
-		modifier = {
-			factor = 1.25
-			diplomacy = 18
-		}
+		months = 220		
+		job_event_mtth_modifier_inverted_diplomacy_score = yes
 	}
 	
 	option = {
@@ -504,54 +436,18 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_administer_realm
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 	}
 	
 	mean_time_to_happen = {
 		months = 220
-		
-		modifier = {
-			factor = 1.25
-			NOT = { stewardship = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { stewardship = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { stewardship = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { stewardship = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			stewardship = 10
-		}
-		modifier = {
-			factor = 0.75
-			stewardship = 11
-		}
-		modifier = {
-			factor = 0.75
-			stewardship = 12
-		}
-		modifier = {
-			factor = 0.75
-			stewardship = 13
-		}
-		modifier = {
-			factor = 0.75
-			stewardship = 15
-		}
-		modifier = {
-			factor = 0.75
-			stewardship = 18
-		}
+		job_event_mtth_modifier_stewardship_score = yes
 	}
 	
 	option = {
@@ -592,78 +488,78 @@ character_event = {
 	notification = yes
 	
 	option = {
-		name = EXCELLENT 
+		name = EXCELLENT
 		if = {
 			limit = {
 				NOT = { has_character_flag = no_possible_bonus }
 			}
 			event_target:admin_bonus_province = {
-			random_list = {
-				100 = {
-					modifier = {
-						factor = 0
-						has_province_modifier = harvest_festivals					
-					}
-					add_province_modifier = { 					
-						name = harvest_festivals
-						years = 3
-					}
-					if = {
-						limit = {
-							has_dlc = "Reapers"
+				random_list = {
+					100 = {
+						modifier = {
+							factor = 0
+							has_province_modifier = harvest_festivals
 						}
-						custom_tooltip = {
-							text = increase_prosperity_custom_tooltip
-							hidden_tooltip = {
-								change_variable = { which = prosperity_value value = 6 }
+						add_province_modifier = {
+							name = harvest_festivals
+							years = 3
+						}
+						if = {
+							limit = {
+								has_dlc = "Reapers"
+							}
+							custom_tooltip = {
+								text = increase_prosperity_custom_tooltip
+								hidden_tooltip = {
+									change_variable = { which = prosperity_value value = 6 }
+								}
 							}
 						}
 					}
-				}
-				100 = {
-					modifier = {
-						factor = 0
-						has_province_modifier = inspired_peasantry					
-					}
-					add_province_modifier = { 					
-						name = inspired_peasantry
-						years = 3
-					}
-					if = {
-						limit = {
-							has_dlc = "Reapers"
+					100 = {
+						modifier = {
+							factor = 0
+							has_province_modifier = inspired_peasantry
 						}
-						custom_tooltip = {
-							text = increase_prosperity_custom_tooltip
-							hidden_tooltip = {
-								change_variable = { which = prosperity_value value = 6 }
+						add_province_modifier = {
+							name = inspired_peasantry
+							years = 3
+						}
+						if = {
+							limit = {
+								has_dlc = "Reapers"
+							}
+							custom_tooltip = {
+								text = increase_prosperity_custom_tooltip
+								hidden_tooltip = {
+									change_variable = { which = prosperity_value value = 6 }
+								}
 							}
 						}
 					}
-				}
-				100 = {
-					modifier = {
-						factor = 0
-						has_province_modifier = new_roads					
-					}
-					add_province_modifier = { 					
-						name = new_roads
-						years = 3
-					}
-					if = {
-						limit = {
-							has_dlc = "Reapers"
+					100 = {
+						modifier = {
+							factor = 0
+							has_province_modifier = new_roads
 						}
-						custom_tooltip = {
-							text = increase_prosperity_custom_tooltip
-							hidden_tooltip = {
-								change_variable = { which = prosperity_value value = 6 }
+						add_province_modifier = {
+							name = new_roads
+							years = 3
+						}
+						if = {
+							limit = {
+								has_dlc = "Reapers"
+							}
+							custom_tooltip = {
+								text = increase_prosperity_custom_tooltip
+								hidden_tooltip = {
+									change_variable = { which = prosperity_value value = 6 }
+								}
 							}
 						}
 					}
 				}
 			}
-		}
 		}
 		
 		if = {
@@ -674,7 +570,6 @@ character_event = {
 			clr_character_flag = no_possible_bonus
 		}
 	}
-	
 }
 
 # The Steward allows a smugglers ring to appear
@@ -688,10 +583,14 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_administer_realm
-		liege = { 
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
+		liege = {
 			any_demesne_province = {
 				NOT = {
 					has_province_modifier = smugglers_ring
@@ -701,48 +600,8 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 220
-		
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 4 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 5 }
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 10
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 11
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 12
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 13
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 15
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 18
-		}
+		months = 220		
+		job_event_mtth_modifier_inverted_stewardship_score = yes
 	}
 	
 	option = {
@@ -808,16 +667,47 @@ character_event = {
 	title =  MNM.70010.t
 	desc =  MNM.70010.d
 	picture = GFX_evt_melee
+	border = GFX_event_normal_frame_war
 	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_organize_army
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		liege = {
 			any_courtier_or_vassal = {
+				NOT = { character = PREV } #so it does not pick the liege themselves...
 				has_minor_title = title_commander
+				NAND = {
+					martial = 20
+					OR = {
+						trait = light_foot_leader
+						trait = heavy_infantry_leader
+						trait = cavalry_leader
+						trait = inspiring_leader
+						trait = trickster
+						trait = organizer
+						trait = defensive_leader
+						trait = experimenter
+						trait = flanker
+						trait = aggressive_leader
+						trait = siege_leader
+						trait = flat_terrain_leader
+						trait = rough_terrain_leader
+						trait = mountain_terrain_leader
+						trait = desert_terrain_leader
+						trait = unyielding_leader
+						trait = narrow_flank_leader
+						trait = war_elephant_leader
+						trait = jungle_terrain_leader
+						trait = winter_soldier
+					}
+				}
 				NOT = {
 					has_character_modifier = drill_cooldown_timer
 				}
@@ -829,7 +719,33 @@ character_event = {
 		liege = {
 			random_courtier_or_vassal = {
 				limit = {
+					NOT = { character = PREV } #so it does not pick the liege themselves...
 					has_minor_title = title_commander
+					NAND = {
+						martial = 20
+						OR = {
+							trait = light_foot_leader
+							trait = heavy_infantry_leader
+							trait = cavalry_leader
+							trait = inspiring_leader
+							trait = trickster
+							trait = organizer
+							trait = defensive_leader
+							trait = experimenter
+							trait = flanker
+							trait = aggressive_leader
+							trait = siege_leader
+							trait = flat_terrain_leader
+							trait = rough_terrain_leader
+							trait = mountain_terrain_leader
+							trait = desert_terrain_leader
+							trait = unyielding_leader
+							trait = narrow_flank_leader
+							trait = war_elephant_leader
+							trait = jungle_terrain_leader
+							trait = winter_soldier
+						}
+					}
 					NOT = {
 						has_character_modifier = drill_cooldown_timer
 					}
@@ -842,46 +758,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 200
 		
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			martial = 10
-		}
-		modifier = {
-			factor = 0.75
-			martial = 11
-		}
-		modifier = {
-			factor = 0.75
-			martial = 12
-		}
-		modifier = {
-			factor = 0.75
-			martial = 13
-		}
-		modifier = {
-			factor = 0.75
-			martial = 15
-		}
-		modifier = {
-			factor = 0.75
-			martial = 18
-		}
+		job_event_mtth_modifier_martial_score = yes
 	}
 	
 	option = {
@@ -895,6 +772,7 @@ character_event = {
 	title =  MNM.70010.t
 	desc =  MNM.70011.d
 	picture = GFX_evt_melee
+	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
 	
@@ -904,7 +782,7 @@ character_event = {
 				event_target:commander_improved = {
 					NOR = {
 						trait = light_foot_leader
-						trait = heavy_infantry_leader 
+						trait = heavy_infantry_leader
 						trait = cavalry_leader
 						trait = inspiring_leader
 						trait = trickster
@@ -1090,7 +968,7 @@ character_event = {
 						factor = 0
 						OR = {
 							trait = light_foot_leader
-							trait = heavy_infantry_leader 
+							trait = heavy_infantry_leader
 							trait = cavalry_leader
 							trait = inspiring_leader
 							trait = trickster
@@ -1130,13 +1008,18 @@ character_event = {
 	title = MNM.70012.t
 	desc = MNM.70012.d
 	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
 	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_organize_army
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		OR = {
 			ai = no
 			NOR = {
@@ -1211,46 +1094,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 320
 		
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			martial = 10
-		}
-		modifier = {
-			factor = 0.75
-			martial = 11
-		}
-		modifier = {
-			factor = 0.75
-			martial = 12
-		}
-		modifier = {
-			factor = 0.75
-			martial = 13
-		}
-		modifier = {
-			factor = 0.75
-			martial = 15
-		}
-		modifier = {
-			factor = 0.75
-			martial = 18
-		}
+		job_event_mtth_modifier_martial_score = yes
 	}
 	
 	option = {
@@ -1268,12 +1112,40 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = none
-			female = no
-			attributes = {
-				martial = 10
+		if = {
+			limit = {
+				gender_equality_trigger = yes
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				female = 50
+				attributes = {
+					martial = 10
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				female = 90
+				attributes = {
+					martial = 10
+				}
+			}
+		}
+		else = {
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				female = no
+				attributes = {
+					martial = 10
+				}
 			}
 		}
 		new_character = {
@@ -1336,7 +1208,7 @@ character_event = {
 						change_martial = 1
 					}
 				}
-				5 = { 
+				5 = {
 					add_trait = shrewd
 				}
 			}
@@ -1346,7 +1218,7 @@ character_event = {
 
 	
 	option = {
-		name = EXCELLENT 
+		name = EXCELLENT
 		event_target:found_commander = {
 			opinion = {
 				modifier = opinion_loyal_servant
@@ -1356,6 +1228,45 @@ character_event = {
 		}
 		if = {
 			limit = {
+				OR = {
+					#NOT = { ROOT = { has_law = succ_byzantine_elective } }  #Either not Imperial...
+					NOT = { #...Or there are no valid vassal candidates that can be commanders.
+						any_vassal = {
+							higher_real_tier_than = BARON
+							NOT = {
+								primary_title = { temporary = yes }
+							}
+							OR = {
+								AND = {
+									OR = {
+										male_can_hold_minor_title_trigger = yes
+										female_can_hold_minor_commander_title_trigger = yes
+									}
+									#OR = {
+									#	NOT = { religion = hindu }
+									#	trait = kshatriya
+									#}
+									is_adult = yes
+								}
+								has_character_flag = special_marshal
+							}
+					
+							prisoner = no
+							NOT = { trait = incapable }
+							NOT = { is_inaccessible_trigger = yes }
+							NOT = { has_character_flag = guru }
+							NOT = { has_character_modifier = refusing_to_lead }
+							NOR = {
+								has_job_title = job_chancellor
+								has_job_title = job_marshal
+								has_job_title = job_treasurer
+								has_job_title = job_spymaster
+								has_job_title = job_spiritual
+								has_minor_title = title_commander
+							}
+						}
+					}
+				}
 				OR = {
 					AND = {
 						tier = COUNT
@@ -1433,6 +1344,46 @@ character_event = {
 		name = MNM.70013.o
 		
 		trigger = {
+			OR = {
+				#NOT = { ROOT = { has_law = succ_byzantine_elective } }  #Either not Imperial...
+				higher_real_tier_than = BARON #...Or potential commander is vassal...
+				NOT = { #...Or there are no valid vassal candidates that can be commanders.
+					any_vassal = {
+						higher_real_tier_than = BARON
+						NOT = {
+							primary_title = { temporary = yes }
+						}
+						OR = {
+							AND = {
+								OR = {
+									male_can_hold_minor_title_trigger = yes
+									female_can_hold_minor_commander_title_trigger = yes
+								}
+								#OR = {
+								#	NOT = { religion = hindu }
+								#	trait = kshatriya
+								#}
+								is_adult = yes
+							}
+							has_character_flag = special_marshal
+						}
+				
+						prisoner = no
+						NOT = { trait = incapable }
+						NOT = { is_inaccessible_trigger = yes }
+						NOT = { has_character_flag = guru }
+						NOT = { has_character_modifier = refusing_to_lead }
+						NOR = {
+							has_job_title = job_chancellor
+							has_job_title = job_marshal
+							has_job_title = job_treasurer
+							has_job_title = job_spymaster
+							has_job_title = job_spiritual
+							has_minor_title = title_commander
+						}
+					}
+				}
+			}
 			any_realm_character = {
 				NOT = {
 					higher_tier_than = BARON
@@ -1540,9 +1491,13 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_organize_army
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		can_be_maimed_trigger = yes
 		liege = {
 			any_courtier_or_vassal = {
@@ -1553,48 +1508,8 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 280
-		
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 4 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 5 }
-		}
-		modifier = {
-			factor = 1.25
-			martial = 10
-		}
-		modifier = {
-			factor = 1.25
-			martial = 11
-		}
-		modifier = {
-			factor = 1.25
-			martial = 12
-		}
-		modifier = {
-			factor = 1.25
-			martial = 13
-		}
-		modifier = {
-			factor = 1.25
-			martial = 15
-		}
-		modifier = {
-			factor = 1.25
-			martial = 18
-		}
+		months = 280	
+		job_event_mtth_modifier_inverted_martial_score = yes
 	}
 	
 	immediate = {
@@ -1679,49 +1594,21 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_sabotage_province
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
-			can_be_sabotaged_trigger = yes #TODO maybe have intimidate check and give letter if all done
+			can_be_sabotaged_trigger = yes
 		}
 	}
 	
 	mean_time_to_happen = {
 		months = 120
-		
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 10
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 11
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 12
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 13
-		}
+		job_event_mtth_modifier_intrigue_score = yes
 	}
 	
 	option = {
@@ -1745,7 +1632,7 @@ character_event = {
 				100 = {
 					modifier = {
 						factor = 0
-						has_province_modifier = sabotaged_buildings	#TODO Maybe hide list, have letter events telling liege what happened			
+						has_province_modifier = sabotaged_buildings		
 					}
 					add_province_modifier = { 					
 						name = sabotaged_buildings
@@ -1780,7 +1667,6 @@ character_event = {
 letter_event = {
 	id = MNM.70021
 	desc = MNM.70021.d
-	picture = GFX_evt_council
 	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
@@ -1801,9 +1687,13 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_uncover_plots_offmap
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		liege = {
 			any_realm_lord = {
 				NOT = { is_liege_of = ROOT }
@@ -1822,43 +1712,7 @@ character_event = {
 	
 	mean_time_to_happen = {
 		months = 280
-		
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 10
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 11
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 12
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 13
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 16
-		}
+		job_event_mtth_modifier_intrigue_score = yes
 	}
 	
 	option = {
@@ -1896,9 +1750,13 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_uncover_plots_offmap
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
+		NOT = { has_character_modifier = in_seclusion }
 		liege = {
 			any_realm_lord = {
 				NOT = { is_liege_of = ROOT }
@@ -1937,39 +1795,7 @@ character_event = {
 	
 	mean_time_to_happen = {
 		months = 200
-		
-		modifier = {
-			factor = 0.75
-			NOT = { intrigue = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { intrigue = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { intrigue = 4 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { intrigue = 5 }
-		}
-		modifier = {
-			factor = 1.25
-			intrigue = 10
-		}
-		modifier = {
-			factor = 1.25
-			intrigue = 11
-		}
-		modifier = {
-			factor = 1.25
-			intrigue = 12
-		}
-		modifier = {
-			factor = 1.25
-			intrigue = 13
-		}
+		job_event_mtth_modifier_inverted_intrigue_score = yes
 	}
 	
 	option = {
@@ -1993,10 +1819,10 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTA902"
-		tooltip_info = martial
+		tooltip_info = combat_rating
 		trigger = {
-			martial = 5
-			NOT = { martial = 10 }
+			combat_rating = 5
+			NOT = { combat_rating = 10 }
 		}
 		random_list = {
 			35 = { character_event = { id = 20310 tooltip = "EVTTOOLTIP20310" } }
@@ -2014,9 +1840,9 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTA902"
-		tooltip_info = martial
+		tooltip_info = combat_rating
 		trigger = {
-			martial = 10
+			combat_rating = 10
 		}
 		random_list = {
 			50 = { character_event = { id = 20310 tooltip = "EVTTOOLTIP20310" } }
@@ -2045,9 +1871,13 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_uncover_plots_offmap
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		liege = {
 			any_vassal = {
 				NOT = { character = ROOT }
@@ -2063,43 +1893,7 @@ character_event = {
 	
 	mean_time_to_happen = {
 		months = 300
-		
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 10
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 11
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 12
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 13
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 16
-		}
+		job_event_mtth_modifier_intrigue_score = yes
 	}
 	
 	immediate = {
@@ -2125,22 +1919,10 @@ character_event = {
 	}
 }
 
-#Court Chaplain 
-#Hunt Heretics
-
-#suspectometer
-#each power use add +1
-#var ticks down -1 per year, capped at 0 downwards
-#reset to 0 if under
-#at 10, get a modifier that you are under suspicion
-#chaplains hunting you may confront you about your activity - if so, you get double suspicious activity gain. high stats might let you avoid it.
-#at 20 you can be accused, depending on soc you get a different known_x modifier with neg relations and imprison reasons
-
-character_event = { #yearly decrease
+# Suspectometer
+character_event = { # Yearly decrease
 	id = MNM.70030
 	hide_window = yes
-	
-	is_in_society = yes
 	
 	is_triggered_only = yes
 	
@@ -2166,7 +1948,7 @@ character_event = {
 			any_courtier_or_vassal = {
 				NOT = { character = PREV }
 				NOT = { character = ROOT } #Don't catch yourself
-				NOT = { same_society_as = ROOT } #Nor your brethren 
+				NOT = { same_society_as = ROOT } #Nor your brethren
 				NOT = { same_society_as = PREV } #Nor liege's brethren
 				has_character_modifier = highly_suspect
 				NOT = {
@@ -2186,7 +1968,7 @@ character_event = {
 				limit = {
 					NOT = { character = PREV }
 					NOT = { character = ROOT } #Don't catch yourself
-					NOT = { same_society_as = ROOT } #Or your brethren 
+					NOT = { same_society_as = ROOT } #Or your brethren
 					has_character_modifier = highly_suspect
 					NOT = {
 						reverse_has_opinion_modifier = {
@@ -2291,29 +2073,29 @@ character_event = {
 	option = {
 		name = MNM.70032.a
 		event_target:suspected_society_member = {
-			if = {
-				limit = {
-					is_devil_worshiper_trigger = yes
-				}
-				add_character_modifier = {
-					name = known_satanist
-					duration = -1
-				}
-			}
-			if = {
-				limit = {
-					is_devil_worshiper_trigger = no
-				}
-				add_character_modifier = {
-					name = known_secret_society_member
-					duration = -1
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		
+			# 	}
+			# 	add_character_modifier = {
+			# 		name = known_satanist
+			# 		duration = -1
+			# 	}
+			# }
+			# if = {
+			# 	limit = {
+			# 		is_devil_worshiper_trigger = no
+			# 	}
+			# 	add_character_modifier = {
+			# 		name = known_secret_society_member
+			# 		duration = -1
+			# 	}
+			# }
 			character_event = { id = MNM.70033 }
 		}
 		opinion = {
-			modifier = opinion_outlawed_society 
-			who = event_target:suspected_society_member 
+			modifier = opinion_outlawed_society
+			who = event_target:suspected_society_member
 			years = 100
 		}
 	}
@@ -2329,30 +2111,30 @@ character_event = {
 	option = {
 		name = MNM.70033.a
 		tooltip = {
-			event_target:suspected_society_member = {
-				if = {
-					limit = {
-						is_devil_worshiper_trigger = yes
-					}
-					add_character_modifier = {
-						name = known_satanist
-						duration = -1
-					}
-				}
-				if = {
-					limit = {
-						is_devil_worshiper_trigger = no
-					}
-					add_character_modifier = {
-						name = known_secret_society_member
-						duration = -1
-					}
-				}
-			}
+			# event_target:suspected_society_member = {
+			# 	if = {
+			# 		limit = {
+			# 			
+			# 		}
+			# 		add_character_modifier = {
+			# 			name = known_satanist
+			# 			duration = -1
+			# 		}
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			is_devil_worshiper_trigger = no
+			# 		}
+			# 		add_character_modifier = {
+			# 			name = known_secret_society_member
+			# 			duration = -1
+			# 		}
+			# 	}
+			# }
 			liege = {
-				opinion = { 
-					modifier = opinion_outlawed_society 
-					who = ROOT 
+				opinion = {
+					modifier = opinion_outlawed_society
+					who = ROOT
 					years = 100
 				}
 			}

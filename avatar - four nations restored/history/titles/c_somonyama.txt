@@ -5,6 +5,9 @@
 	law = revoke_title_voting_power_1
 	law = execution_voting_power_1
 }
+542.1.13 = {
+	liege = "k_western_fire_nation"
+}
 568.9.9 = {
 	holder = 8657
 }
@@ -23,7 +26,7 @@
 678.12.5 = {
 	holder = 8672
 }
-683.2.25 = { 
+683.2.25 = {
 	liege = "e_fire_nation"
 }
 727.7.16 = {

@@ -11,8 +11,9 @@ b_yamadan = tribal
 #b_nurakame = temple
 
 # Misc
-culture = northern_earth
+culture = northern_earth_culture
 religion = way_of_chin
+terrain = forest
 
 #History
 572.1.14 = { religion = earth_spirituality }
@@ -24,4 +25,4 @@ religion = way_of_chin
 879.11.13 = { religion = fire_nation_imperialism }
 879.11.13 = { culture = colonial }
 930.8.26 = { religion = earth_spirituality }
-930.8.26 = { culture = northern_earth }
+930.8.26 = { culture = northern_earth_culture }

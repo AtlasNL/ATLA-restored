@@ -132,7 +132,22 @@ focus_ch_etiquette = {
 	# AI Pick chance
 	chance = {
 		factor = 100
-
+		modifier = {
+			factor = 10
+			liege = {
+				OR = {
+					religion = fortune_telling
+					religion = fortune_telling_reformed
+				}
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				religion = fortune_telling
+				religion = fortune_telling_reformed
+			}
+		}
 	}
 	
 	# Focuses have no success conditions
@@ -169,7 +184,22 @@ focus_ch_thrift = {
 	# AI Pick chance
 	chance = {
 		factor = 100
-
+		modifier = {
+			factor = 10
+			liege = {
+				OR = {
+					religion = fortune_telling
+					religion = fortune_telling_reformed
+				}
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				religion = fortune_telling
+				religion = fortune_telling_reformed
+			}
+		}
 	}
 	
 	# Focuses have no success conditions
@@ -317,6 +347,4 @@ focus_ch_heritage = {
 	
 	abort_effect = {
 	}
-	
-
 }

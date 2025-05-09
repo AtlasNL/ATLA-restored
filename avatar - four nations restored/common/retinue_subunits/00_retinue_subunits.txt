@@ -8,14 +8,13 @@
 # 6 - Special troops
 
 # Fire Nation Retines
-RETTYPE_CUL_FN_SKI = 
-{
+RETTYPE_CUL_FN_SKI = {
 	first_type = 5
 	first_amount = 250
 	# Yuyan Archers
 	potential = {
 		is_nomadic = no
-		culture_group = fire_nation_culture
+		culture_group = fire_nation_cultures
 	}
 	
 	modifier = {
@@ -23,8 +22,7 @@ RETTYPE_CUL_FN_SKI =
 		archers_defensive = 0.1
 	}
 }
-RETTYPE_CUL_FN_INF1 = 
-{
+RETTYPE_CUL_FN_INF1 = {
 	first_type = 0
 	first_amount = 150
 	second_type = 2
@@ -32,7 +30,7 @@ RETTYPE_CUL_FN_INF1 =
 	# Spear Infantry
 	potential = {
 		is_nomadic = no
-		culture_group = fire_nation_culture
+		culture_group = fire_nation_cultures
 	}
 	
 	modifier = {
@@ -42,15 +40,14 @@ RETTYPE_CUL_FN_INF1 =
 		pikemen_offensive = 0.2
 	}
 }
-RETTYPE_CUL_FN_INF2 = 
-{
+RETTYPE_CUL_FN_INF2 = {
 	first_type = 6
 	first_amount = 250
 	special_troops = fire_benders
 	# Firebenders
 	potential = {
 		is_nomadic = no
-		culture_group = fire_nation_culture
+		culture_group = fire_nation_cultures
 		NOT = { higher_real_tier_than = KING }
 	}
 	
@@ -59,15 +56,14 @@ RETTYPE_CUL_FN_INF2 =
 		fire_benders_morale = 0.2
 	}
 }
-RETTYPE_CUL_FN_INF3 = 
-{
+RETTYPE_CUL_FN_INF3 = {
 	first_type = 6
 	first_amount = 250
 	special_troops = fire_benders
 	# Imperial Guard
 	potential = {
 		is_nomadic = no
-		culture_group = fire_nation_culture
+		culture_group = fire_nation_cultures
 		higher_real_tier_than = KING
 	}
 	
@@ -76,14 +72,13 @@ RETTYPE_CUL_FN_INF3 =
 		fire_benders_morale = 0.3
 	}
 }
-RETTYPE_CUL_FN_CAV1 = 
-{
+RETTYPE_CUL_FN_CAV1 = {
 	first_type = 3
 	first_amount = 250
 	# Rough Rhinos
 	potential = {
 		is_nomadic = no
-		culture_group = fire_nation_culture
+		culture_group = fire_nation_cultures
 	}
 	
 	modifier = {
@@ -92,14 +87,13 @@ RETTYPE_CUL_FN_CAV1 =
 		light_cavalry_morale = 0.1
 	}
 }
-RETTYPE_CUL_FN_CAV2 = 
-{
+RETTYPE_CUL_FN_CAV2 = {
 	first_type = 4
 	first_amount = 50
 	# Tanks
 	potential = {
 		is_nomadic = no
-		culture_group = fire_nation_culture
+		culture_group = fire_nation_cultures
 		year = 900
 	}
 	
@@ -110,8 +104,7 @@ RETTYPE_CUL_FN_CAV2 =
 	}
 }
 # Water Tribe Retines
-RETTYPE_CUL_WT_SKI = 
-{
+RETTYPE_CUL_WT_SKI = {
 	first_type = 5
 	first_amount = 200
 	second_type = 0
@@ -119,7 +112,7 @@ RETTYPE_CUL_WT_SKI =
 	# Hunters
 	potential = {
 		is_nomadic = no
-		culture_group = water_tribe_culture
+		culture_group = water_tribe_cultures
 	}
 	
 	modifier = {
@@ -131,8 +124,7 @@ RETTYPE_CUL_WT_SKI =
 		light_infantry_morale = 0.2
 	}
 }
-RETTYPE_CUL_WT_INF1 = 
-{
+RETTYPE_CUL_WT_INF1 = {
 	first_type = 0
 	first_amount = 150
 	second_type = 2
@@ -140,7 +132,7 @@ RETTYPE_CUL_WT_INF1 =
 	# Warriors
 	potential = {
 		is_nomadic = no
-		culture_group = water_tribe_culture
+		culture_group = water_tribe_cultures
 	}
 	
 	modifier = {
@@ -152,16 +144,15 @@ RETTYPE_CUL_WT_INF1 =
 		pikemen_morale = 0.2
 	}
 }
-RETTYPE_CUL_WT_INF2 = 
-{
+RETTYPE_CUL_WT_INF2 = {
 	first_type = 6
 	first_amount = 200
 	special_troops = water_benders
 	# Waterbenders
 	potential = {
 		is_nomadic = no
-		culture_group = water_tribe_culture
-		NOT = { culture = foggy_swamp } 
+		culture_group = water_tribe_cultures
+		NOT = { culture = swampfolk } 
 	}
 	
 	modifier = {
@@ -170,16 +161,15 @@ RETTYPE_CUL_WT_INF2 =
 		water_benders_morale = 0.1
 	}
 }
-RETTYPE_CUL_WT_INF3 = 
-{
+RETTYPE_CUL_WT_INF3 = {
 	first_type = 6
 	first_amount = 200
 	special_troops = water_benders
 	# Swampbenders
 	potential = {
 		is_nomadic = no
-		culture_group = water_tribe_culture
-		culture = foggy_swamp
+		culture_group = water_tribe_cultures
+		culture = swampfolk
 	}
 	
 	modifier = {
@@ -187,15 +177,14 @@ RETTYPE_CUL_WT_INF3 =
 		water_benders_defensive = 0.1
 	}
 }
-RETTYPE_CUL_WT_CAV1 = 
-{
+RETTYPE_CUL_WT_CAV1 = {
 	first_type = 3
 	first_amount = 100
 	# Yak Cavalry
 	potential = {
 		is_nomadic = no
-		culture_group = water_tribe_culture
-		NOT = { culture = foggy_swamp } 
+		culture_group = water_tribe_cultures
+		NOT = { culture = swampfolk } 
 	}
 	
 	modifier = {
@@ -203,15 +192,14 @@ RETTYPE_CUL_WT_CAV1 =
 		light_cavalry_defensive = 0.2
 	}
 }
-RETTYPE_CUL_WT_CAV2 = 
-{
+RETTYPE_CUL_WT_CAV2 = {
 	first_type = 4
 	first_amount = 50
 	# Mecha-Tanks
 	potential = {
 		is_nomadic = no
-		culture_group = water_tribe_culture
-		NOT = { culture = foggy_swamp }
+		culture_group = water_tribe_cultures
+		NOT = { culture = swampfolk }
 		year = 1000
 	}
 	
@@ -222,8 +210,7 @@ RETTYPE_CUL_WT_CAV2 =
 	}
 }
 # Earth Kingdom Retines
-RETTYPE_CUL_EK_SKI = 
-{
+RETTYPE_CUL_EK_SKI = {
 	first_type = 5
 	first_amount = 200
 	second_type = 0
@@ -231,7 +218,7 @@ RETTYPE_CUL_EK_SKI =
 	# Archer Company
 	potential = {
 		is_nomadic = no
-		culture_group = earth_kingdom_culture
+		culture_group = earth_kingdom_cultures
 	}
 	
 	modifier = {
@@ -243,8 +230,7 @@ RETTYPE_CUL_EK_SKI =
 		light_infantry_morale = 0.1
 	}
 }
-RETTYPE_CUL_EK_INF1 = 
-{
+RETTYPE_CUL_EK_INF1 = {
 	first_type = 0
 	first_amount = 150
 	second_type = 2
@@ -252,7 +238,7 @@ RETTYPE_CUL_EK_INF1 =
 	# Infantry Company 
 	potential = {
 		is_nomadic = no
-		culture_group = earth_kingdom_culture
+		culture_group = earth_kingdom_cultures
 	}
 	
 	modifier = {
@@ -264,16 +250,15 @@ RETTYPE_CUL_EK_INF1 =
 		pikemen_morale = 0.2
 	}
 }
-RETTYPE_CUL_EK_INF2 = 
-{
+RETTYPE_CUL_EK_INF2 = {
 	first_type = 6
 	first_amount = 200
 	special_troops = earth_benders
 	# Earthbenders
 	potential = {
 		is_nomadic = no
-		culture_group = earth_kingdom_culture
-		NOT = { culture = sandbender } 
+		culture_group = earth_kingdom_cultures
+		NOT = { culture = sandbender_culture } 
 	}
 	
 	modifier = {
@@ -282,16 +267,15 @@ RETTYPE_CUL_EK_INF2 =
 		earth_benders_morale = 0.1
 	}
 }
-RETTYPE_CUL_EK_INF3 = 
-{
+RETTYPE_CUL_EK_INF3 = {
 	first_type = 6
 	first_amount = 200
 	special_troops = sand_benders
 	# Sandbenders
 	potential = {
 		is_nomadic = no
-		culture_group = earth_kingdom_culture
-		culture = sandbender
+		culture_group = earth_kingdom_cultures
+		culture = sandbender_culture
 	}
 	
 	modifier = {
@@ -300,15 +284,14 @@ RETTYPE_CUL_EK_INF3 =
 		sand_benders_morale = 0.3
 	}
 }
-RETTYPE_CUL_EK_INF4 = 
-{
+RETTYPE_CUL_EK_INF4 = {
 	first_type = 6
 	first_amount = 200
 	special_troops = earth_benders
 	# Metalbenders
 	potential = {
 		is_nomadic = no
-		culture_group = earth_kingdom_culture
+		culture_group = earth_kingdom_cultures
 		year = 1000
 	}
 	
@@ -318,14 +301,13 @@ RETTYPE_CUL_EK_INF4 =
 		earth_benders_morale = 0.1
 	}
 }
-RETTYPE_CUL_EK_CAV1 = 
-{
+RETTYPE_CUL_EK_CAV1 = {
 	first_type = 3
 	first_amount = 100
 	# Ostrich Horse Calvary
 	potential = {
 		is_nomadic = no
-		culture_group = earth_kingdom_culture
+		culture_group = earth_kingdom_cultures
 	}
 	
 	modifier = {
@@ -333,15 +315,14 @@ RETTYPE_CUL_EK_CAV1 =
 		light_cavalry_defensive = 0.3
 	}
 }
-RETTYPE_CUL_EK_CAV2 = 
-{
+RETTYPE_CUL_EK_CAV2 = {
 	first_type = 4
 	first_amount = 50
 	# Catpillar Tanks
 	potential = {
 		is_nomadic = no
-		culture_group = earth_kingdom_culture
-		NOT = { culture = foggy_swamp }
+		culture_group = earth_kingdom_cultures
+		NOT = { culture = swampfolk }
 		year = 930
 	}
 	
@@ -351,20 +332,45 @@ RETTYPE_CUL_EK_CAV2 =
 		knights_morale = 0.5
 	}
 }
-RETTYPE_CUL_AN_INF1 = 
-{
+RETTYPE_CUL_AN_INF1 = {
 	first_type = 6
 	first_amount = 200
 	special_troops = air_benders
 	# Airbenders
 	potential = {
 		is_nomadic = no
-		culture_group = air_nomad_culture
+		culture_group = air_nomad_cultures
 	}
 	
 	modifier = {
 		air_benders_offensive = 0.1
 		air_benders_defensive = 0.3
 		air_benders_morale = 0.3
+	}
+}
+
+RETTYPE_SERPENT = {
+	first_type = 6
+	first_amount = 100
+	second_type = 0
+	second_amount = 150
+	special_troops = earth_benders
+	
+	potential = {
+		is_nomadic = no
+		religion = the_great_serpent
+	}
+	
+	hire_cost = 120
+	costs_prestige = yes
+	maintenance_multiplier = 1.5
+
+	modifier = {
+		light_infantry_offensive = 0.1
+		light_infantry_defensive = 0.3
+		light_infantry_morale = 0.1
+		earth_benders_offensive = 0.1
+		earth_benders_defensive = 0.3
+		earth_benders_morale = 0.1
 	}
 }

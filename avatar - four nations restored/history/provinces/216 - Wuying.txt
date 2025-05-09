@@ -11,8 +11,9 @@ b_wuying = castle
 #b_lufangcun = temple
 
 # Misc
-culture = northern_earth
+culture = northern_earth_culture
 religion = fortune_telling
+terrain = forest
 
 #History
 585.3.16 = { religion = earth_spirituality }

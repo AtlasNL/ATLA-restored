@@ -8,7 +8,7 @@
 		factor = 10
 		modifier = {
 			factor = 0
-			NOT = { culture = ba_sing_se }
+			NOT = { culture = ba_sing_se_culture }
 		}
 	}
 
@@ -33,7 +33,7 @@
 		factor = 10
 		modifier = {
 			factor = 0
-			NOT = { culture_group = air_nomad_culture }
+			NOT = { culture_group = air_nomad_cultures }
 		}
 	}
 
@@ -41,7 +41,7 @@
 		factor = 10
 		modifier = {
 			factor = 0
-			NOT = { culture_group = air_nomad_culture }
+			NOT = { culture_group = air_nomad_cultures }
 		}
 	}
 
@@ -49,7 +49,7 @@
 		factor = 10
 		modifier = {
 			factor = 0
-			NOT = { culture = ba_sing_se }
+			NOT = { culture = ba_sing_se_culture }
 		}
 		modifier = {
 			factor = 0
@@ -62,9 +62,9 @@
 		modifier = {
 			factor = 0
 			OR = {
-				NOT = { culture_group = earth_kingdom_culture }
-				culture = ba_sing_se
-				culture = sandbender
+				NOT = { culture_group = earth_kingdom_cultures }
+				culture = ba_sing_se_culture
+				culture = sandbender_culture
 			}
 		}
 	}
@@ -73,10 +73,7 @@
 		factor = 20
 		modifier = {
 			factor = 0
-			NOR = {
-				culture = northern_water
-				culture = northern_water_urban
-			}
+			NOT = { culture = northern_water_culture }
 		}
 	}
 	
@@ -84,7 +81,7 @@
 		factor = 10
 		modifier = {
 			factor = 0
-			NOT = { culture = sandbender }
+			NOT = { culture = sandbender_culture }
 		}
 	}
 	
@@ -93,8 +90,8 @@
 		modifier = {
 			factor = 0
 			OR = {
-				NOT = { culture_group = fire_nation_culture }
-				culture = sun_warrior 
+				NOT = { culture_group = fire_nation_cultures }
+				culture = sun_warrior
 			}
 		}
 		modifier = {
@@ -110,7 +107,7 @@
 		factor = 20
 		modifier = {
 			factor = 0
-			NOT = { culture = southern_water }
+			NOT = { culture = southern_water_culture }
 		}
 	}
 	
@@ -118,7 +115,7 @@
 		factor = 10
 		modifier = {
 			factor = 0
-			NOT = { culture = sandbender }
+			NOT = { culture = sandbender_culture }
 		}
 	}
 	
@@ -127,8 +124,8 @@
 		modifier = {
 			factor = 0
 			OR = {
-				NOT = { culture_group = fire_nation_culture }
-				culture = sun_warrior 
+				NOT = { culture_group = fire_nation_cultures }
+				culture = sun_warrior
 			}
 		}
 		modifier = {
@@ -141,11 +138,11 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			at_sea = no
+			is_at_sea = no
 		}
 		modifier = {
 			factor = 0
-			culture = sandbender
+			culture = sandbender_culture
 		}
 	}
 	
@@ -154,8 +151,8 @@
 		modifier = {
 			factor = 0
 			OR = {
-				NOT = { culture_group = fire_nation_culture }
-				culture = sun_warrior 
+				NOT = { culture_group = fire_nation_cultures }
+				culture = sun_warrior
 			}
 		}
 	}
@@ -164,7 +161,7 @@
 		factor = 20
 		modifier = {
 			factor = 0
-			NOT = { culture = foggy_swamp }
+			NOT = { culture = swampfolk }
 		}
 	}
 	
@@ -173,11 +170,11 @@
 		modifier = {
 			factor = 0
 			OR = {
-				culture_group = water_tribe_culture
-				culture_group = fire_nation_culture
-				culture_group = air_nomad_culture
-				culture = sandbender
-				culture = ba_sing_se
+				culture_group = water_tribe_cultures
+				culture_group = fire_nation_cultures
+				culture_group = air_nomad_cultures
+				culture = sandbender_culture
+				culture = ba_sing_se_culture
 			}
 		}
 		modifier = {
@@ -191,9 +188,9 @@
 		modifier = {
 			factor = 0
 			OR = {
-				NOT = { culture_group = earth_kingdom_culture }
-				culture = ba_sing_se
-				culture = sandbender
+				NOT = { culture_group = earth_kingdom_cultures }
+				culture = ba_sing_se_culture
+				culture = sandbender_culture
 			}
 		}
 	}
@@ -203,11 +200,11 @@
 		modifier = {
 			factor = 0
 			OR = {
-				culture_group = water_tribe_culture
-				culture_group = fire_nation_culture
-				culture_group = air_nomad_culture
-				culture = foggy_swamp
-				culture = sandbender
+				culture_group = water_tribe_cultures
+				culture_group = fire_nation_cultures
+				culture_group = air_nomad_cultures
+				culture = swampfolk
+				culture = sandbender_culture
 			}
 		}
 	}
@@ -217,9 +214,9 @@
 		modifier = {
 			factor = 0
 			OR = {
-				culture_group = water_tribe_culture
-				culture_group = air_nomad_culture
-				culture = sandbender
+				culture_group = water_tribe_cultures
+				culture_group = air_nomad_cultures
+				culture = sandbender_culture
 				culture = sun_warrior
 			}
 		}
@@ -315,6 +312,85 @@
 
 # p2 base
 2 = {
+	0 = {
+		factor = 100
+		# Roku
+		modifier = { # Adult Roku
+			factor = 0
+			has_character_flag = is_roku
+			age < 30
+			OR = {
+				trait = fully_realised_avatar
+				trait = roku_learning_airbending
+				trait = roku_learning_earthbending
+				trait = roku_learning_waterbending
+			}
+		}
+		modifier = { # Midage Roku at Wedding
+			factor = 0
+			has_character_flag = is_roku
+			age > 40
+		}
+		# Ta Min
+		modifier = { # Adult Ta Min
+			factor = 0
+			has_character_flag = is_ta_min
+			is_married = yes
+			age < 30
+		}
+	}
+	1 = {
+		factor = 1
+		modifier = { # Roku airbending training
+			factor = 100
+			has_character_flag = is_roku
+			trait = roku_learning_airbending
+		}
+		modifier = { # Midage Roku after his ultimatum
+			factor = 100
+			has_character_flag = is_roku
+			age >= 40
+		}
+		modifier = { # Adult Ta Min
+			factor = 100
+			has_character_flag = is_ta_min
+			is_married = yes
+			age < 30
+		}
+	}
+	2 = {
+		factor = 1
+		modifier = { # Roku waterbending training
+			factor = 100
+			has_character_flag = is_roku
+			trait = roku_learning_waterbending
+		}
+	}
+	3 = {
+		factor = 1
+		modifier = { # Roku earthbending training
+			factor = 100
+			has_character_flag = is_roku
+			trait = roku_learning_earthbending
+		}
+	}
+	4 = {
+		factor = 1
+		modifier = { # Roku after return
+			factor = 100
+			has_character_flag = is_roku
+			trait = fully_realised_avatar
+			is_married = no
+		}
+	}
+	5 = {
+		factor = 1
+		modifier = { # Roku at his wedding
+			factor = 100
+			has_character_flag = is_roku
+			is_married = yes
+		}
+	}
 }
 
 # p3 clothes
@@ -655,8 +731,12 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			NOT = { real_tier = emperor }
-			NOT = { spouse = { real_tier = emperor } }
+			NOR = {
+				real_tier = emperor
+				spouse = { real_tier = emperor }
+				trait = earthking
+				trait = earthkingpuppet
+			}
 		}
 		modifier = {
 			factor = 0
@@ -889,10 +969,7 @@
 		}
 		modifier = {
 			factor = 0
-			OR = {
-				trait = avatar
-				trait = fullyrealisedavatar
-			}
+			trait = avatar
 		}
 		modifier = {
 			factor = 0
@@ -971,82 +1048,199 @@
 	}
 }
 
-# p7 scars
+
+# p7 scars - Tier I
 7 = {
 	0 = { # blank
 		factor = 100
 		modifier = {
 			factor = 0
+			trait = scarred
 			OR = {
-				trait = maimed
-				trait = wounded
-				trait = scarred
-				#trait = disfigured
-				#trait = one_eyed
+				trait = scarred_type_1
+				trait = scarred_type_2
+				trait = scarred_type_3
+				trait = scarred_type_4
+				trait = scarred_type_5
+				trait = scarred_type_6
+				trait = scarred_type_7
+				trait = scarred_type_8
+				trait = scarred_type_9
+				trait = scarred_type_10
 			}
 		}
    	}
 
-	1 = { # scar 1
+	1 = { # scar 1 - TIER I
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = { 
-				OR = {
-					trait = maimed
-					trait = wounded
-					trait = scarred
-					#trait = disfigured
-					#trait = one_eyed
-				}
+			NOT = {
+				trait = scarred_type_1
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = scarred_mid
+				trait = scarred_high
+				NOT = { trait = scarred }
 			}
 		}
    	}
 
-	2 = { # scar 2
+	2 = { # scar 2 - TIER I
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = { 
-				OR = {
-					trait = maimed
-					trait = wounded
-					trait = scarred
-					#trait = disfigured
-					#trait = one_eyed
-				}
+			NOT = {
+				trait = scarred_type_2
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = scarred_mid
+				trait = scarred_high
+				NOT = { trait = scarred }
 			}
 		}
    	}
 
-	3 = { # scar 3
+	3 = { # scar 3 - TIER I
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = { 
-				OR = {
-					trait = maimed
-					trait = wounded
-					trait = scarred
-					#trait = disfigured
-					#trait = one_eyed
-				}
+			NOT = {
+				trait = scarred_type_3
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = scarred_mid
+				trait = scarred_high
+				NOT = { trait = scarred }
 			}
 		}
    	}
 
-	4 = { # scar 4
+	4 = { # scar 4 - TIER I
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = { 
-				OR = {
-					trait = maimed
-					trait = wounded
-					trait = scarred
-					#trait = disfigured
-					#trait = one_eyed
-				}
+			NOT = {
+				trait = scarred_type_4
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = scarred_mid
+				trait = scarred_high
+				NOT = { trait = scarred }
+			}
+		}
+   	}
+	5 = { # scar 5 - TIER I
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				trait = scarred_type_5
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = scarred_mid
+				trait = scarred_high
+				NOT = { trait = scarred }
+			}
+		}
+   	}
+	6 = { # scar 6 - TIER I
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				trait = scarred_type_6
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = scarred_mid
+				trait = scarred_high
+				NOT = { trait = scarred }
+			}
+		}
+   	}
+	7 = { # scar 7 - TIER I
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				trait = scarred_type_7
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = scarred_mid
+				trait = scarred_high
+				NOT = { trait = scarred }
+			}
+		}
+   	}
+	8 = { # scar 8 - TIER I
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				trait = scarred_type_8
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = scarred_mid
+				trait = scarred_high
+				NOT = { trait = scarred }
+			}
+		}
+   	}
+	9 = { # scar 9 - TIER I
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				trait = scarred_type_9
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = scarred_mid
+				trait = scarred_high
+				NOT = { trait = scarred }
+			}
+		}
+   	}
+	10 = { # scar 10 - TIER I
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				trait = scarred_type_10
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = scarred_mid
+				trait = scarred_high
+				NOT = { trait = scarred }
 			}
 		}
    	}
@@ -1158,8 +1352,8 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			OR = { 
-				trait = disfigured 
+			OR = {
+				trait = disfigured
 				has_character_modifier = attending_masquerade
 				has_character_modifier = forced_mask
 			}
@@ -1170,8 +1364,8 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOR = { 
-				trait = disfigured 
+			NOR = {
+				trait = disfigured
 				has_character_modifier = attending_masquerade
 				has_character_modifier = forced_mask
 			}
@@ -1201,3 +1395,174 @@
 		}
 	}
 }
+
+# PLACEHOLDER #
+# p14: Chinese makeup
+14 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p15: Chinese makeup 2
+15 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p16: Chinese empress jewelry
+16 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p17: Immortality
+17 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p18: Special crowns behind
+18 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p19: Special crowns
+19 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p20: Freckles
+20 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p21: Physique
+21 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p22: Pale
+22 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p23: Black eye
+23 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p24: Harelip
+24 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p25: Scars tier II
+25 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p26: Scars tier III
+26 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p27: Blood splatter
+27 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# p28: Tattoos
+28 = {
+	0 = {
+		factor = 100
+		modifier = { # Air nomad tattoos
+			factor = 0
+
+			trait = airnomad_tattoos
+		}
+		modifier = { # Air nomad tattoos
+			factor = 0
+			
+			has_game_started = no
+			culture_group = air_nomad_cultures
+			age = 45
+		}
+		modifier = { # Air nomad tattoos
+			factor = 0
+			
+			has_game_started = no
+			culture_group = air_nomad_cultures
+			age = 40
+			is_ruler = yes
+		}
+		modifier = { # Air nomad tattoos
+			factor = 0
+
+			is_alive = no
+			
+			culture_group = air_nomad_cultures
+			is_exceptional_bender_trigger = yes
+		}
+	}
+	1 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p29: Warpaint
+29 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# PLACEHOLDER #
+# p30: Demon Child
+30 = {
+	0 = {
+		factor = 1
+	}
+}
+
+# Do we even need this?
+# p31: Frankish culture male overlayer
+# p32: Frankish culture female overlayer
+# p33: Frankish culture female underlayer and hair

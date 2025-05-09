@@ -90,11 +90,31 @@ character_event = {
 				}
 				OR = { 
 					trait = cynical
-					NOT = { religion = FROM }
-					# event_target:potential_antagonized = { 
-						# trait = sympathy_christendom
-						# ROOT = { NOT = { religion_group = christian } }
-					# }
+					NOT = { religion = event_target:potential_antagonized }
+					event_target:potential_antagonized = { 
+						trait = sympathy_earth_religions
+						ROOT = { NOT = { religion_group = earth_religions } }
+					}
+					event_target:potential_antagonized = { 
+						trait = sympathy_water_religions
+						ROOT = { NOT = { religion_group = water_religions } }
+					}
+					event_target:potential_antagonized = { 
+						trait = sympathy_fire_religions
+						ROOT = { NOT = { religion_group = fire_religions } }
+					}
+					event_target:potential_antagonized = { 
+						trait = sympathy_air_religions
+						ROOT = { NOT = { religion_group = air_religions } }
+					}
+					event_target:potential_antagonized = { 
+						trait = sympathy_modern_religions
+						ROOT = { NOT = { religion_group = modern_religions } }
+					}
+					event_target:potential_antagonized = { 
+						trait = sympathy_outlaw_religions
+						ROOT = { NOT = { religion_group = outlaw_religions } }
+					}
 				}
 			}
 			#Trait compatibility modifiers - Already so much in common, why fight?
@@ -373,8 +393,8 @@ character_event = {
 		}
 		} #if
 	}
-
 }
+
 #On_five_years pulse handling the AI picking a Swaying target.
 character_event = {
 	id = HF.21998
@@ -421,13 +441,33 @@ character_event = {
 				}
 				OR = {
 					religion_group = ROOT
-					# AND = {
-						# ROOT = { trait = sympathy_christendom }
-						# religion_group = christian
-					# }
+					AND = {
+						ROOT = { trait = sympathy_earth_religions }
+						religion_group = earth_religions
+					}
+					AND = {
+						ROOT = { trait = sympathy_water_religions }
+						religion_group = water_religions
+					}
+					AND = {
+						ROOT = { trait = sympathy_fire_religions }
+						religion_group = fire_religions
+					}
+					AND = {
+						ROOT = { trait = sympathy_air_religions }
+						religion_group = air_religions
+					}
+					AND = {
+						ROOT = { trait = sympathy_modern_religions }
+						religion_group = modern_religions
+					}
+					AND = {
+						ROOT = { trait = sympathy_outlaw_religions }
+						religion_group = outlaw_religions
+					}
 				}
 				NOR = {
-					has_opinion_modifier = { who = FROM modifier = opinion_rebuked_appeaser_cooldown }
+					has_opinion_modifier = { who = ROOT modifier = opinion_rebuked_appeaser_cooldown }
 					is_lover = ROOT
 					is_rival = ROOT
 					is_friend = ROOT
@@ -735,7 +775,7 @@ character_event = {
 						}
 					}
 				}
-				FROM = {
+				ROOT = {
 					opinion = {
 						who = event_target:potential_swayed
 						value = 30
@@ -747,12 +787,12 @@ character_event = {
 				event_target:potential_swayed = {
 					NOT = {
 						opinion = {
-							who = FROM
+							who = ROOT
 							value = -20
 						}
 					}
 				}
-				FROM = {
+				ROOT = {
 					opinion = {
 						who = event_target:potential_swayed
 						value = 30
@@ -764,12 +804,12 @@ character_event = {
 				event_target:potential_swayed = {
 					NOT = {
 						opinion = {
-							who = FROM
+							who = ROOT
 							value = -40
 						}
 					}
 				}
-				FROM = {
+				ROOT = {
 					opinion = {
 						who = event_target:potential_swayed
 						value = 30
@@ -781,12 +821,12 @@ character_event = {
 				event_target:potential_swayed = {
 					NOT = {
 						opinion = {
-							who = FROM
+							who = ROOT
 							value = -60
 						}
 					}
 				}
-				FROM = {
+				ROOT = {
 					opinion = {
 						who = event_target:potential_swayed
 						value = 30
@@ -798,7 +838,7 @@ character_event = {
 				event_target:potential_swayed = {
 					NOT = {
 						opinion = {
-							who = FROM
+							who = ROOT
 							value = -80
 						}
 					}
@@ -839,8 +879,8 @@ character_event = {
 	is_triggered_only = yes
 
 	immediate = { character_event = { id = HF.21000 days = 30 random = 30 } }
-
 }
+
 #Giant yearly event firing all the events related to appeasement.
 character_event = {
 	id = HF.21000
@@ -1831,28 +1871,28 @@ character_event = {
 }
 
 #Appeaser notified.
-character_event = {
-	id = HF.21003
-	desc = EVTDESCHFP21003
-	picture = GFX_evt_pleasing_letter
+# character_event = {
+	# id = HF.21003
+	# desc = EVTDESCHFP21003
+	# picture = GFX_evt_pleasing_letter
 
-	trigger = { 
-		FROM = { is_alive = yes } 
-	}
-	is_triggered_only = yes
+	# trigger = { 
+		# FROM = { is_alive = yes } 
+	# }
+	# is_triggered_only = yes
 
-	option = { 
-		name = EVTOPTAHFP21003
-		custom_tooltip = { text = tooltip_21003_A }
-		hidden_tooltip = { 
-			persistent_event_target:sway_target = { clr_character_flag = flag_character_being_swayed }
-			remove_special_interest = persistent_event_target:sway_target
-			clear_persistent_event_target = sway_target
-			clr_character_flag = flag_tired_of_gifts
-		}
-		ai_chance = { factor = 100 }
-	}
-}
+	# option = { 
+		# name = EVTOPTAHFP21003
+		# custom_tooltip = { text = tooltip_21003_A }
+		# hidden_tooltip = { 
+			# persistent_event_target:sway_target = { clr_character_flag = flag_character_being_swayed }
+			# remove_special_interest = persistent_event_target:sway_target
+			# clear_persistent_event_target = sway_target
+			# clr_character_flag = flag_tired_of_gifts
+		# }
+		# ai_chance = { factor = 100 }
+	# }
+# }
 
 #Appeased: is imprisoned and can no longer be interacted with.
 character_event = {
@@ -3414,14 +3454,14 @@ character_event = {
 		text = EVTDESCAHFP21033_COURT
 		trigger = { 
 			has_character_flag = flag_appease_discuss_strategy
-			NOT = { FROM = { location = { character = ROOT } } }
+			NOT = { FROM = { at_location = ROOT } }
 		}
 	}
 	desc = {
 		text = EVTDESCAHFP21033
 		trigger = { 
 			has_character_flag = flag_appease_discuss_strategy
-			FROM = { location = { character = ROOT } }
+			FROM = { at_location = ROOT }
 		}
 	}
 	desc = {
@@ -3472,14 +3512,14 @@ character_event = {
 		text = EVTDESCAHFP21034
 		trigger = { 
 			has_character_flag = flag_appease_discuss_strategy
-			NOT = { FROM = { location = { character = ROOT } } }
+			NOT = { FROM = { at_location = ROOT } }
 		}
 	}
 	desc = {
 		text = EVTDESCAHFP21034_COURT
 		trigger = { 
 			has_character_flag = flag_appease_discuss_strategy
-			FROM = { location = { character = ROOT } }
+			FROM = { at_location = ROOT }
 		}
 	}
 	desc = {
@@ -6960,10 +7000,30 @@ character_event = {
 			limit = { 
 				NOT = { religion_group = FROM } 
 				OR = { 
-					# AND = { 
-						# FROM = { religion_group = christian }
-						# NOT = { trait = sympathy_christendom } 
-					# }  
+					AND = { 
+						FROM = { religion_group = earth_religions }
+						NOT = { trait = sympathy_earth_religions } 
+					}
+					AND = { 
+						FROM = { religion_group = water_religions }
+						NOT = { trait = sympathy_water_religions } 
+					}
+					AND = { 
+						FROM = { religion_group = fire_religions }
+						NOT = { trait = sympathy_fire_religions } 
+					}
+					AND = { 
+						FROM = { religion_group = air_religions }
+						NOT = { trait = sympathy_air_religions } 
+					}
+					AND = { 
+						FROM = { religion_group = modern_religions }
+						NOT = { trait = sympathy_modern_religions } 
+					}
+					AND = { 
+						FROM = { religion_group = outlaw_religions }
+						NOT = { trait = sympathy_outlaw_religions } 
+					}
 				}
 			} 
 			custom_tooltip = { text = tooltip_21076_sympathy } 
@@ -7072,15 +7132,60 @@ character_event = {
 				years = 5
 			}
 		}
-		# if = { 
-			# limit = { 
-				# NOT = { religion_group = FROM } 
-				# NOT = { trait = sympathy_christendom }
-				# FROM = { religion_group = christian }
-				# FROM = { has_character_flag = flag_appease_kind_religion }
-			# } 
-			# random = { chance = 30 add_trait = sympathy_christendom }
-		# }  
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_earth_religions }
+				FROM = { religion_group = earth_religions }
+				FROM = { has_character_flag = flag_appease_kind_religion }
+			} 
+			random = { chance = 30 add_trait = sympathy_earth_religions }
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_water_religions }
+				FROM = { religion_group = water_religions }
+				FROM = { has_character_flag = flag_appease_kind_religion }
+			} 
+			random = { chance = 30 add_trait = sympathy_water_religions }
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_fire_religions }
+				FROM = { religion_group = fire_religions }
+				FROM = { has_character_flag = flag_appease_kind_religion }
+			} 
+			random = { chance = 30 add_trait = sympathy_fire_religions }
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_air_religions }
+				FROM = { religion_group = air_religions }
+				FROM = { has_character_flag = flag_appease_kind_religion }
+			} 
+			random = { chance = 30 add_trait = sympathy_air_religions }
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_modern_religions }
+				FROM = { religion_group = modern_religions }
+				FROM = { has_character_flag = flag_appease_kind_religion }
+			} 
+			random = { chance = 30 add_trait = sympathy_modern_religions }
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_outlaw_religions }
+				FROM = { religion_group = outlaw_religions }
+				FROM = { has_character_flag = flag_appease_kind_religion }
+			} 
+			random = { chance = 30 add_trait = sympathy_outlaw_religions }
+		}
 		hidden_tooltip = { FROM = { character_event = { id = HF.21078 days = 10 } } }
 		ai_chance = { 
 			factor = 50 
@@ -7268,14 +7373,54 @@ character_event = {
 				}
 			}
 		}
-		# if = { 
-			# limit = { 
-				# NOT = { religion_group = FROM } 
-				# NOT = { trait = sympathy_christendom }
-				# FROM = { religion_group = christian }
-			# } 
-			# random = { chance = 30 add_trait = sympathy_christendom }
-		# } 
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_earth_religions }
+				FROM = { religion_group = earth_religions }
+			} 
+			random = { chance = 30 add_trait = sympathy_earth_religions }
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_water_religions }
+				FROM = { religion_group = water_religions }
+			} 
+			random = { chance = 30 add_trait = sympathy_water_religions }
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_fire_religions }
+				FROM = { religion_group = fire_religions }
+			} 
+			random = { chance = 30 add_trait = sympathy_fire_religions }
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_air_religions }
+				FROM = { religion_group = air_religions }
+			} 
+			random = { chance = 30 add_trait = sympathy_air_religions }
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_modern_religions }
+				FROM = { religion_group = modern_religions }
+			} 
+			random = { chance = 30 add_trait = sympathy_modern_religions }
+		}
+		if = { 
+			limit = { 
+				NOT = { religion_group = FROM } 
+				NOT = { trait = sympathy_outlaw_religions }
+				FROM = { religion_group = outlaw_religions }
+			} 
+			random = { chance = 30 add_trait = sympathy_outlaw_religions }
+		}
 		clr_character_flag = flag_appease_kind_approach
 		clr_character_flag = flag_appease_kind_health
 		clr_character_flag = flag_appease_kind_religion
@@ -8701,14 +8846,20 @@ character_event = {
 	id = HF.21098
 	desc = {
 		text = EVTDESCHFP21098
-		trigger = { 
-			FROM = { location = { character = ROOT } }
+		trigger = {
+			FROM = { 
+				at_location = ROOT
+			}
 		}
 	}
 	desc = {
 		text = EVTDESCHFPB21098
 		trigger = { 
-			NOT = { FROM = { location = { character = ROOT } } }
+			NOT = { 
+				FROM = { 
+					at_location = ROOT
+				}
+			}
 		}
 	}
 	picture = GFX_evt_diplomat_hf
@@ -10263,19 +10414,6 @@ character_event = {
 						AND = {
 							trait = trusting
 							persistent_event_target:sway_target = { trait = paranoid }
-						}
-					}
-				}
-				modifier = { 
-					factor = 2
-					OR = {
-						AND = {
-							trait = cynical
-							persistent_event_target:sway_target = { trait = zealous }
-						}
-						AND = {
-							trait = zealous
-							persistent_event_target:sway_target = { trait = cynical }
 						}
 					}
 				}
@@ -15473,7 +15611,6 @@ character_event = {
 		clr_character_flag = flag_sway_turned_gluttonous
 		clr_character_flag = flag_sway_turned_greedy
 		clr_character_flag = flag_sway_turned_slothful
-		clr_character_flag = flag_sway_turned_chaste
 		clr_character_flag = flag_sway_turned_wroth
 		clr_character_flag = flag_sway_turned_envious
 		clr_character_flag = flag_sway_turned_proud
@@ -16879,12 +17016,6 @@ character_event = {
 		trigger = { 
 			trait = kind
 			any_war = {
-				NOT = { 
-					OR = {
-						using_cb = crusade
-						using_cb = new_crusade
-					}
-				}
 				OR = { 
 					attacker = { character = FROM }
 					defender = { character = FROM } 
@@ -17129,12 +17260,6 @@ character_event = {
 		hidden_tooltip = {
 			any_war = {
 				limit = {
-					NOT = { 
-						OR = {
-							using_cb = crusade
-							using_cb = new_crusade
-						}
-					}
 					OR = { 
 						attacker = { character = FROM }
 						defender = { character = FROM } 

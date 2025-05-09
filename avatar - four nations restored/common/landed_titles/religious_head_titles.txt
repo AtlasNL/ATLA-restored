@@ -1,0 +1,98 @@
+d_great_serpent_high_priesthood = {
+
+	color={ 0 50 0 }
+	color2={ 0 255 0 }
+	
+	graphical_culture = norseholygfx
+	
+	capital = 175
+	
+	title = "SERPENT_SAGE"
+	foa = "SERPENT_SAGE_FOA"
+	
+	# Always exists
+	landless = no
+		
+	# Parent Religion 
+	religion = the_great_serpent
+	controls_religion = the_great_serpent
+	
+	culture = eastern_earth_culture
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	
+	allow = {
+		always = no # Only created through special event
+	}
+	
+	primary = no
+	
+	# Extra income due to donations, etc
+	monthly_income = 1 # (Must be an integer between 1 and 512)
+
+	mercenary_type = sages_of_the_pass_composition
+}
+
+d_barbarism_high_priesthood = {
+
+	color={ 0 50 0 }
+	color2={ 0 255 0 }
+	
+	graphical_culture = norseholygfx
+	
+	capital = 194 #c_xinjiagou
+	title = "BARBARIAN_KING"
+	title_female = "BARBARIAN_QUEEN"
+	foa = "BARBARIAN_KING_FOA"
+	
+	# Always exists
+	landless = yes
+	
+	allow = {
+		religion = barbarism_reformed
+		num_of_holy_sites = 3
+		piety = 500
+	}
+	creation_requires_capital = no
+	
+	controls_religion = barbarism_reformed
+	religion = barbarism_reformed
+	
+	culture = barbarian_culture
+	
+	dignity = 100
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+}
+
+d_fortunetelling_high_priesthood = {
+
+	color={ 0 50 0 }
+	color2={ 0 255 0 }
+	
+	graphical_culture = norseholygfx
+	
+	title = "FORTUNE_TELLING_KING"
+	foa = "FORTUNE_TELLING_FOA"
+	
+	landless = yes
+		
+	# Parent Religion 
+	religion = fortune_telling_reformed
+	controls_religion = fortune_telling_reformed
+	
+	culture = western_earth_culture
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	allow = {
+		always = no # Only created through special event
+	}
+	
+	primary = no
+	
+	# Extra income due to donations, etc
+	monthly_income = 1 # (Must be an integer between 1 and 512)
+}

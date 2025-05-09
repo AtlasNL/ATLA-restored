@@ -11,8 +11,9 @@ b_myeonghwaghage = tribal
 #b_pyeonghwa = temple
 
 # Misc
-culture = northern_earth
+culture = northern_earth_culture
 religion = way_of_chin
+terrain = forest
 
 #History
 619.8.4 = { religion = earth_spirituality }
@@ -22,4 +23,4 @@ religion = way_of_chin
 #839.4.5 = { culture = colonial }
 839.4.5 = { b_tteonal = city }
 930.8.26 = { religion = earth_spirituality }
-930.8.26 = { culture = northern_earth }
+930.8.26 = { culture = northern_earth_culture }

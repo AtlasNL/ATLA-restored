@@ -9,7 +9,7 @@ targetted_decisions = {
 			is_playable = yes
 			is_landed = yes
 			mercenary = no
-			NOT = { culture_group = air_nomad_culture }
+			NOT = { culture_group = air_nomad_cultures }
 			holy_order = no
 			has_dlc = "Zeus"
 		
@@ -38,10 +38,22 @@ targetted_decisions = {
 				has_character_modifier = mercenary_traditions
 			}
 		}
+		
 		potential = {
 			can_be_mercenary_leader_potential_trigger = yes
-			NOT = { culture_group = air_nomad_culture }
+			NAND = {
+				is_child_of = FROM
+				any_owned_bloodline = {
+					has_bloodline_flag = bloodline_mercenary_traditions
+				}
+				FROM = {
+					any_owned_bloodline = {
+						has_bloodline_flag = bloodline_mercenary_traditions
+					}
+				}
+			}
 		}
+		
 		allow = {
 			can_be_mercenary_leader_allow_trigger = yes
 			FROM = {
@@ -89,9 +101,7 @@ targetted_decisions = {
 				set_title_flag = not_hired
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 0.05
 			
@@ -122,9 +132,7 @@ targetted_decisions = {
 		effect = {
 			character_event = { id = ZE.11020 }
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 0
 		}
@@ -153,9 +161,7 @@ targetted_decisions = {
 				character_event = { id = ZE.6020 }
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 0
 		}
@@ -221,11 +227,9 @@ targetted_decisions = {
 				}
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
-			factor = 1
+			factor = 0.5
 			modifier = {
 				factor = 0
 				NOT = { host = { character = FROM } }
@@ -238,9 +242,6 @@ targetted_decisions = {
 						religion = FROM
 					}
 				}
-			}
-			modifier = {
-				factor = 0.5
 			}
 		}
 	}
@@ -308,14 +309,9 @@ targetted_decisions = {
 				}
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0.5
-			}
+			factor = 0.5
 			modifier = {
 				factor = 0
 				NOT = {
@@ -377,11 +373,8 @@ targetted_decisions = {
 				character_event = { id = ZE.8120 }
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
 		ai_will_do = {
-			factor = 1000
+			factor = 1
 		}
 	}
 	
@@ -407,9 +400,6 @@ targetted_decisions = {
 		}
 		effect = {
 			character_event = { id = ZE.23100 }
-		}
-		revoke_allowed = {
-			always = no
 		}
 		ai_will_do = {
 			factor = 0.001
@@ -438,9 +428,6 @@ targetted_decisions = {
 		}
 		effect = {
 			character_event = { id = ZE.23105 }
-		}
-		revoke_allowed = {
-			always = no
 		}
 		ai_will_do = {
 			factor = 0.001
@@ -512,17 +499,8 @@ targetted_decisions = {
 			}
 		}
 		
-		revoke_allowed = {
-			always = no
-		}
-		
 		ai_will_do = {
-			factor = 1
-			
-			modifier = {
-				factor = 0.1
-				always = yes
-			}
+			factor = 0.1
 		}
 	}
 	
@@ -586,11 +564,8 @@ targetted_decisions = {
 				}
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
 		ai_will_do = {
-			factor = 1
+			factor = 0.5
 			modifier = {
 				factor = 0
 				NOT = { host = { character = FROM } }
@@ -602,9 +577,6 @@ targetted_decisions = {
 						religion = FROM
 					}
 				}
-			}
-			modifier = {
-				factor = 0.5
 			}
 		}
 	}
@@ -671,14 +643,9 @@ targetted_decisions = {
 				}
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0.5
-			}
+			factor = 0.5
 			modifier = {
 				factor = 0
 				NOT = {

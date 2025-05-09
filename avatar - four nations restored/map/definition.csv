@@ -18,7 +18,7 @@ province;red;green;blue;x;x
 17;103;185;207;Mauragaaqtuq;x
 18;44;107;126;Imaq;x
 19;103;171;191;Imavaalua;x
-20;0;150;255;Southen Water Tribe;x
+20;0;150;255;Southern Water Tribe;x
 21;48;125;179;Sufauraaqtaaq;x
 22;35;96;139;Ufalak;x
 23;35;131;198;Muqpaktuq;x
@@ -48,7 +48,7 @@ province;red;green;blue;x;x
 47;195;95;14;Qonggyai;x
 48;173;98;36;Gerse;x
 49;172;124;85;Baqun;x
-50;229;137;62;Kangmar;x
+50;229;137;62;Laghima's Peak;x
 51;174;125;84;Xainza;x
 52;219;127;52;Zhag'yab;x
 53;163;81;14;Dagze;x
@@ -96,9 +96,9 @@ province;red;green;blue;x;x
 95;191;23;23;Amagasaki;x
 96;90;9;9;Aztlan;x
 97;54;22;22;Boiling Rock;x
-98;152;14;14;Amami;x
+98;152;14;14;Shuhon;x
 99;204;10;10;Uchiumi;x
-100;81;7;7;Koloa;x
+100;81;7;7;Ma'inka;x
 101;152;52;52;Ishigaki;x
 102;117;20;20;Penghu;x
 103;133;17;17;Ni'nago;x
@@ -193,7 +193,7 @@ province;red;green;blue;x;x
 192;40;67;9;Sitou;x
 193;83;121;39;Lan Shan;x
 194;92;116;64;Xinjiagou;x
-195;106;146;58;Mazhai;x
+195;106;146;58;Hujiang;x
 196;106;182;16;Yancun;x
 197;104;164;39;Weinan;x
 198;138;185;88;Linwei;x
@@ -235,7 +235,7 @@ province;red;green;blue;x;x
 234;97;165;89;Yantai;x
 235;112;167;112;Dagong;x
 236;48;136;36;Lushan;x
-237;25;140;25;Zichuan;x
+237;25;140;25;Zigan Village;x
 238;76;132;76;Zhuwuzhen;x
 239;51;113;51;Han Tui;x
 240;8;164;8;Dong'an;x
@@ -268,7 +268,7 @@ province;red;green;blue;x;x
 267;80;121;17;Dahaizi;x
 268;116;167;36;Zhaojia;x
 269;76;111;22;Tujingzi;x
-270;89;144;17;Datan;x
+270;89;144;17;Gintong;x
 271;92;129;47;Xiwa;x
 272;63;100;17;Yangwa;x
 273;118;152;74;Xitaozi;x
@@ -393,7 +393,7 @@ province;red;green;blue;x;x
 392;82;50;176;Frozen Coast;x
 393;172;151;234;Arctic Coast;x
 394;140;126;182;Arctic Coast;x
-395;121;92;206;Arctic Coast;x
+395;121;92;206;Artic Ice Shelf;x
 396;118;101;168;North Sea;x
 397;88;61;168;North Sea;x
 398;134;119;181;North Sea;x
@@ -410,31 +410,31 @@ province;red;green;blue;x;x
 409;143;131;183;West Air Coast;x
 410;164;146;221;West Air Coast;x
 411;115;86;206;Wind Bay;x
-412;129;113;178;West Air Coast;x
+412;129;113;178;West Air Sea;x
 413;122;99;193;Aztlan Sea;x
 414;98;84;143;North Fire Coast;x
 415;92;65;175;Ember Sea;x
 416;90;49;217;Fire Gates;x
 417;108;86;174;Dragon Bay;x
-418;134;126;158;Dragon Bay;x
+418;134;126;158;Dragon Sound;x
 419;139;121;195;Dragon Bay;x
 420;151;124;233;Dragon Bay;x
 421;172;160;211;Burning Channel;x
-422;46;38;156;Amami Sea;x
-423;130;122;244;Koloa and Ishigaki;x
+422;46;38;156;Shuhon Sea;x
+423;130;122;244;Ma'inka and Ishigaki;x
 424;96;88;194;Penghu Islands;x
 425;51;43;152;Far Islands;x
-426;84;73;220;Amami Straits;x
+426;84;73;220;Shuhon Straits;x
 427;43;100;205;Hono Sea;x
 428;111;150;221;Hono Sound;x
 429;106;143;212;Cape of Fire;x
 430;120;90;216;West Fire Sea;x
 431;75;39;192;West Fire Sea;x
 432;123;96;208;West Fire Sea;x
-433;119;154;219;Mo Ce Sea;x
-434;126;119;226;Mo Ce Sea;x
+433;119;154;219;South Mo Ce Sea;x
+434;126;119;226;East Mo Ce Sea;x
 435;24;15;150;Mo Ce Sea;x
-436;193;190;232;Mo Ce Sea;x
+436;193;190;232;North Mo Ce Sea;x
 437;120;116;165;Yue Bay;x
 438;108;99;230;Broken Bays;x
 439;115;110;190;Mo Ce Sea;x
@@ -462,17 +462,17 @@ province;red;green;blue;x;x
 461;100;92;174;Burning Sea;x
 462;89;129;204;Burning Sea;x
 463;127;156;208;Burning Sea;x
-464;90;137;224;Southen Air Coast;x
-465;56;102;187;Southen Air Coast;x
-466;43;107;226;Southen Air Coast;x
-467;74;104;160;Southen Air Coast;x
-468;52;106;205;Southen Air Coast;x
-469;26;73;157;Southen Air Coast;x
-470;15;75;184;Southen Air Coast;x
-471;13;59;142;Southen Air Coast;x
-472;63;115;211;Southen Air Coast;x
-473;156;185;237;Southen Air Coast;x
-474;20;55;156;Southen Air Coast;x
+464;90;137;224;Southern Air Coast;x
+465;56;102;187;Southern Air Coast;x
+466;43;107;226;Southern Air Coast;x
+467;74;104;160;Southern Air Coast;x
+468;52;106;205;Southern Air Coast;x
+469;26;73;157;Southern Air Coast;x
+470;15;75;184;Southern Air Coast;x
+471;13;59;142;Southern Air Coast;x
+472;63;115;211;Southern Air Coast;x
+473;156;185;237;Southern Air Coast;x
+474;20;55;156;Southern Air Coast;x
 475;17;66;205;South Sea;x
 476;16;35;65;South Sea;x
 477;32;76;203;South Sea;x
@@ -493,13 +493,13 @@ province;red;green;blue;x;x
 492;86;37;176;South Water Coast;x
 493;141;89;235;South Water Coast;x
 494;161;134;211;South Water Coast;x
-495;174;142;232;Southen Water Bay;x
+495;174;142;232;Southern Water Bay;x
 496;119;111;134;South Water Coast;x
 497;45;97;175;East Air Coast;x
 498;33;109;223;East Air Coast;x
 499;82;67;224;East Air Coast;x
 500;92;154;246;Airbender Channel;x
-501;19;82;176;Southen Approach;x
+501;19;82;176;Southern Approach;x
 502;93;91;141;East Coast;x
 503;122;120;151;Langwokou Bay;x
 504;100;96;188;East Coast;x
@@ -532,9 +532,9 @@ province;red;green;blue;x;x
 531;128;127;153;Green River;x
 532;128;123;208;Red River;x
 533;118;113;198;Gaoling River;x
-534;104;101;154;Red River;x
-535;157;154;210;Red River;x
-536;147;143;225;Jianjiang River;x
+534;104;101;154;Serpent's Tongue;x
+535;157;154;210;Serpent's Tongue;x
+536;;;;;x
 537;139;138;178;Majia River;x
 538;119;115;202;Tuhai River;x
 539;128;124;168;Yamantaka River;x
@@ -592,97 +592,97 @@ province;red;green;blue;x;x
 591;97;176;12;Iwata;x
 592;137;241;68;Ilao;x
 593;89;207;10;Ecchi;x
-594;126;160;43;Sheto;x
-595;;;;;x
-596;;;;;x
-597;;;;;x
-598;;;;;x
-599;;;;;x
-600;;;;;x
-601;;;;;x
-602;;;;;x
-603;;;;;x
-604;;;;;x
-605;;;;;x
-606;;;;;x
-607;;;;;x
-608;;;;;x
-609;;;;;x
-610;;;;;x
-611;;;;;x
-612;;;;;x
-613;;;;;x
-614;;;;;x
-615;;;;;x
-616;;;;;x
-617;;;;;x
-618;;;;;x
-619;;;;;x
-620;;;;;x
-621;;;;;x
-622;;;;;x
-623;;;;;x
-624;;;;;x
-625;;;;;x
-626;;;;;x
-627;;;;;x
-628;;;;;x
-629;;;;;x
-630;;;;;x
-631;;;;;x
-632;;;;;x
-633;;;;;x
-634;;;;;x
-635;;;;;x
-636;;;;;x
-637;;;;;x
-638;;;;;x
-639;;;;;x
-640;;;;;x
-641;;;;;x
-642;;;;;x
-643;;;;;x
-644;;;;;x
-645;;;;;x
-646;;;;;x
-647;;;;;x
-648;;;;;x
-649;;;;;x
-650;;;;;x
-651;;;;;x
-652;;;;;x
-653;;;;;x
-654;;;;;x
-655;;;;;x
-656;;;;;x
-657;;;;;x
-658;;;;;x
-659;;;;;x
-660;;;;;x
-661;;;;;x
-662;;;;;x
-663;;;;;x
-664;;;;;x
-665;;;;;x
-666;;;;;x
-667;;;;;x
-668;;;;;x
-669;;;;;x
-670;;;;;x
-671;;;;;x
-672;;;;;x
-673;;;;;x
-674;;;;;x
-675;;;;;x
-676;;;;;x
-677;;;;;x
-678;;;;;x
-679;;;;;x
-680;;;;;x
-681;;;;;x
-682;;;;;x
-683;;;;;x
-684;;;;;x
+594;126;160;43;Sheto;x,,,prov,county,barony,his prov,hist title,landed,flag,
+595;203;178;75;Shiyama;x,,,x,x,x,x,x,x,x,Western Air Temple
+596;201;175;72;Sincho;x,,,x,x,x,x,x,x,x,
+597;207;187;106;Nakaraoi;x,,,x,x,x,x,x,x,,
+598;199;173;75;Gyat;x,,,x,x,x,x,x,x,,
+599;202;178;84;Singa;x,,,x,x,x,x,x,x,,
+600;184;158;56;Yakutama;x,,,X,x,x,x,x,x,,
+601;162;135;29;Rigsang;x,,,X,x,x,x,x,x,,
+602;181;150;26;Yangdon;x,,,x,x,x,x,x,x,,
+603;172;145;34;Ngawang;x,,,x,x,x,x,x,x,,
+604;222;187;48;Lhawang;x,,,x,x,x,x,x,x,,
+605;232;196;50;Mipham;x,,,x,x,x,x,x,x,,
+606;202;169;38;Legshey;x,,,x,x,x,x,x,x,,
+607;170;142;32;Choenyi;x,,,x,x,x,x,x,x,,
+608;84;121;215;Mianteng River;xx
+609;107;156;28;Hengdao;x,,,x,x,x,x,x,x,,Great Divide
+610;114;124;99;North Divide;x,,,x,x,x,x,x,x,,
+611;124;177;42;The Divide;x,,,x,x,x,x,x,x,,
+612;142;175;91;South Divide;x,,,x,x,x,x,x,x,,
+613;99;139;38;Guangping;x,,,x,x,x,x,x,x,,
+614;86;127;24;Xiangmay;x,,,x,x,x,x,x,x,,
+615;115;168;33;Tangchun;x,,,x,x,x,x,x,x,,
+616;128;183;44;Baowei Islands;x,,,x,x,x,x,x,x,,
+617;203;111;34;Tseten;x,,,x,x,x,x,x,x,,North Air
+618;219;118;34;Dhompa;x,,,x,x,x,x,x,x,,
+619;208;123;52;Dema;x,,,x,x,x,x,x,x,,
+620;210;118;40;Ngonga;x,,,x,x,x,x,x,x,,
+621;25;156;25;Qingshan;x,,,x,x,x,x,x,x,,Northern earth Kingdom
+622;39;108;61;Zhenyuan;x,,,x,x,x,x,x,x,,
+623;38;147;73;Baohai;x,,,x,x,x,x,x,x,,
+624;14;132;52;Tongdao;x,,,x,x,x,x,x,x,,
+625;28;149;68;Jiangliang;x,,,x,x,x,x,x,x,,
+626;47;189;93;Danmay;x,,,x,x,x,x,x,x,,
+627;81;121;39;Panchong;x,,,x,x,x,x,x,x,,
+628;113;146;77;Xiantong;x,,,x,x,x,x,x,x,,
+629;160;215;102;Hengwei;x,,,x,x,x,x,x,x,,
+630;73;103;38;Tanyuan;x,,,x,x,x,x,x,x,,
+631;55;97;60;Jincheng;x,,,x,x,x,x,x,x,,
+632;87;119;49;Yangxuan;x,,,x,x,x,x,x,x,,Western Earth Kingdom
+633;94;159;103;Jing Guang;x,,,x,x,x,x,x,x,,
+634;97;144;103;Suzou;x,,,x,x,x,x,x,x,,
+635;82;174;96;Fuyang;x,,,x,x,x,x,x,x,,
+636;69;208;88;Baotong;x,,,x,x,x,x,x,x,,
+637;58;182;75;Tongshan;x,,,x,x,x,x,x,x,,
+638;106;189;98;Zaoyuan;x,,,x,x,x,x,x,x,x,
+639;58;136;32;Baojiang;x,,,x,x,x,x,x,x,x,
+640;86;194;76;Nanxing;x,,,x,x,x,x,x,x,,
+641;46;103;39;Danhai;x,,,x,x,x,x,x,x,,
+642;83;147;76;Fengchong;x,,,x,x,x,x,x,x,,
+643;19;158;42;Shaodong;x,,,x,x,x,x,x,x,,
+644;34;170;57;Fuyuan;x,,,x,x,x,x,x,x,,
+645;54;144;66;Jinchun;x,,,x,x,x,x,x,x,,
+646;31;120;45;Changdao;x,,,x,x,x,x,x,x,,
+647;71;194;91;North Shiguai;x,,,x,x,x,x,x,x,,
+648;59;182;78;Chiyuan Island;x,,,x,x,x,x,x,x,,
+649;32;60;51;Tong Daiyuan;x,,,x,x,x,x,x,x,x,Earth Islands
+650;33;132;103;Tong;x,,,x,x,x,x,x,x,,
+651;40;110;90;Jichung;x,,,x,x,x,x,x,x,,
+652;68;150;126;Kwonsong;x,,,x,x,x,x,x,x,,
+653;91;188;159;Yanpo;x,,,x,x,x,x,x,x,,
+654;52;173;137;Tang;x,,,x,x,x,x,x,x,,
+655;33;55;49;Seyong;x,,,x,x,x,x,x,x,,
+656;19;115;103;Bielak Island;x,,,x,x,x,x,x,x,,
+657;54;158;128;Hennauke;x,,,x,x,x,x,x,x,,
+658;54;101;87;Ayai;x,,,x,x,x,x,x,x,,
+659;48;206;160;Husko;x,,,x,x,x,x,x,x,,
+660;46;133;108;Resak;x,,,x,x,x,x,x,x,,
+661;31;180;136;Oki;x,,,x,x,x,x,x,x,,
+662;65;168;137;Itakshir;x,,,x,x,x,x,x,x,,
+663;233;221;117;East Whaletail Island;x,,,x,x,x,x,x,x,,Southern Air Temple
+664;219;188;117;Whaletail Kho;x,,,x,x,x,x,x,x,,
+665;176;144;34;Choegyal;x,,,x,x,x,x,x,x,,
+666;154;129;44;Kalsang;x,,,x,x,x,x,x,x,,
+667;186;155;50;Dhargay;x,,,x,x,x,x,x,x,,
+668;182;154;59;Chonden;x,,,x,x,x,x,x,x,,
+669;169;155;37;West Baingoin;x,,,x,x,x,x,x,x,,
+670;182;155;37;Palsang;x,,,x,x,x,x,x,x,,
+671;227;206;30;Palkyi;x,,,x,x,x,x,x,x,,
+672;222;202;26;Tsewang;x,,,x,x,x,x,x,x,,
+673;226;208;61;Tsultrim;x,,,x,x,x,x,x,x,,
+674;207;175;62;Pema;x,,,x,x,x,x,x,x,,
+675;227;190;64;Manriwa;x,,,x,x,x,x,x,x,,
+676;206;190;47;Sangmo;x,,,x,x,x,x,x,x,,
+677;208;192;49;East Kangaroo Island;x,,,x,x,x,x,x,x,,
+678;194;178;42;Kangaroo Tip;x,,,x,x,x,x,x,x,,
+679;176;162;34;Tselha;x,,,x,x,x,x,x,x,,
+680;168;156;47;Jamtso;x,,,x,x,x,x,x,x,,
+681;180;169;69;Kelden;x,,,x,x,x,x,x,x,,
+682;38;166;221;Ti  Diang;x,,,x,x,x,x,x,x,,
+683;128;145;208;Red River Crossing;x,,,x,x,x,x,x,x,,
+684;169;179;228;Da Dongjiang;x,,,x,x,x,x,x,x,,
 685;;;;;x
 686;;;;;x
 687;;;;;x

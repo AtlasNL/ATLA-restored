@@ -83,7 +83,7 @@ character_event = { # Canon Character - Birth
 				is_female = yes
 			}
 			set_character_flag = is_ursa
-			set_graphical_culture = royalfiretwogfx
+			set_graphical_culture = customPortrait_iroh
 			set_name = "Ursa"
 			set_global_flag = Ursa
 			add_trait = canon_character
@@ -130,7 +130,7 @@ character_event = { # Canon Character - Birth
 			}
 			set_character_flag = is_iroh
 			set_character_flag = special_bender
-			set_graphical_culture = royalfiretwogfx
+			set_graphical_culture = customPortrait_iroh
 			set_name = "Iroh"
 			set_global_flag = Iroh
 			add_trait = strong
@@ -159,7 +159,7 @@ character_event = { # Canon Character - Birth
 				is_female = no
 			}
 			set_character_flag = is_zuko
-			set_graphical_culture = royalfiregfx
+			set_graphical_culture = customPortrait_zuko
 			set_name = "Zuko"
 			set_global_flag = Zuko
 			add_trait = canon_character
@@ -174,7 +174,7 @@ character_event = { # Canon Character - Birth
 				is_female = yes
 			}
 			set_character_flag = is_azula
-			set_graphical_culture = royalfiregfx
+			set_graphical_culture = customPortrait_zuko
 			set_name = "Azula"
 			set_global_flag = Azula
 			add_trait = quick
@@ -199,7 +199,7 @@ character_event = { # Canon Character - Birth
 			limit = {
 				NOT = { has_global_flag = Kuzon }
 				year = 917
-				culture_group = fire_nation_culture
+				culture_group = fire_nation_cultures
 				is_female = no
 			}
 			set_character_flag = is_kuzon
@@ -215,7 +215,7 @@ character_event = { # Canon Character - Birth
 				is_female = no
 			}
 			set_character_flag = is_bumi
-			set_graphical_culture = earthherogfx
+			set_graphical_culture = customPortrait_toph
 			set_name = "Bumi"
 			set_global_flag = Bumi
 			add_trait = genius
@@ -226,134 +226,13 @@ character_event = { # Canon Character - Birth
 			limit = {
 				NOT = { has_global_flag = Kanna }
 				year = 868
-				culture = northern_water
+				culture = northern_water_culture
 				is_female = yes
 			}
 			set_character_flag = is_kanna
 			set_name = "Kanna"
 			set_global_flag = Kanna
 			add_trait = canon_character
-			break = yes
-		}
-	}
-}
-
-character_event = { # Canon Character - Death
-	id = ATLABI.2
-	hide_window = yes
-	is_triggered_only = yes
-	
-	option = {
-		if = {
-			limit = {
-				has_character_flag = is_sozin
-				year = 932
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_iroh
-				year = 953
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_ozai
-				year = 953
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_ursa
-				year = 968
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_azulon
-				year = 936
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_zuko
-				year = 1005
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_azula
-				year = 998
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_izumi
-				year = 1032
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_bumi
-				year = 937
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_kanna
-				year = 941
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_korra
-				year = 1082
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_roku
-				year = 819
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_aang
-				year = 982
-			}
-			death = { death_reason = death_natural }
-			break = yes
-		}
-		if = {
-			limit = {
-				has_character_flag = is_malu
-				year = 963
-			}
-			death = { death_reason = death_natural }
 			break = yes
 		}
 	}
@@ -386,7 +265,7 @@ character_event = { # Avoid Static Portraits
 					graphical_culture = royalfiretwogfx
 				}
 			}
-			set_graphical_culture = fire_nation
+			set_graphical_culture = fire_imperial_culture
 		}
 		if = {
 			limit = {
@@ -396,7 +275,7 @@ character_event = { # Avoid Static Portraits
 					graphical_culture = oldavatargfx
 				}
 			}
-			set_graphical_culture = ba_sing_se
+			set_graphical_culture = ba_sing_se_culture
 		}
 		if = {
 			limit = {
@@ -414,7 +293,7 @@ character_event = { # Avoid Static Portraits
 					graphical_culture = waterroyalgfx
 				}
 			}
-			set_graphical_culture = northern_water
+			set_graphical_culture = northern_water_culture
 		}
 	}
 }

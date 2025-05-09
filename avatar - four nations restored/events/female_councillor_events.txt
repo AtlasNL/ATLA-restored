@@ -12,12 +12,14 @@ character_event = {
 	only_playable = yes
 	capable_only = yes
 	min_age = 16
-	capable_only = yes
 	prisoner = no
 
 	trigger = {
 		NOR = {
-			is_inaccessible_trigger = yes 
+			is_inaccessible_trigger = yes
+			has_religion_feature = religion_matriarchal
+			has_religion_feature = religion_patriarchal
+			has_religion_feature = religion_equal
 			has_game_rule = {
 				name = gender
 				value = all
@@ -48,12 +50,12 @@ character_event = {
 				create_character = {
 					female = yes
 					age = 35
-					attributes = { 
+					attributes = {
 						martial = 2
 						diplomacy = 10
 						stewardship = 2
 						intrigue = 2
-						learning = 2 
+						learning = 2
 					}
 					dynasty = random
 					religion = ROOT
@@ -130,12 +132,12 @@ character_event = {
 				create_character = {
 					age = 37
 					female = yes
-					attributes = { 
+					attributes = {
 						martial = 10
 						diplomacy = 2
 						stewardship = 2
 						intrigue = 2
-						learning = 2 
+						learning = 2
 					}
 					dynasty = random
 					religion = ROOT
@@ -172,10 +174,10 @@ character_event = {
 
 					#Adds some more traits
 					random_list = {
-						#Brawny but Ugly
+						#Brawny Tomboy
 						25 = {
 							add_trait = robust
-							add_trait = ugly
+							add_trait = uncouth
 							add_trait = aggressive_leader
 						}
 						#Duelist
@@ -215,12 +217,12 @@ character_event = {
 				create_character = {
 					age = 38
 					female = yes
-					attributes = { 
+					attributes = {
 						martial = 2
 						diplomacy = 2
 						stewardship = 10
 						intrigue = 2
-						learning = 2 
+						learning = 2
 					}
 					dynasty = random
 					religion = ROOT
@@ -293,12 +295,12 @@ character_event = {
 				create_character = {
 					age = 42
 					female = yes
-					attributes = { 
+					attributes = {
 						martial = 2
 						diplomacy = 2
 						stewardship = 2
 						intrigue = 10
-						learning = 2 
+						learning = 2
 					}
 					dynasty = random
 					religion = ROOT
@@ -354,7 +356,7 @@ character_event = {
 							add_trait = shrewd
 						}
 					}
-				} 
+				}
 			}
 		}
 	}
@@ -371,21 +373,12 @@ character_event = {
 
 		remove_trait = content
 
-		if = {
-			limit = { has_character_flag = female_councillor_chancellor }
-			FROM = { character_event = { id = 77779 } }
-		}
-		if = {
-			limit = { has_character_flag = female_councillor_marshal }
-			FROM = { character_event = { id = 77780 } }
-		}
-		if = {
-			limit = { has_character_flag = female_councillor_treasurer }
-			FROM = { character_event = { id = 77781 } }
-		}
-		if = {
-			limit = { has_character_flag = female_councillor_spymaster }
-			FROM = { character_event = { id = 77782 } }
+		trigger_switch = {
+			on_trigger = has_character_flag
+			female_councillor_chancellor = { FROM = { character_event = { id = 77779 } } }
+			female_councillor_marshal = { FROM = { character_event = { id = 77780 } } }
+			female_councillor_treasurer = { FROM = { character_event = { id = 77781 } } }
+			female_councillor_spymaster = { FROM = { character_event = { id = 77782 } } }
 		}
 
 		clr_character_flag = female_councillor_chancellor
@@ -429,8 +422,8 @@ character_event = {
 			}
 		}
 
-		FROM = { 
-			give_job_title = job_chancellor 
+		FROM = {
+			give_job_title = job_chancellor
 		}
 		
 		if = {
@@ -442,26 +435,17 @@ character_event = {
 
 		if = {
 			limit = { NOT = { has_dlc = "Conclave" } }
-			add_character_modifier = {
-				name = scandalous_councillor_3
-				months = 60
-			}
+			female_councilor_effect_3 = yes
 		}
 		if = {
-			limit = { has_dlc = "Conclave" } 
+			limit = { has_dlc = "Conclave" }
 			if = {
-				limit = { primary_title = { has_law = status_of_women_1 } } 
-				add_character_modifier = {
-					name = scandalous_councillor_1
-					months = 60
-				}
+				limit = { primary_title = { has_law = status_of_women_1 } }
+				female_councilor_effect_1 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_0 } }
-				add_character_modifier = {
-					name = scandalous_councillor_2
-					months = 60
-				}
+				female_councilor_effect_2 = yes
 			}	
 		}
 
@@ -479,7 +463,7 @@ character_event = {
 			if = {
 				limit = { NOT = { any_courtier = { NOT = { character = ROOT } is_adult = yes is_married = no is_female = no prisoner = no is_unimportant_trigger = yes } } }
 
-				create_random_diplomat = { 
+				create_random_diplomat = {
 					random_traits = yes
 					dynasty = NONE
 					female = no
@@ -494,7 +478,6 @@ character_event = {
 		name = EVTOPTB_77779
 		hidden_tooltip = {
 			FROM = {
-				leave_court_effect = yes
 				death = { death_reason = death_missing }
 			}
 		}
@@ -537,8 +520,8 @@ character_event = {
 			}
 		}
 
-		FROM = { 
-			give_job_title = job_marshal 
+		FROM = {
+			give_job_title = job_marshal
 		}
 		
 		if = {
@@ -550,33 +533,21 @@ character_event = {
 
 		if = {
 			limit = { NOT = { has_dlc = "Conclave" } }
-			add_character_modifier = {
-				name = scandalous_councillor_3
-				months = 60
-			}
+			female_councilor_effect_3 = yes
 		}
 		if = {
-			limit = { has_dlc = "Conclave" } 
+			limit = { has_dlc = "Conclave" }
 			if = {
 				limit = { primary_title = { has_law = status_of_women_2 } }
-				add_character_modifier = {
-					name = scandalous_councillor_1
-					months = 60
-				}
+				female_councilor_effect_1 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_1 } }
-				add_character_modifier = {
-					name = scandalous_councillor_2
-					months = 60
-				}
+				female_councilor_effect_2 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_0 } }
-				add_character_modifier = {
-					name = scandalous_councillor_3
-					months = 60
-				}
+				female_councilor_effect_3 = yes
 			}
 		}
 
@@ -594,7 +565,7 @@ character_event = {
 			if = {
 				limit = { NOT = { any_courtier = { NOT = { character = ROOT } is_adult = yes is_married = no is_female = no prisoner = no is_unimportant_trigger = yes } } }
 
-				create_random_soldier = { 
+				create_random_soldier = {
 					random_traits = yes
 					dynasty = NONE
 					female = no
@@ -608,7 +579,6 @@ character_event = {
 		name = EVTOPTB_77780
 		hidden_tooltip = {
 			FROM = {
-				leave_court_effect = yes
 				death = { death_reason = death_missing }
 			}
 		}
@@ -627,7 +597,7 @@ character_event = {
 	is_triggered_only = yes
 
 	desc = {
-		trigger = { NOT = { has_dlc = "Way of Life" } } 
+		trigger = { NOT = { has_dlc = "Way of Life" } }
 		text = EVTDESC_77781
 		picture = GFX_evt_carriage
 	}
@@ -661,8 +631,8 @@ character_event = {
 			}
 		}
 
-		FROM = { 
-			give_job_title = job_treasurer 
+		FROM = {
+			give_job_title = job_treasurer
 		}
 		
 		if = {
@@ -674,26 +644,17 @@ character_event = {
 
 		if = {
 			limit = { NOT = { has_dlc = "Conclave" } }
-			add_character_modifier = {
-				name = scandalous_councillor_3
-				months = 60
-			}
+			female_councilor_effect_3 = yes
 		}
 		if = {
-			limit = { has_dlc = "Conclave" } 
+			limit = { has_dlc = "Conclave" }
 			if = {
 				limit = { primary_title = { has_law = status_of_women_1 } }
-				add_character_modifier = {
-					name = scandalous_councillor_1
-					months = 60
-				}
+				female_councilor_effect_1 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_0 } }
-				add_character_modifier = {
-					name = scandalous_councillor_2
-					months = 60
-				}
+				female_councilor_effect_2 = yes
 			}	
 		}
 
@@ -711,7 +672,7 @@ character_event = {
 			if = {
 				limit = { NOT = { any_courtier = { NOT = { character = ROOT } is_adult = yes is_married = no is_female = no prisoner = no is_unimportant_trigger = yes } } }
 
-				create_random_steward = { 
+				create_random_steward = {
 					random_traits = yes
 					dynasty = NONE
 					female = no
@@ -725,7 +686,6 @@ character_event = {
 		name = EVTOPTB_77781
 		hidden_tooltip = {
 			FROM = {
-				leave_court_effect = yes
 				death = { death_reason = death_missing }
 			}
 		}
@@ -749,7 +709,7 @@ character_event = {
 		picture = GFX_evt_whispers
 	}
 	desc = {
-		trigger = { has_dlc = "Way of Life" } 
+		trigger = { has_dlc = "Way of Life" }
 		text = EVTDESC_77782
 		picture = GFX_evt_eavesdropping
 	}
@@ -778,9 +738,11 @@ character_event = {
 			}
 		}
 
-		FROM = { 
-			give_job_title = job_spymaster 
+		FROM = {
+			give_job_title = job_spymaster
 		}
+
+		reverse_opinion = { modifier = opinion_given_council_position_1 who = FROM years = 5 }
 		
 		if = {
 			limit = {
@@ -803,7 +765,7 @@ character_event = {
 			if = {
 				limit = { NOT = { any_courtier = { NOT = { character = ROOT } is_adult = yes is_married = no is_female = no prisoner = no is_unimportant_trigger = yes } } }
 
-				create_random_intriguer = { 
+				create_random_intriguer = {
 					random_traits = yes
 					dynasty = NONE
 					female = no
@@ -817,7 +779,6 @@ character_event = {
 		name = EVTOPTB_77782
 		hidden_tooltip = {
 			FROM = {
-				leave_court_effect = yes
 				death = { death_reason = death_missing }
 			}
 		}
@@ -839,20 +800,20 @@ character_event = {
 	only_playable = yes
 	capable_only = yes
 	min_age = 16
-	capable_only = yes
 	prisoner = no
 
 	trigger = {
-		NOR = { 
+		NOR = {
+			has_religion_feature = religion_matriarchal
+			has_religion_feature = religion_patriarchal
+			has_religion_feature = religion_equal
 			primary_title = { has_law = status_of_women_3 }
 			primary_title = { has_law = status_of_women_4 }
-			religion = cathar
-			religion = messalian
 			has_game_rule = {
 				name = gender
 				value = all
 			}
-		} 
+		}
 
 		any_realm_character = {	
 			is_close_relative = ROOT
@@ -870,7 +831,7 @@ character_event = {
 				has_opinion_modifier = { who = ROOT modifier = opinion_refused_council }
 			}
 
-			OR = { 
+			OR = {
 				diplomacy = 15
 				martial = 15
 				stewardship = 15
@@ -880,7 +841,7 @@ character_event = {
 	}
 
 	immediate = {
-		random_realm_character = {
+		any_realm_character = {
 			limit = {
 				is_close_relative = ROOT
 				is_female = yes
@@ -921,15 +882,15 @@ character_event = {
 						NOR = {
 							ROOT = { primary_title = { has_law = status_of_women_2 } }
 							ROOT = { primary_title = { has_law = status_of_women_1 } }
-							AND = {
-								ROOT = { religion_group = pagan_group }
-								religion_group = pagan_group
-							}
 							any_spouse = { character = ROOT }
 							any_child = { character = ROOT }
 						}
 					}
 				}
+			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+				value = 10
+				interesting_courtier_selection_score = yes
 			}
 			character_event = { id = 77791 }
 		}
@@ -955,7 +916,7 @@ character_event = {
 						FROM = { primary_title = { has_law = status_of_women_2 } }
 					}
 				}
-				FROM = { character_event = { id = 77792 } } 
+				FROM = { character_event = { id = 77792 } }
 			}
 			#marshal
 			25 = {
@@ -963,7 +924,7 @@ character_event = {
 					factor = 0
 					NOT = { martial = 15 }
 				}
-				FROM = { character_event = { id = 77793 } } 
+				FROM = { character_event = { id = 77793 } }
 			}
 			#steward
 			25 = {
@@ -974,7 +935,7 @@ character_event = {
 						FROM = { primary_title = { has_law = status_of_women_2 } }
 					}
 				}
-				FROM = { character_event = { id = 77794 } } 
+				FROM = { character_event = { id = 77794 } }
 			}
 			#spymaster
 			25 = {
@@ -982,15 +943,11 @@ character_event = {
 					factor = 0
 					OR = {
 						NOT = { intrigue = 15 }
-						FROM = { primary_title = { has_law = status_of_women_2 } } 
-						FROM = { primary_title = { has_law = status_of_women_1 } } 
-						AND = {
-							FROM = { religion_group = pagan_group }
-							religion_group = pagan_group
-						}
+						FROM = { primary_title = { has_law = status_of_women_2 } }
+						FROM = { primary_title = { has_law = status_of_women_1 } }
 					}
 				}
-				FROM = { character_event = { id = 77795 } } 
+				FROM = { character_event = { id = 77795 } }
 			}
 		}
 	}
@@ -1032,26 +989,17 @@ character_event = {
 
 		if = {
 			limit = { NOT = { has_dlc = "Conclave" } }
-			add_character_modifier = {
-				name = scandalous_councillor_3
-				months = 60
-			}
+			female_councilor_effect_3 = yes
 		}
 		if = {
-			limit = { has_dlc = "Conclave" } 
+			limit = { has_dlc = "Conclave" }
 			if = {
-				limit = { primary_title = { has_law = status_of_women_1 } } 
-				add_character_modifier = {
-					name = scandalous_councillor_1
-					months = 60
-				}
+				limit = { primary_title = { has_law = status_of_women_1 } }
+				female_councilor_effect_1 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_0 } }
-				add_character_modifier = {
-					name = scandalous_councillor_2
-					months = 60
-				}
+				female_councilor_effect_2 = yes
 			}	
 		}
 	}
@@ -1114,33 +1062,21 @@ character_event = {
 
 		if = {
 			limit = { NOT = { has_dlc = "Conclave" } }
-			add_character_modifier = {
-				name = scandalous_councillor_3
-				months = 60
-			}
+			female_councilor_effect_3 = yes
 		}
 		if = {
-			limit = { has_dlc = "Conclave" } 
+			limit = { has_dlc = "Conclave" }
 			if = {
 				limit = { primary_title = { has_law = status_of_women_2 } }
-				add_character_modifier = {
-					name = scandalous_councillor_1
-					months = 60
-				}
+				female_councilor_effect_1 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_1 } }
-				add_character_modifier = {
-					name = scandalous_councillor_2
-					months = 60
-				}
+				female_councilor_effect_2 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_0 } }
-				add_character_modifier = {
-					name = scandalous_councillor_3
-					months = 60
-				}
+				female_councilor_effect_3 = yes
 			}	
 		}
 	}
@@ -1205,26 +1141,17 @@ character_event = {
 
 		if = {
 			limit = { NOT = { has_dlc = "Conclave" } }
-			add_character_modifier = {
-				name = scandalous_councillor_3
-				months = 60
-			}
+			female_councilor_effect_3 = yes
 		}
 		if = {
-			limit = { has_dlc = "Conclave" } 
+			limit = { has_dlc = "Conclave" }
 			if = {
 				limit = { primary_title = { has_law = status_of_women_1 } }
-				add_character_modifier = {
-					name = scandalous_councillor_1
-					months = 60
-				}
+				female_councilor_effect_1 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_0 } }
-				add_character_modifier = {
-					name = scandalous_councillor_2
-					months = 60
-				}
+				female_councilor_effect_2 = yes
 			}	
 		}
 	}
@@ -1284,6 +1211,12 @@ character_event = {
 		}
 
 		FROM = { give_job_title = job_spymaster }
+
+		reverse_opinion = {
+			modifier = opinion_given_council_position_2
+			who = FROM
+			years = 5
+		}
 	}
 	option = {
 		name = EVTOPTB_77795
@@ -1317,25 +1250,26 @@ character_event = {
 	only_playable = yes
 	capable_only = yes
 	min_age = 16
-	capable_only = yes
 	prisoner = no
 
 	trigger = {
-		NOR = { 
+		NOR = {
 			primary_title = { has_law = status_of_women_3 }
 			primary_title = { has_law = status_of_women_4 }
-			religion = cathar
-			religion = messalian
+			has_religion_feature = religion_matriarchal
+			has_religion_feature = religion_patriarchal
+			has_religion_feature = religion_equal
 			has_game_rule = {
 				name = gender
 				value = all
 			}
-		} 
+		}
 
 		any_vassal = {	
 			is_landed = yes
 			is_female = yes
 			is_adult = yes
+			prisoner = no
 			NOT = { trait = content }
 
 			NOR = {
@@ -1344,10 +1278,11 @@ character_event = {
 				has_job_title = job_treasurer
 				has_job_title = job_spymaster
 				has_job_title = job_spiritual
+				primary_title = { temporary = yes }
 				has_opinion_modifier = { who = ROOT modifier = opinion_refused_council }
 			}
 
-			OR = { 
+			OR = {
 				diplomacy = 13
 				martial = 13
 				stewardship = 13
@@ -1359,11 +1294,12 @@ character_event = {
 	}
 
 	immediate = {
-		random_vassal = {
+		any_vassal = {
 			limit = {
 				is_landed = yes
 				is_female = yes
 				is_adult = yes
+				prisoner = no
 				NOT = { trait = content }
 
 				NOR = {
@@ -1434,18 +1370,16 @@ character_event = {
 						NOR = {
 							ROOT = { primary_title = { has_law = status_of_women_2 } }
 							ROOT = { primary_title = { has_law = status_of_women_1 } }
-							AND = {
-								ROOT = { religion_group = pagan_group }
-								religion_group = pagan_group
-							}
 							any_spouse = { character = ROOT }
 							any_child = { character = ROOT }
 						}
 					}
 				}
 			}
-
-			set_character_flag = advisor_woman #todo
+			score_value = { #Prioritizes selecting an interesting courtier...
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 
 			character_event = { id = 77761 }
 		}
@@ -1514,13 +1448,9 @@ character_event = {
 				intrigue = 13
 				has_education_intrigue_trigger = yes
 			}
-			NOR = { 
+			NOR = {
 				FROM = { primary_title = { has_law = status_of_women_2 } }
-				FROM = { primary_title = { has_law = status_of_women_1 } } 
-				AND = {
-					FROM = { religion_group = pagan_group }
-					religion_group = pagan_group
-				}
+				FROM = { primary_title = { has_law = status_of_women_1 } }
 			}			
 		}
 
@@ -1580,34 +1510,19 @@ character_event = {
 		}
 		FROM = { give_job_title = job_chancellor }
 
-		reverse_opinion = {
-			modifier = opinion_appreciated_abilities
-			who = FROM
-			years = 10
-		}
-
 		if = {
 			limit = { NOT = { has_dlc = "Conclave" } }
-			add_character_modifier = {
-				name = scandalous_councillor_3
-				months = 60
-			}
+			female_councilor_effect_3 = yes
 		}
 		if = {
-			limit = { has_dlc = "Conclave" } 
+			limit = { has_dlc = "Conclave" }
 			if = {
-				limit = { primary_title = { has_law = status_of_women_1 } } 
-				add_character_modifier = {
-					name = scandalous_councillor_1
-					months = 60
-				}
+				limit = { primary_title = { has_law = status_of_women_1 } }
+				female_councilor_effect_1 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_0 } }
-				add_character_modifier = {
-					name = scandalous_councillor_2
-					months = 60
-				}
+				female_councilor_effect_2 = yes
 			}	
 		}
 
@@ -1672,41 +1587,23 @@ character_event = {
 
 		FROM = { give_job_title = job_marshal }
 
-		reverse_opinion = {
-			modifier = opinion_appreciated_abilities
-			who = FROM
-			years = 10
-		}
-
 		if = {
 			limit = { NOT = { has_dlc = "Conclave" } }
-			add_character_modifier = {
-				name = scandalous_councillor_3
-				months = 60
-			}
+			female_councilor_effect_3 = yes
 		}
 		if = {
-			limit = { has_dlc = "Conclave" } 
+			limit = { has_dlc = "Conclave" }
 			if = {
 				limit = { primary_title = { has_law = status_of_women_2 } }
-				add_character_modifier = {
-					name = scandalous_councillor_1
-					months = 60
-				}
+				female_councilor_effect_1 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_1 } }
-				add_character_modifier = {
-					name = scandalous_councillor_2
-					months = 60
-				}
+				female_councilor_effect_2 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_0 } }
-				add_character_modifier = {
-					name = scandalous_councillor_3
-					months = 60
-				}
+				female_councilor_effect_3 = yes
 			}	
 		}
 
@@ -1773,34 +1670,19 @@ character_event = {
 
 		FROM = { give_job_title = job_treasurer }
 
-		reverse_opinion = {
-			modifier = opinion_appreciated_abilities
-			who = FROM
-			years = 10
-		}
-
 		if = {
 			limit = { NOT = { has_dlc = "Conclave" } }
-			add_character_modifier = {
-				name = scandalous_councillor_3
-				months = 60
-			}
+			female_councilor_effect_3 = yes
 		}
 		if = {
-			limit = { has_dlc = "Conclave" } 
+			limit = { has_dlc = "Conclave" }
 			if = {
 				limit = { primary_title = { has_law = status_of_women_1 } }
-				add_character_modifier = {
-					name = scandalous_councillor_1
-					months = 60
-				}
+				female_councilor_effect_1 = yes
 			}
 			if = {
 				limit = { primary_title = { has_law = status_of_women_0 } }
-				add_character_modifier = {
-					name = scandalous_councillor_2
-					months = 60
-				}
+				female_councilor_effect_2 = yes
 			}	
 		}
 
@@ -1866,9 +1748,9 @@ character_event = {
 		FROM = { give_job_title = job_spymaster }
 
 		reverse_opinion = {
-			modifier = opinion_appreciated_abilities
+			modifier = opinion_given_council_position_1
 			who = FROM
-			years = 10
+			years = 5
 		}
 
 		hidden_tooltip = { FROM = { character_event = { id = 77766 days = 15 } } }

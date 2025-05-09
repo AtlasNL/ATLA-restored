@@ -907,7 +907,7 @@ ugly = {
 	diplomacy = -1
 	
 	male_insult = INSULT_GROTESQUE
-	female_insult = INSULT_GORGON
+	# female_insult = INSULT_GORGON
 	female_insult = INSULT_TROLL
 	male_insult_adj = INSULT_HIDEOUS
 	female_insult_adj = INSULT_HIDEOUS
@@ -1124,7 +1124,6 @@ celibate = {
 	
 	fertility = -10.0
 	
-	christian_church_opinion = 5
 	opposite_opinion = -5
 	same_opinion = 10
 	
@@ -1154,8 +1153,6 @@ hedonist = {
 	
 	opposite_opinion = -5
 	same_opinion = 10
-	
-	christian_church_opinion = -5
 	
 	ai_zeal = -30
 	ruler_designer_cost = 10
@@ -1332,9 +1329,7 @@ lustful = {
 	fertility = 0.2
 	
 	intrigue = 1
-	
-	christian_church_opinion = -5
-	
+
 	monthly_character_piety = -0.25
 	
 	ai_greed = 20
@@ -1347,7 +1342,7 @@ lustful = {
 	female_insult = INSULT_TROLLOP
 	female_insult_adj = INSULT_WANTON
 	male_compliment_adj = COMPL_VIVACIOUS
-	female_compliment_adj = COMPL_VIVACIOUS
+	# female_compliment_adj = COMPL_VIVACIOUS
 	female_compliment_adj = COMPL_NICE
 }
 chaste = {
@@ -1366,7 +1361,6 @@ chaste = {
 	
 	learning = 1
 	
-	christian_church_opinion = 5
 	opposite_opinion = -5
 	
 	monthly_character_piety = 0.5
@@ -1760,7 +1754,8 @@ gregarious = {
 	female_compliment = COMPL_WIT
 	female_compliment_adj = COMPL_FETCHING
 	child_compliment_adj = COMPL_NICE
-	child_compliment_adj = COMPL_HERO
+	# child_compliment_adj = COMPL_HERO
+	child_compliment = COMPL_NICE
 }
 ambitious = {
 	personality = yes
@@ -1821,10 +1816,10 @@ arbitrary = {
 	
 	male_insult = INSULT_SCATTERBRAIN
 	female_insult = INSULT_SCATTERBRAIN
-	child_insult_adj = INSULT_IDIOT
+	child_insult = INSULT_IDIOT
 	male_insult_adj = INSULT_ERRATIC
 	female_insult_adj = INSULT_ERRATIC
-	child_insult_adj = INSULT_WICKED
+	# child_insult_adj = INSULT_WICKED
 	male_compliment = COMPL_ROGUE
 	male_compliment_adj = COMPL_RAFFISH
 	female_compliment = COMPL_DEVIL
@@ -1881,12 +1876,12 @@ zealous = {
 	personality = yes
 	opposites =  {
 		cynical
-		sympathy_christendom
-		sympathy_islam
-		sympathy_pagans
-		sympathy_zoroastrianism
-		sympathy_judaism
-		sympathy_indian
+		sympathy_earth_religions
+		sympathy_water_religions
+		sympathy_fire_religions
+		sympathy_air_religions
+		sympathy_modern_religions
+		sympathy_outlaw_religions
 	}
 	
 	martial = 2

@@ -1257,7 +1257,11 @@ character_event = {
     #Sword
     option = { 
         trigger = { 
-        	NOR = { religion = children_of_si_wong has_dharmic_religion_trigger = yes } has_character_flag = weaponsmith 
+        	NOR = { 
+				religion = children_of_si_wong 
+				religion = children_of_si_wong_reformed
+			} 
+			has_character_flag = weaponsmith 
         	have_all_weaponsmith_swords_all_flags_trigger = no
         }
         name = EVTOPTA_MNM_9118
@@ -1269,7 +1273,11 @@ character_event = {
     #Scimitar
     option = {
         trigger = { 
-        	OR = { religion = children_of_si_wong has_dharmic_religion_trigger = yes } has_character_flag = weaponsmith 
+			OR = {
+				religion = children_of_si_wong 
+				religion = children_of_si_wong_reformed
+			}
+			has_character_flag = weaponsmith 
         	have_all_weaponsmith_scimitar_all_flags_trigger = no
     	}
         name = EVTOPTB_MNM_9118
@@ -4015,7 +4023,6 @@ character_event = {
 	trigger = {
 		FROM = {
 			always = yes
-			is_capital = yes
 			location = { is_capital = yes }
 		}
 	}
@@ -4279,13 +4286,13 @@ character_event = {
     desc = {
 		text = EVTDESC_MNM_9902_A
 		trigger = {
-			looting_artifact_event_religious_artifacts_trigger = no
+			 
 		}
 	}
 	desc = {
 		text = EVTDESC_MNM_9902_B
 		trigger = {
-			looting_artifact_event_religious_artifacts_trigger = yes
+			 
 		}
 	}
     picture = GFX_evt_relic_box
@@ -4317,13 +4324,12 @@ character_event = {
 		name = {
 			text = EVTOPTA_MNM_9902
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = no
+				 
 			}
 		}
 		name = {
 			text = EVTOPTB_MNM_9902
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = yes
 			}
 		}
 		tooltip = {
@@ -4369,7 +4375,7 @@ character_event = {
 					}
 					transfer_artifact = {
 						from = ROOT
-						to = THIS
+						to = PREV
 					}
 				}
 			}
@@ -4393,13 +4399,13 @@ character_event = {
     desc = {
 		text = EVTDESC_MNM_9902_A
 		trigger = {
-			looting_artifact_event_religious_artifacts_trigger = no
+			 
 		}
 	}
 	desc = {
 		text = EVTDESC_MNM_9902_B
 		trigger = {
-			looting_artifact_event_religious_artifacts_trigger = yes
+			 
 		}
 	}
     picture = GFX_evt_relic_box
@@ -4431,13 +4437,13 @@ character_event = {
 		name = {
 			text = EVTOPTA_MNM_9902
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = no
+				 
 			}
 		}
 		name = {
 			text = EVTOPTB_MNM_9902
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = yes
+				 
 			}
 		}
 		tooltip = {
@@ -4508,28 +4514,28 @@ character_event = {
 		text = EVTDESC_MNM_9906_A
 		trigger = {
 			NOT = { has_character_flag = looted_artifact_destroy_duplicate }
-			looting_artifact_event_religious_artifacts_trigger = no
+			 
 		}
 	}
 	desc = {
 		text = EVTDESC_MNM_9906_B
 		trigger = {
 			has_character_flag = looted_artifact_destroy_duplicate
-			looting_artifact_event_religious_artifacts_trigger = no
+			 
 		}
 	}
 	desc = {
 		text = EVTDESC_MNM_9906_C
 		trigger = {
 			NOT = { has_character_flag = looted_artifact_destroy_duplicate }
-			looting_artifact_event_religious_artifacts_trigger = yes
+			 
 		}
 	}
 	desc = {
 		text = EVTDESC_MNM_9906_D
 		trigger = {
 			has_character_flag = looted_artifact_destroy_duplicate
-			looting_artifact_event_religious_artifacts_trigger = yes
+			 
 		}
 	}
     picture = GFX_evt_relic_box
@@ -4591,13 +4597,13 @@ character_event = {
 		name = {
 			text = EVTOPTA_MNM_9906
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = no
+				 
 			}
 		}
 		name = {
 			text = EVTOPTC_MNM_9906
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = yes
+				 
 			}
 		}
 		trigger = {
@@ -4630,13 +4636,13 @@ character_event = {
 		name = {
 			text = EVTOPTB_MNM_9906
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = no
+				 
 			}
 		}
 		name = {
 			text = EVTOPTD_MNM_9906
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = yes
+				 
 			}
 		}
 		trigger = {
@@ -4746,28 +4752,28 @@ character_event = {
 		text = EVTDESC_MNM_9906_A
 		trigger = {
 			NOT = { has_character_flag = looted_artifact_destroy_duplicate }
-			looting_artifact_event_religious_artifacts_trigger = no
+			 
 		}
 	}
 	desc = {
 		text = EVTDESC_MNM_9906_B
 		trigger = {
 			has_character_flag = looted_artifact_destroy_duplicate
-			looting_artifact_event_religious_artifacts_trigger = no
+			 
 		}
 	}
 	desc = {
 		text = EVTDESC_MNM_9906_C
 		trigger = {
 			NOT = { has_character_flag = looted_artifact_destroy_duplicate }
-			looting_artifact_event_religious_artifacts_trigger = yes
+			 
 		}
 	}
 	desc = {
 		text = EVTDESC_MNM_9906_D
 		trigger = {
 			has_character_flag = looted_artifact_destroy_duplicate
-			looting_artifact_event_religious_artifacts_trigger = yes
+			 
 		}
 	}
     picture = GFX_evt_relic_box
@@ -4829,13 +4835,13 @@ character_event = {
 		name = {
 			text = EVTOPTA_MNM_9906
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = no
+				 
 			}
 		}
 		name = {
 			text = EVTOPTC_MNM_9906
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = yes
+				 
 			}
 		}
 		trigger = {
@@ -4868,13 +4874,13 @@ character_event = {
 		name = {
 			text = EVTOPTB_MNM_9906
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = no
+				 
 			}
 		}
 		name = {
 			text = EVTOPTD_MNM_9906
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = yes
+				 
 			}
 		}
 		trigger = {
@@ -4940,7 +4946,7 @@ character_event = {
 					}
 					transfer_artifact = {
 						from = ROOT
-						to = THIS
+						to = PREV
 					}
 				}
 			}
@@ -4984,28 +4990,28 @@ character_event = {
 		text = EVTDESC_MNM_9910_A
 		trigger = {
 			NOT = { has_character_flag = looted_artifact_destroy_duplicate }
-			looting_artifact_event_religious_artifacts_trigger = no
+			 
 		}
 	}
 	desc = {
 		text = EVTDESC_MNM_9910_B
 		trigger = {
 			has_character_flag = looted_artifact_destroy_duplicate
-			looting_artifact_event_religious_artifacts_trigger = no
+			 
 		}
 	}
 	desc = {
 		text = EVTDESC_MNM_9910_C
 		trigger = {
 			NOT = { has_character_flag = looted_artifact_destroy_duplicate }
-			looting_artifact_event_religious_artifacts_trigger = yes
+			 
 		}
 	}
 	desc = {
 		text = EVTDESC_MNM_9910_D
 		trigger = {
 			has_character_flag = looted_artifact_destroy_duplicate
-			looting_artifact_event_religious_artifacts_trigger = yes
+			 
 		}
 	}
     picture = GFX_evt_relic_box
@@ -5067,13 +5073,13 @@ character_event = {
 		name = {
 			text = EVTOPTA_MNM_9910
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = no
+				 
 			}
 		}
 		name = {
 			text = EVTOPTC_MNM_9910
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = yes
+				 
 			}
 		}
 		trigger = {
@@ -5106,13 +5112,13 @@ character_event = {
 		name = {
 			text = EVTOPTB_MNM_9910
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = no
+				 
 			}
 		}
 		name = {
 			text = EVTOPTD_MNM_9910
 			trigger = {
-				looting_artifact_event_religious_artifacts_trigger = yes
+				 
 			}
 		}
 		trigger = {
@@ -5178,7 +5184,7 @@ character_event = {
 					}
 					transfer_artifact = {
 						from = ROOT
-						to = THIS
+						to = PREV
 					}
 				}
 			}

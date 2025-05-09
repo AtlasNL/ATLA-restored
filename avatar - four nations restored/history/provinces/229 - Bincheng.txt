@@ -14,8 +14,9 @@ b_luotuoao = city
 #b_shili = temple
 
 # Misc
-culture = northern_earth
+culture = northern_earth_culture
 religion = way_of_chin
+terrain = mountain
 
 #History
 585.3.14 = { religion = earth_spirituality }

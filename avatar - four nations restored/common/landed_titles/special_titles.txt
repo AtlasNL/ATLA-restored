@@ -2,8 +2,9 @@ e_rebels = {
 	rebel = yes
 	landless = yes
 	primary = yes
-
-	culture = pirate
+	
+	culture = pirate_culture
+	religion = pirate_faith
 	tribe = yes
 
 	color={ 0 0 0 }
@@ -15,7 +16,8 @@ e_pirates = {
 	landless = yes
 	primary = yes
 
-	culture = pirate
+	culture = pirate_culture
+	religion = pirate_faith
 	tribe = yes
 
 	color={ 0 0 0 }
@@ -42,7 +44,7 @@ d_rough_rhinos = {
 	holy_order = yes
 	mercenary_type = rough_rhino_composition
 	
-	culture = fire_nation
+	culture = fire_imperial_culture
 	
 	# Parent Religion 
 	religion = fire_nation_imperialism
@@ -70,7 +72,7 @@ d_yuyan_archers = {
 	holy_order = yes
 	mercenary_type = yuyuan_composition
 	
-	culture = fire_nation
+	culture = fire_imperial_culture
 	
 	# Parent Religion 
 	religion = fire_nation_imperialism
@@ -83,6 +85,11 @@ d_yuyan_archers = {
 d_kyoshi_warriors = {
 	color={ 31 178 109 }
 	color2={ 255 255 255 }
+	
+	allow = {
+		is_female = yes
+		# male = no
+	}
 	
 	graphical_culture = earthgfx
 	
@@ -158,26 +165,6 @@ d_fire_sages = {
 	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
 }
 
-d_the_sages = {
-	color={ 16 92 4 }
-	color2={ 255 255 255 }
-	allow = {
-		always = no
-	}
-	
-	capital = 109 # Capital
-	
-	title = "HIGH_SAGE"
-	title_female = "HIGH_SAGE"
-	foa = "SAGE_FOA"
-	short_name = yes
-	
-	# Always exists
-	landless = yes
-	
-	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
-}
-
 e_chin_empire = {
 	color={ 255 178 0 }
 	color2={ 255 178 0 }
@@ -192,10 +179,10 @@ e_chin_empire = {
 	foa = "GREAT_RESTORER_FOA"
 	short_name = yes
 	
-	controls_religion = way_of_chin
+	controls_religion = way_of_chin #I dunno about that one, chief -Liz
 	
 	religion = way_of_chin
-	culture = southern_earth
+	culture = southern_earth_culture
 	
 	# Cannot be held as a secondary title
 	primary = yes
@@ -282,7 +269,7 @@ e_phoenix_kingdom = {
 	
 	capital = 60 # c_fire_palace
 	short_name = yes
-	culture = fire_nation
+	culture = fire_imperial_culture
 	title = "PHOENIX_KING"
 	title_female = "PHOENIX_QUEEN"
 	
@@ -316,7 +303,7 @@ e_sun_empire = {
 	
 	capital = 96 # Aztlan
 	short_name = yes
-	culture = fire_nation
+	culture = fire_imperial_culture
 	title = "SUN_KING"
 	title_female = "SUN_QUEEN"
 	
@@ -335,7 +322,7 @@ k_dragon_host = {
 	
 	capital = 60 # c_fire_palace
 	short_name = yes
-	culture = fire_nation
+	culture = fire_imperial_culture
 	title = "GENERAL"
 	title_female = "GENERAL"
 	foa = "DRAGON_GENERAL_FOA"
@@ -347,46 +334,14 @@ k_dragon_host = {
 	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
 }
 
-d_avatar = {
-	color = { 255 255 255 }
-	color2 = { 255 255 255 }
-	allow = {
-		always = no
-	}
-	
-	capital = 228
-	dynasty_title_names = no
-	landless = yes
-	short_name = yes
-	independent = yes
-	primary = yes
-	
-	title = title_avatar
-	title_female = title_avatar
-	
-	gain_effect = {
-		if = {
-			limit = {
-				owner = {
-					AND = {
-						NOT = { trait = avatar }
-						NOT = { trait = fullyrealisedavatar }
-					}
-				}
-			}
-			unsafe_destroy_landed_title = d_avatar
-		}
-	}
-}
-
 # Mercenaries
 d_red_river_pirates = {
 	color = { 255 78 78 }
 	color2 = { 255 78 78 }
 
 	capital = 259 # Long'a
-	religion = piracy
-	culture = pirate
+	religion = pirate_faith
+	culture = pirate_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -420,8 +375,8 @@ d_ishigaki_pirates = {
 	color2 = { 195 117 0 }
 
 	capital = 101
-	religion = piracy
-	culture = pirate
+	religion = pirate_faith
+	culture = pirate_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -456,7 +411,7 @@ d_bluesharks = {
 
 	capital = 7
 	religion = tui_and_la
-	culture = northern_water
+	culture = northern_water_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -487,7 +442,7 @@ d_outer_isles_warriors = {
 
 	capital = 13
 	religion = tui_and_la
-	culture = northern_water
+	culture = northern_water_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -518,7 +473,7 @@ d_south_cove_fleet = {
 
 	capital = 29
 	religion = southern_spirituality
-	culture = southern_water
+	culture = southern_water_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -549,7 +504,7 @@ d_kanzaki_company = {
 
 	capital = 62
 	religion = fire_spirituality
-	culture = fire_nation
+	culture = fire_imperial_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -580,7 +535,7 @@ d_sakiyama_swords = {
 
 	capital = 91
 	religion = fire_spirituality
-	culture = fire_nation
+	culture = fire_imperial_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -611,7 +566,7 @@ d_hono_fighters = {
 
 	capital = 93
 	religion = fire_spirituality
-	culture = fire_nation
+	culture = fire_imperial_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -673,7 +628,7 @@ d_bunjin_fleet = {
 
 	capital = 214
 	religion = earth_spirituality
-	culture = northern_earth
+	culture = northern_earth_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -707,7 +662,7 @@ d_nansen_fleet = {
 
 	capital = 142
 	religion = earth_spirituality
-	culture = eastern_earth
+	culture = eastern_earth_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -741,7 +696,7 @@ d_gaolan_company = {
 
 	capital = 261
 	religion = earth_spirituality
-	culture = western_earth
+	culture = western_earth_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -775,7 +730,7 @@ d_sunan_riders = {
 
 	capital = 288
 	religion = earth_spirituality
-	culture = southern_earth
+	culture = southern_earth_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -810,7 +765,7 @@ d_mucan_guard = {
 
 	capital = 264
 	religion = the_great_serpent
-	culture = western_earth
+	culture = western_earth_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -844,7 +799,7 @@ d_yanxicun_spears = {
 
 	capital = 346
 	religion = earth_spirituality
-	culture = southern_earth
+	culture = southern_earth_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -879,7 +834,7 @@ d_xiwan_watch = {
 
 	capital = 263
 	religion = the_divided
-	culture = western_earth
+	culture = western_earth_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -913,7 +868,7 @@ d_garsai_chargers = {
 
 	capital = 246
 	religion = earth_spirituality
-	culture = northern_earth
+	culture = northern_earth_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -948,7 +903,7 @@ d_si_gou_guides = {
 
 	capital = 281
 	religion = children_of_si_wong
-	culture = sandbender
+	culture = sandbender_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -982,7 +937,7 @@ d_fang_yu_gang = {
 
 	capital = 129
 	religion = ba_sing_se_cultural_heritage
-	culture = ba_sing_se
+	culture = ba_sing_se_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -1017,7 +972,7 @@ d_earth_movers = {
 
 	capital = 134
 	religion = ba_sing_se_cultural_heritage
-	culture = ba_sing_se
+	culture = ba_sing_se_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -1052,7 +1007,7 @@ d_goaling_rumblers = {
 
 	capital = 340
 	religion = earth_spirituality
-	culture = southern_earth
+	culture = southern_earth_culture
 	mercenary = yes
 
 	title = "CAPTAIN"
@@ -1091,32 +1046,13 @@ d_goaling_rumblers = {
 #		}
 #	}
 
-e_si_wong = {
-	color = { 108 142 62 }
-	color2 = { 118 130 20 }
-
-	capital = 281
-	location_ruler_title = yes
-	creation_requires_capital = no
-
-	culture = sandbender
-
-	title_prefix = "SAND_EMPIRE"
-	title = "SANDPIRE"
-	title_female = "SANDPIRE_F"
-
-	allow = {
-		always = no
-	}
-}
-
 d_princes_hunt = {
 	color = { 170 0 0 }
 	color2 = { 255 255 20 }
 	
 	capital = 60 # c_fire_palace
 	short_name = yes
-	culture = fire_nation
+	culture = fire_imperial_culture
 	title = "HUNT_PRINCE"
 	title_female = "HUNT_PRINCESS"
 	
@@ -1136,7 +1072,7 @@ k_zhao_navy = {
 	
 	capital = 60 # c_fire_palace
 	short_name = yes
-	culture = fire_nation
+	culture = fire_imperial_culture
 	title = "NAVY_ADMIRAL"
 	title_female = "NAVY_ADMIRAL"
 	
@@ -1174,124 +1110,27 @@ d_earth_spirituality = {
 	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
 }
 
-
-d_earth_spirituality_r = {
-	color={ 174 70 29 }
-	color2={ 255 255 255 }
-	
-	capital = 109 # Capital
-	
-	title = "HIGH_SAGE"
-	foa = "SAGE_FOA"
-	short_name = yes
-	
-	# Always exists
-	landless = yes
-	
-	# Controls a religion
-	controls_religion = earth_spirituality_reformed
-	
-	religion = earth_spirituality_reformed
-	
-	# Cannot be held as a secondary title
-	primary = yes
-	
-	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
-}
-
-d_fire_sages_r = {
-	color={ 174 70 29 }
-	color2={ 255 255 255 }
-	
-	capital = 60 # Capital
-	
-	title = "HIGH_SAGE"
-	foa = "SAGE_FOA"
-	short_name = yes
-	
-	# Always exists
-	landless = yes
-	
-	# Controls a religion
-	controls_religion = fire_spirituality_reformed
-	
-	religion = fire_spirituality_reformed
-	
-	# Cannot be held as a secondary title
-	primary = yes
-	
-	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
-}
-
 d_the_divided = {
-		color = { 132 172 36 }
-		color2 = { 255 255 255 }
+	color = { 132 172 36 }
+	color2 = { 255 255 255 }
 
-		capital = 250 # c_ulan
-		
-		title = "HIGH_SAGE"
-		foa = "SAGE_FOA"
-		short_name = yes
-	
-		# Always exists
-		landless = yes
-	
-		# Controls a religion		
-		controls_religion = the_divided
-		
-		religion = the_divided
-		
-		# Cannot be held as a secondary title
-		primary = yes
-	
-		dynasty_title_names = no 	# Will not be named "Seljuk", etc.
-}
-
-d_the_great_serpent = {
-	color = { 95 163 145 }
-	color2 = { 95 163 145 }
-	
 	capital = 250 # c_ulan
-		
+	
 	title = "HIGH_SAGE"
 	foa = "SAGE_FOA"
 	short_name = yes
-	
-	# Always exists
-	landless = yes
-	
-	# Controls a religion		
-	controls_religion = the_great_serpent
-		
-	religion = the_great_serpent
-		
-	# Cannot be held as a secondary title
-	primary = yes
-	
-	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
-}
 
-d_the_great_serpent_r = {
-	color = { 95 163 145 }
-	color2 = { 95 163 145 }
-	
-	capital = 250 # c_ulan
-		
-	title = "HIGH_SAGE"
-	foa = "SAGE_FOA"
-	short_name = yes
-	
 	# Always exists
 	landless = yes
-	
+
 	# Controls a religion		
-	controls_religion = the_great_serpent_reformed
-		
-	religion = the_great_serpent_reformed
-		
+	controls_religion = the_divided
+	
+	religion = the_divided
+	
 	# Cannot be held as a secondary title
 	primary = yes
-	
+
 	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
 }
 
@@ -1319,7 +1158,7 @@ d_southern_spirituality = {
 	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
 }
 
-d_southern_spirituality_r = {
+d_si_wong_r = {
 	color = { 42 35 236 }
 	color2 = { 42 35 236 }
 	
@@ -1333,9 +1172,32 @@ d_southern_spirituality_r = {
 	landless = yes
 	
 	# Controls a religion		
-	controls_religion = southern_spirituality_reformed
+	controls_religion = children_of_si_wong_reformed
 		
-	religion = southern_spirituality_reformed
+	religion = children_of_si_wong_reformed
+		
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+d_si_wong = {
+	color = { 42 35 236 }
+	color2 = { 42 35 236 }
+	
+	capital = 250 # c_ulan
+		
+	title = "HIGH_SAGE"
+	foa = "SAGE_FOA"
+	short_name = yes
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion		
+	controls_religion = children_of_si_wong
+		
+	religion = children_of_si_wong
 		
 	# Cannot be held as a secondary title
 	primary = yes

@@ -1,4 +1,4 @@
-#Written by Markus Olsén
+#Written by Markus OlsÃ©n
 #These are events specifically made to generate favors
 
 #ZE.8100 - ZE.8199
@@ -22,29 +22,23 @@ character_event = {
 
 	trigger = {
 		has_dlc = "Zeus"
-		OR = {
-			NOT = {	religion_group = muslim }
-			AND = {
-				religion_group = muslim
-				trait = decadent
-			}
-		}
-		NOR = { 
+		NOR = {
 			trait = temperate
-			trait = in_hiding
+			is_inaccessible_trigger = yes
 			trait = drunkard
 		}
 		any_vassal = {
-			NOR = { 
+			NOR = {
 				character = ROOT
 				holds_favor_on = ROOT
 				trait = incapable
-				trait = in_hiding
+				is_inaccessible_trigger = yes
 				is_rival = ROOT
 			}
 			is_voter = yes
 			prisoner = no
 		}
+		in_command = no
 	}
 
 	weight_multiplier = {
@@ -63,11 +57,11 @@ character_event = {
 	immediate = {
 		random_vassal = {
 			limit = {
-				NOR = { 
+				NOR = {
 					character = ROOT
 					holds_favor_on = ROOT
 					trait = incapable
-					trait = in_hiding
+					is_inaccessible_trigger = yes
 					is_rival = ROOT
 				}
 				is_voter = yes
@@ -95,12 +89,14 @@ character_event = {
 		random_list = {
 			60 = {}
 			30 = {
-				if = { limit = { NOR = { trait = wounded trait = maimed } }
-					add_trait = wounded
-					hidden_tooltip = {
-						character_event = {
-							id = 38280 #Notify Wounded
-						}
+				modifier = {
+					factor = 0
+					trait = wounded
+				}
+				add_trait = wounded
+				hidden_tooltip = {
+					character_event = {
+						id = 38280 #Notify Wounded
 					}
 				}
 			}
@@ -137,7 +133,7 @@ character_event = {
 	option = {
 		name = EVTOPTB_ZE_8101
 		FROM = {
-			tooltip = { 
+			tooltip = {
 				if = { limit = { NOT = { trait = drunkard } }
 					add_trait = drunkard
 				}
@@ -198,20 +194,20 @@ character_event = {
 
 	trigger = {
 		has_dlc = "Zeus"
-		NOT = { trait = in_hiding }
+		NOT = { is_inaccessible_trigger = yes }
 		any_vassal = {
-			NOR = { 
+			NOR = {
 				character = ROOT
 				owes_favor_to = ROOT
 				trait = incapable
-				trait = in_hiding
+				is_inaccessible_trigger = yes
 			}
 			is_voter = yes
 			prisoner = no
 			spouse = {
 				NOR = {
 					trait = incapable
-					trait = in_hiding
+					is_inaccessible_trigger = yes
 					opinion = { who = PREV value = 0 }
 					has_lover = yes
 				}
@@ -222,21 +218,22 @@ character_event = {
 	immediate = {
 		random_vassal = {
 			limit = {
-				NOR = { 
+				NOR = {
 					character = ROOT
 					owes_favor_to = ROOT
 					trait = incapable
-					trait = in_hiding
+					is_inaccessible_trigger = yes
 				}
 				is_voter = yes
 				prisoner = no
 				spouse = {
 					NOR = {
 						trait = incapable
-						trait = in_hiding
+						is_inaccessible_trigger = yes
 						opinion = { who = PREV value = 0 }
 						has_lover = yes
 					}
+					prisoner = no
 				}
 			}
 			save_event_target_as = target_vassal
@@ -246,7 +243,7 @@ character_event = {
 	#interrupt their quarrel
 	option = {
 		name = EVTOPTA_ZE_8110
-		hidden_tooltip = { 
+		hidden_tooltip = {
 			event_target:target_vassal = {
 				character_event = { id = ZE.8112 }
 			}
@@ -344,7 +341,7 @@ character_event = {
 #liege's 'help' was not appreciated
 character_event = {
 	id = ZE.8114
-	picture = GFX_evt_poke_king_in_chest
+	picture = GFX_evt_judged_by_ruler
 	border = GFX_event_normal_frame_diplomacy
 	desc = EVTDESC_ZE_8114
 

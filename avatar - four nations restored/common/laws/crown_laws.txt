@@ -25,15 +25,11 @@ de_jure_laws = {
 				is_nomadic = no
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 0
 		}
-		ai_will_revoke = {
-			factor = 0
-		}
+
 		effect = {
 			hidden_tooltip = {
 				revoke_law = crown_authority_0
@@ -79,9 +75,7 @@ de_jure_laws = {
 				is_nomadic = no
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -89,9 +83,7 @@ de_jure_laws = {
 				NOT = { has_law = crown_authority_0 }
 			}
 		}
-		ai_will_revoke = {
-			factor = 0
-		}
+
 
 		pass_effect = {
 			hidden_tooltip = {
@@ -155,10 +147,22 @@ de_jure_laws = {
 					text = TT_NOT_UNREFORMED_PAGAN
 					hidden_tooltip = {
 						OR = {
-#							NOT = { religion_group = pagan_group }
+#							NOT = { religion_group = pagan_group } ##TODO: fix this shit, this is gross! Requires figuring which religions are truly reformable.
 							is_reformed_religion = yes
-#							religion = bon
-#							religion = bon_reformed
+							religion = ba_sing_se_cultural_heritage
+							religion = unificationism
+							religion = way_of_chin
+							religion = earth_monarchism
+							religion = omashuan_ethics
+							religion = path_of_jin_wei
+							religion = path_of_wei_jin
+							religion = fire_nation_imperialism
+							religion = air_spirituality
+							religion = nomadic_nihilism
+							religion = air_acolytism
+							religion = neo-nomadism
+							religion = modernism
+							religion = equalism
 						}
 					}
 				}
@@ -175,22 +179,19 @@ de_jure_laws = {
 				is_nomadic = no
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
 				factor = 0.01
+				always = yes
 			}
 			modifier = {
 				factor = 0
 				NOT = { has_law = crown_authority_1 }
 			}
 		}
-		ai_will_revoke = {
-			factor = 0
-		}
+
 
 		pass_effect = {
 			hidden_tooltip = {
@@ -255,8 +256,20 @@ de_jure_laws = {
 						OR = {
 #							NOT = { religion_group = pagan_group }
 							is_reformed_religion = yes
-#							religion = bon
-#							religion = bon_reformed
+                     religion = ba_sing_se_cultural_heritage
+                     religion = unificationism
+                     religion = way_of_chin
+                     religion =earth_monarchism
+                     religion = omashuan_ethics
+                     religion = path_of_jin_wei
+                     religion = path_of_wei_jin
+                     religion = fire_nation_imperialism
+                     religion = air_spirituality
+                     religion = nomadic_nihilism
+                     religion = air_acolytism
+                     religion = neo-nomadism
+                     religion = modernism
+                     religion = equalism
 						}
 					}
 				}
@@ -273,13 +286,12 @@ de_jure_laws = {
 				is_nomadic = no
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
 				factor = 0.005
+				always = yes
 			}
 			modifier = {
 				factor = 0
@@ -289,9 +301,7 @@ de_jure_laws = {
 				}
 			}
 		}
-		ai_will_revoke = {
-			factor = 0
-		}
+
 
 		pass_effect = {
 			hidden_tooltip = {
@@ -355,10 +365,22 @@ de_jure_laws = {
 					text = TT_NOT_UNREFORMED_PAGAN
 					hidden_tooltip = {
 						OR = {
-#							NOT = { religion_group = pagan_group }
-							is_reformed_religion = yes
-#							religion = bon
-#							religion = bon_reformed
+						#NOT = { religion_group = pagan_group }
+						is_reformed_religion = yes
+						 religion = ba_sing_se_cultural_heritage
+						 religion = unificationism
+						 religion = way_of_chin
+						 religion =earth_monarchism
+						 religion = omashuan_ethics
+						 religion = path_of_jin_wei
+						 religion = path_of_wei_jin
+						 religion = fire_nation_imperialism
+						 religion = air_spirituality
+						 religion = nomadic_nihilism
+						 religion = air_acolytism
+						 religion = neo-nomadism
+						 religion = modernism
+						 religion = equalism
 						}
 					}
 				}
@@ -372,13 +394,12 @@ de_jure_laws = {
 				is_nomadic = no
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
 				factor = 0.001
+				always = yes
 			}
 			modifier = {
 				factor = 0
@@ -389,9 +410,7 @@ de_jure_laws = {
 			}
 		}
 
-		ai_will_revoke = {
-			factor = 0
-		}
+
 
 		pass_effect = {
 			hidden_tooltip = {

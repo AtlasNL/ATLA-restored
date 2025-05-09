@@ -1,16 +1,15 @@
  # Triggers are in Province scope. The From Scope contains the settlement holder (character)
  # start trigger is in title scope.
+ # Tax income not working in hospitals ( like many other things )
 
 hospital = {
 
 	industrial_complex_1 = {
-		potential = {
-
-		}
+		potential = {}
 		desc = industrial_complex_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 2 
+				TECH_CONSTRUCTION = 2
 				AND = {
 					TECH_CONSTRUCTION = 1
 					OR = {
@@ -25,19 +24,17 @@ hospital = {
 		ai_creation_factor = 5
 		
 		hospital_level = 1
-		tax_income = 0.5
 		
+		add_number_to_name = no
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	industrial_complex_2 = {
-		potential = {
-
-		}
+		potential = {}
 		desc = industrial_complex_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 3 
+				TECH_CONSTRUCTION = 3
 				AND = {
 					TECH_CONSTRUCTION = 2
 					OR = {
@@ -53,19 +50,17 @@ hospital = {
 		ai_creation_factor = 20
 		
 		hospital_level = 1
-		tax_income = 1
 		
+		add_number_to_name = no
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	industrial_complex_3 = {
-		potential = {
-
-		}
+		potential = {}
 		desc = industrial_complex_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 4 
+				TECH_CONSTRUCTION = 4
 				AND = {
 					TECH_CONSTRUCTION = 3
 					OR = {
@@ -75,25 +70,23 @@ hospital = {
 				}
 			}
 		}
-		gold_cost = 620
+		gold_cost = 680
 		build_time = 730
 		upgrades_from = industrial_complex_2
 		ai_creation_factor = 20
 		
 		hospital_level = 1
-		tax_income = 1.5
 		
+		add_number_to_name = no
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	industrial_complex_4 = {
-		potential = {
-
-		}
+		potential = {}
 		desc = industrial_complex_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 5 
+				TECH_CONSTRUCTION = 5
 				AND = {
 					TECH_CONSTRUCTION = 4
 					OR = {
@@ -109,19 +102,17 @@ hospital = {
 		ai_creation_factor = 90
 		
 		hospital_level = 1
-		tax_income = 2
 		
+		add_number_to_name = no
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	industrial_complex_5 = {
-		potential = {
-
-		}
+		potential = {}
 		desc = industrial_complex_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 6 
+				TECH_CONSTRUCTION = 6
 				AND = {
 					TECH_CONSTRUCTION = 5
 					OR = {
@@ -131,26 +122,24 @@ hospital = {
 				}
 			}
 		}
-		gold_cost = 1200
+		gold_cost = 1080
 		build_time = 1095
 		upgrades_from = industrial_complex_4
 		ai_creation_factor = 89
 		
 		hospital_level = 1
-		tax_income = 2.5
 		
+		add_number_to_name = no
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	chemical_plant_1 = {
-		potential = {
-			
-		}
+		potential = {}
 		prerequisites = { industrial_complex_1 }
 		desc = chemical_plant_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 2 
+				TECH_CONSTRUCTION = 2
 				AND = {
 					TECH_CONSTRUCTION = 1
 					OR = {
@@ -165,21 +154,20 @@ hospital = {
 		ai_creation_factor = 5
 		
 		disease_defence = 0.1
-		tax_income = -0.05
 		
+		add_number_to_name = no
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	chemical_plant_2 = {
-		potential = {
-			
-		}
+		potential = {}
+		prerequisites = { industrial_complex_2 }
 		desc = chemical_plant_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 4 
+				TECH_CONSTRUCTION = 3
 				AND = {
-					TECH_CONSTRUCTION = 3
+					TECH_CONSTRUCTION = 2
 					OR = {
 						FROM = { government = fire_feudal_government }
 						FROM = { government = fire_imperial_government }
@@ -193,19 +181,72 @@ hospital = {
 		ai_creation_factor = 5
 		
 		disease_defence = 0.2
-		tax_income = -0.05
 		
+		add_number_to_name = no
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	chemical_plant_3 = {
-		potential = {
-			
-		}
+		potential = {}
+		prerequisites = { industrial_complex_3 }
 		desc = chemical_plant_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 6 
+				TECH_CONSTRUCTION = 4
+				AND = {
+					TECH_CONSTRUCTION = 3
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 160
+		build_time = 365
+		upgrades_from = chemical_plant_2
+		ai_creation_factor = 5
+		
+		disease_defence = 0.3
+		
+		add_number_to_name = no
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	chemical_plant_4 = {
+		potential = {}
+		prerequisites = { industrial_complex_4 }
+		desc = chemical_plant_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 5
+				AND = {
+					TECH_CONSTRUCTION = 4
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 220
+		build_time = 365
+		upgrades_from = chemical_plant_3
+		ai_creation_factor = 5
+		
+		disease_defence = 0.4
+		
+		add_number_to_name = no
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	chemical_plant_5 = {
+		potential = {}
+		prerequisites = { industrial_complex_5 }
+		desc = chemical_plant_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 6
 				AND = {
 					TECH_CONSTRUCTION = 5
 					OR = {
@@ -215,26 +256,24 @@ hospital = {
 				}
 			}
 		}
-		gold_cost = 240
+		gold_cost = 300
 		build_time = 365
-		upgrades_from = chemical_plant_2
+		upgrades_from = chemical_plant_3
 		ai_creation_factor = 5
 		
-		disease_defence = 0.3
-		tax_income = -0.05
+		disease_defence = 0.5
 		
+		add_number_to_name = no
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	agricultural_plant_1 = {
-		potential = {
-			
-		}
+		potential = {}
 		prerequisites = { industrial_complex_1 }
 		desc = agricultural_plant_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 2 
+				TECH_CONSTRUCTION = 2
 				AND = {
 					TECH_CONSTRUCTION = 1
 					OR = {
@@ -250,22 +289,19 @@ hospital = {
 		
 		disease_defence = 0.03
 		liege_piety = 0.10
-		tax_income = -0.05
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	agricultural_plant_2 = {
-		potential = {
-			
-		}
-		prerequisites = { industrial_complex_1 }
+		potential = {}
+		prerequisites = { industrial_complex_2 }
 		desc = agricultural_plant_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 2 
+				TECH_CONSTRUCTION = 3
 				AND = {
-					TECH_CONSTRUCTION = 1
+					TECH_CONSTRUCTION = 2
 					OR = {
 						FROM = { government = fire_feudal_government }
 						FROM = { government = fire_imperial_government }
@@ -280,22 +316,19 @@ hospital = {
 		
 		disease_defence = 0.05
 		liege_piety = 0.15
-		tax_income = -0.05
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	agricultural_plant_3 = {
-		potential = {
-			
-		}
-		prerequisites = { industrial_complex_1 }
+		potential = {}
+		prerequisites = { industrial_complex_3 }
 		desc = agricultural_plant_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 2 
+				TECH_CONSTRUCTION = 4
 				AND = {
-					TECH_CONSTRUCTION = 1
+					TECH_CONSTRUCTION = 3
 					OR = {
 						FROM = { government = fire_feudal_government }
 						FROM = { government = fire_imperial_government }
@@ -303,115 +336,80 @@ hospital = {
 				}
 			}
 		}
-		gold_cost = 200
+		gold_cost = 150
 		build_time = 365
 		upgrades_from = agricultural_plant_2
 		ai_creation_factor = 5
 		
 		disease_defence = 0.1
 		liege_piety = 0.25
-		tax_income = -0.05
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	agricultural_plant_4 = {
+		potential = {}
+		prerequisites = { industrial_complex_4 }
+		desc = agricultural_plant_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 5
+				AND = {
+					TECH_CONSTRUCTION = 4
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 180
+		build_time = 365
+		upgrades_from = agricultural_plant_3
+		ai_creation_factor = 5
+		
+		disease_defence = 0.15
+		liege_piety = 0.35
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	agricultural_plant_5 = {
+		potential = {}
+		prerequisites = { industrial_complex_5 }
+		desc = agricultural_plant_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 6
+				AND = {
+					TECH_CONSTRUCTION = 5
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 210
+		build_time = 365
+		upgrades_from = agricultural_plant_4
+		ai_creation_factor = 5
+		
+		disease_defence = 0.2
+		liege_piety = 0.45
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	goods_factory_1 = {
-		potential = {
-			
-		}
+		potential = {}
 		prerequisites = { industrial_complex_1 }
 		desc = goods_factory_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 3 
+				TECH_CONSTRUCTION = 2
 				AND = {
-					TECH_CONSTRUCTION = 2
-					OR = {
-						FROM = { government = fire_feudal_government }
-						FROM = { government = fire_imperial_government }
-					}
-				}
-			}
-		}
-		gold_cost = 80
-		build_time = 365
-		ai_creation_factor = 5
-		
-		tax_income = 0.1
-		land_morale = 0.02
-		
-		extra_tech_building_start = 10.0 # Never get at start of game
-	}
-	
-	goods_factory_2 = {
-		potential = {
-			
-		}
-		prerequisites = { industrial_complex_1 }
-		desc = goods_factory_desc
-		trigger = { 
-			OR = {
-				TECH_CONSTRUCTION = 3 
-				AND = {
-					TECH_CONSTRUCTION = 2
-					OR = {
-						FROM = { government = fire_feudal_government }
-						FROM = { government = fire_imperial_government }
-					}
-				}
-			}
-		}
-		gold_cost = 140
-		build_time = 365
-		upgrades_from = goods_factory_1
-		ai_creation_factor = 5
-		
-		tax_income = 0.15
-		land_morale = 0.04
-		
-		extra_tech_building_start = 10.0 # Never get at start of game
-	}
-	
-	goods_factory_3 = {
-		potential = {
-			
-		}
-		prerequisites = { industrial_complex_1 }
-		desc = goods_factory_desc
-		trigger = { 
-			OR = {
-				TECH_CONSTRUCTION = 3 
-				AND = {
-					TECH_CONSTRUCTION = 2
-					OR = {
-						FROM = { government = fire_feudal_government }
-						FROM = { government = fire_imperial_government }
-					}
-				}
-			}
-		}
-		gold_cost = 240
-		build_time = 365
-		upgrades_from = goods_factory_2
-		ai_creation_factor = 5
-		
-		tax_income = 0.2
-		land_morale = 0.06
-		
-		extra_tech_building_start = 10.0 # Never get at start of game
-	}
-	
-	luxury_factory_1 = {
-		potential = {
-			
-		}
-		prerequisites = { industrial_complex_1 }
-		desc = luxury_factory_desc
-		trigger = { 
-			OR = {
-				TECH_CONSTRUCTION = 3 
-				AND = {
-					TECH_CONSTRUCTION = 2
+					TECH_CONSTRUCTION = 1
 					OR = {
 						FROM = { government = fire_feudal_government }
 						FROM = { government = fire_imperial_government }
@@ -423,21 +421,147 @@ hospital = {
 		build_time = 365
 		ai_creation_factor = 5
 		
-		tax_income = 0.05
-		vassal_opinion = 1
+		town_opinion = 5
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	goods_factory_2 = {
+		potential = {}
+		prerequisites = { industrial_complex_2 }
+		desc = goods_factory_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 3
+				AND = {
+					TECH_CONSTRUCTION = 2
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 200
+		build_time = 365
+		upgrades_from = goods_factory_1
+		ai_creation_factor = 5
+		
+		town_opinion = 6
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	goods_factory_3 = {
+		potential = {}
+		prerequisites = { industrial_complex_3 }
+		desc = goods_factory_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 4
+				AND = {
+					TECH_CONSTRUCTION = 3
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 250
+		build_time = 365
+		upgrades_from = goods_factory_2
+		ai_creation_factor = 5
+		
+		town_opinion = 7
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	goods_factory_4 = {
+		potential = {}
+		prerequisites = { industrial_complex_4 }
+		desc = goods_factory_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 5
+				AND = {
+					TECH_CONSTRUCTION = 4
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 300
+		build_time = 365
+		upgrades_from = goods_factory_3
+		ai_creation_factor = 5
+		
+		town_opinion = 8
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	goods_factory_5 = {
+		potential = {}
+		prerequisites = { industrial_complex_5 }
+		desc = goods_factory_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 6
+				AND = {
+					TECH_CONSTRUCTION = 5
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 350
+		build_time = 365
+		upgrades_from = goods_factory_4
+		ai_creation_factor = 5
+		
+		town_opinion = 10
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	luxury_factory_1 = {
+		potential = {}
+		prerequisites = { industrial_complex_1 }
+		desc = luxury_factory_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 2
+				AND = {
+					TECH_CONSTRUCTION = 1
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 150
+		build_time = 365
+		ai_creation_factor = 5
+		
+		castle_opinion = 5
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	luxury_factory_2 = {
-		potential = {
-			
-		}
-		prerequisites = { industrial_complex_1 }
+		potential = {}
+		prerequisites = { industrial_complex_2 }
 		desc = luxury_factory_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 3 
+				TECH_CONSTRUCTION = 3
 				AND = {
 					TECH_CONSTRUCTION = 2
 					OR = {
@@ -452,23 +576,21 @@ hospital = {
 		upgrades_from = luxury_factory_1
 		ai_creation_factor = 5
 		
-		tax_income = 0.1
-		vassal_opinion = 2
+
+		castle_opinion = 6
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
 	luxury_factory_3 = {
-		potential = {
-			
-		}
-		prerequisites = { industrial_complex_1 }
+		potential = {}
+		prerequisites = { industrial_complex_3 }
 		desc = luxury_factory_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 3 
+				TECH_CONSTRUCTION = 4
 				AND = {
-					TECH_CONSTRUCTION = 2
+					TECH_CONSTRUCTION = 3
 					OR = {
 						FROM = { government = fire_feudal_government }
 						FROM = { government = fire_imperial_government }
@@ -481,23 +603,21 @@ hospital = {
 		upgrades_from = luxury_factory_2
 		ai_creation_factor = 5
 		
-		tax_income = 0.15
-		vassal_opinion = 3
+
+		castle_opinion = 7
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
-	armour_factory_1 = {
-		potential = {
-			
-		}
-		prerequisites = { industrial_complex_1 }
-		desc = armour_factory_desc
-		trigger = { 
+	luxury_factory_4 = {
+		potential = {}
+		prerequisites = { industrial_complex_4 }
+		desc = luxury_factory_desc
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 3 
+				TECH_CONSTRUCTION = 5
 				AND = {
-					TECH_CONSTRUCTION = 2
+					TECH_CONSTRUCTION = 4
 					OR = {
 						FROM = { government = fire_feudal_government }
 						FROM = { government = fire_imperial_government }
@@ -505,29 +625,79 @@ hospital = {
 				}
 			}
 		}
-		gold_cost = 100
+		gold_cost = 300
 		build_time = 365
+		upgrades_from = luxury_factory_3
 		ai_creation_factor = 5
 		
-		heavy_infantry_morale = 0.02
-		heavy_infantry_defensive = 0.02
-		knights_morale = 0.02
-		knights_defensive = 0.02
-		knights_offensive = 0.02
-		tax_income = -0.05
+		castle_opinion = 8
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
 	
-	armour_factory_2 = {
+	luxury_factory_5 = {
+		potential = {}
+		prerequisites = { industrial_complex_5 }
+		desc = luxury_factory_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 6
+				AND = {
+					TECH_CONSTRUCTION = 5
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 350
+		build_time = 365
+		upgrades_from = luxury_factory_4
+		ai_creation_factor = 5
+		
+		castle_opinion = 10
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+
+	weapons_factory_1 = {
 		potential = {
 			
 		}
 		prerequisites = { industrial_complex_1 }
-		desc = armour_factory_desc
-		trigger = { 
+		desc = weapons_factory_desc
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 3 
+				TECH_CONSTRUCTION = 2
+				AND = {
+					TECH_CONSTRUCTION = 1
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 150
+		build_time = 365
+		ai_creation_factor = 5
+		
+		church_opinion = 5
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	weapons_factory_2 = {
+		potential = {
+			
+		}
+		prerequisites = { industrial_complex_2 }
+		desc = weapons_factory_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 3
 				AND = {
 					TECH_CONSTRUCTION = 2
 					OR = {
@@ -539,113 +709,10 @@ hospital = {
 		}
 		gold_cost = 200
 		build_time = 365
-		upgrades_from = armour_factory_1
-		ai_creation_factor = 5
-		
-		heavy_infantry_morale = 0.03
-		heavy_infantry_defensive = 0.03
-		knights_morale = 0.02
-		knights_defensive = 0.02
-		knights_offensive = 0.02
-		tax_income = -0.05
-		
-		extra_tech_building_start = 10.0 # Never get at start of game
-	}
-	
-	armour_factory_3 = {
-		potential = {
-			
-		}
-		prerequisites = { industrial_complex_1 }
-		desc = armour_factory_desc
-		trigger = { 
-			OR = {
-				TECH_CONSTRUCTION = 3 
-				AND = {
-					TECH_CONSTRUCTION = 2
-					OR = {
-						FROM = { government = fire_feudal_government }
-						FROM = { government = fire_imperial_government }
-					}
-				}
-			}
-		}
-		gold_cost = 300
-		build_time = 365
-		upgrades_from = armour_factory_2
-		ai_creation_factor = 5
-		
-		heavy_infantry_morale = 0.05
-		heavy_infantry_defensive = 0.05
-		knights_morale = 0.02
-		knights_defensive = 0.02
-		knights_offensive = 0.02
-		tax_income = -0.05
-		
-		extra_tech_building_start = 10.0 # Never get at start of game
-	}
-	
-	weapons_factory_1 = {
-		potential = {
-			
-		}
-		prerequisites = { industrial_complex_1 }
-		desc = weapons_factory_desc
-		trigger = { 
-			OR = {
-				TECH_CONSTRUCTION = 3 
-				AND = {
-					TECH_CONSTRUCTION = 2
-					OR = {
-						FROM = { government = fire_feudal_government }
-						FROM = { government = fire_imperial_government }
-					}
-				}
-			}
-		}
-		gold_cost = 100
-		build_time = 365
-		ai_creation_factor = 5
-		
-		retinuesize = 150
-		light_infantry_morale = 0.02
-		light_infantry_offensive = 0.02
-		pikemen_morale = 0.02
-		pikemen_offensive = 0.02
-		tax_income = -0.05
-		
-		extra_tech_building_start = 10.0 # Never get at start of game
-	}
-	
-	weapons_factory_2 = {
-		potential = {
-			
-		}
-		prerequisites = { industrial_complex_1 }
-		desc = weapons_factory_desc
-		trigger = { 
-			OR = {
-				TECH_CONSTRUCTION = 3 
-				AND = {
-					TECH_CONSTRUCTION = 2
-					OR = {
-						FROM = { government = fire_feudal_government }
-						FROM = { government = fire_imperial_government }
-					}
-				}
-			}
-		}
-		gold_cost = 150
-		build_time = 365
 		upgrades_from = weapons_factory_1
 		ai_creation_factor = 5
 		
-		retinuesize = 300
-		light_infantry_morale = 0.03
-		light_infantry_defensive = 0.03
-		pikemen_morale = 0.03
-		pikemen_offensive = 0.03
-		tax_income = -0.05
+		church_opinion = 6
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
@@ -654,13 +721,41 @@ hospital = {
 		potential = {
 			
 		}
-		prerequisites = { industrial_complex_1 }
+		prerequisites = { industrial_complex_3 }
 		desc = weapons_factory_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 3 
+				TECH_CONSTRUCTION = 4
 				AND = {
-					TECH_CONSTRUCTION = 2
+					TECH_CONSTRUCTION = 3
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 250
+		build_time = 365
+		upgrades_from = weapons_factory_2
+		ai_creation_factor = 5
+		
+		church_opinion = 7
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	weapons_factory_4 = {
+		potential = {
+			
+		}
+		prerequisites = { industrial_complex_4 }
+		desc = weapons_factory_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 5
+				AND = {
+					TECH_CONSTRUCTION = 4
 					OR = {
 						FROM = { government = fire_feudal_government }
 						FROM = { government = fire_imperial_government }
@@ -670,15 +765,38 @@ hospital = {
 		}
 		gold_cost = 300
 		build_time = 365
-		upgrades_from = weapons_factory_2
+		upgrades_from = weapons_factory_3
 		ai_creation_factor = 5
 		
-		retinuesize = 600
-		light_infantry_morale = 0.05
-		light_infantry_defensive = 0.05
-		pikemen_morale = 0.03
-		pikemen_offensive = 0.03
-		tax_income = -0.05
+		church_opinion = 8
+		
+		extra_tech_building_start = 10.0 # Never get at start of game
+	}
+	
+	weapons_factory_5 = {
+		potential = {
+			
+		}
+		prerequisites = { industrial_complex_5 }
+		desc = weapons_factory_desc
+		trigger = {
+			OR = {
+				TECH_CONSTRUCTION = 6
+				AND = {
+					TECH_CONSTRUCTION = 5
+					OR = {
+						FROM = { government = fire_feudal_government }
+						FROM = { government = fire_imperial_government }
+					}
+				}
+			}
+		}
+		gold_cost = 350
+		build_time = 365
+		upgrades_from = weapons_factory_4
+		ai_creation_factor = 5
+		
+		church_opinion = 10
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
@@ -689,9 +807,9 @@ hospital = {
 		}
 		prerequisites = { industrial_complex_3 }
 		desc = production_lab_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 4 
+				TECH_CONSTRUCTION = 4
 				AND = {
 					TECH_CONSTRUCTION = 3
 					OR = {
@@ -706,7 +824,6 @@ hospital = {
 		ai_creation_factor = 5
 		
 		economy_techpoints = 0.03
-		tax_income = -0.05
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
@@ -717,9 +834,9 @@ hospital = {
 		}
 		prerequisites = { industrial_complex_3 }
 		desc = production_lab_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 4 
+				TECH_CONSTRUCTION = 4
 				AND = {
 					TECH_CONSTRUCTION = 3
 					OR = {
@@ -735,7 +852,6 @@ hospital = {
 		ai_creation_factor = 5
 		
 		economy_techpoints = 0.06
-		tax_income = -0.05
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
@@ -746,9 +862,9 @@ hospital = {
 		}
 		prerequisites = { industrial_complex_3 }
 		desc = production_lab_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 4 
+				TECH_CONSTRUCTION = 4
 				AND = {
 					TECH_CONSTRUCTION = 3
 					OR = {
@@ -764,7 +880,6 @@ hospital = {
 		ai_creation_factor = 5
 		
 		economy_techpoints = 0.1
-		tax_income = -0.05
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
@@ -775,9 +890,9 @@ hospital = {
 		}
 		prerequisites = { industrial_complex_3 }
 		desc = military_lab_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 4 
+				TECH_CONSTRUCTION = 4
 				AND = {
 					TECH_CONSTRUCTION = 3
 					OR = {
@@ -792,7 +907,6 @@ hospital = {
 		ai_creation_factor = 5
 		
 		military_techpoints = 0.03
-		tax_income = -0.05
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
@@ -803,9 +917,9 @@ hospital = {
 		}
 		prerequisites = { industrial_complex_3 }
 		desc = military_lab_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 4 
+				TECH_CONSTRUCTION = 4
 				AND = {
 					TECH_CONSTRUCTION = 3
 					OR = {
@@ -821,7 +935,6 @@ hospital = {
 		ai_creation_factor = 5
 		
 		military_techpoints = 0.06
-		tax_income = -0.05
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
@@ -832,9 +945,9 @@ hospital = {
 		}
 		prerequisites = { industrial_complex_3 }
 		desc = military_lab_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 4 
+				TECH_CONSTRUCTION = 4
 				AND = {
 					TECH_CONSTRUCTION = 3
 					OR = {
@@ -850,7 +963,6 @@ hospital = {
 		ai_creation_factor = 5
 		
 		military_techpoints = 0.1
-		tax_income = -0.05
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
@@ -861,9 +973,9 @@ hospital = {
 		}
 		prerequisites = { industrial_complex_3 }
 		desc = research_lab_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 4 
+				TECH_CONSTRUCTION = 4
 				AND = {
 					TECH_CONSTRUCTION = 3
 					OR = {
@@ -879,7 +991,6 @@ hospital = {
 		
 		tech_growth_modifier = 0.25
 		culture_techpoints = 0.03
-		tax_income = -0.05
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
@@ -890,9 +1001,9 @@ hospital = {
 		}
 		prerequisites = { industrial_complex_3 }
 		desc = research_lab_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 4 
+				TECH_CONSTRUCTION = 4
 				AND = {
 					TECH_CONSTRUCTION = 3
 					OR = {
@@ -909,7 +1020,6 @@ hospital = {
 		
 		tech_growth_modifier = 0.25
 		culture_techpoints = 0.06
-		tax_income = -0.05
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}
@@ -920,9 +1030,9 @@ hospital = {
 		}
 		prerequisites = { industrial_complex_3 }
 		desc = research_lab_desc
-		trigger = { 
+		trigger = {
 			OR = {
-				TECH_CONSTRUCTION = 4 
+				TECH_CONSTRUCTION = 4
 				AND = {
 					TECH_CONSTRUCTION = 3
 					OR = {
@@ -939,7 +1049,6 @@ hospital = {
 		
 		tech_growth_modifier = 0.3
 		culture_techpoints = 0.1
-		tax_income = -0.05
 		
 		extra_tech_building_start = 10.0 # Never get at start of game
 	}

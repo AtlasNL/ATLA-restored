@@ -1,0 +1,465 @@
+#There's a few loose things here that need to stay here. I'll clean them up when everything is stable. - Liz
+namespace = ATLA
+
+#list of events in this dumpsterfire by TypicalCrusader (now modified to events LEFT in this dumpster by Liz)
+#33 - Generate Benders on game start
+#102 - Turn Bender RD trait to normal trait
+#103 - Assign EK tributes
+#104 - FROM asked to convert to ROOT religion
+#105 - Inherit Succession (Air)
+#106 - Check Ambition Status ( see realm growth )
+#11100 - 11102 - Various EK handlers
+###
+character_event = { #Generate benders
+	id = ATLA.33
+	hide_window = yes
+	
+	ai = yes
+	only_playable = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		trigger_switch = {
+			on_trigger = culture_group
+			water_tribe_cultures = {
+				create_character = {
+					random_traits = yes
+					dynasty = random
+					religion = ROOT
+					culture = ROOT
+					female = 50
+					trait = waterbender
+					trait = competent_bender
+				}
+			}
+			earth_kingdom_cultures = {
+				create_character = {
+					random_traits = yes
+					dynasty = random
+					female = 50
+					religion = ROOT
+					culture = ROOT
+					trait = earthbender
+					trait = competent_bender
+				}
+			}
+			fire_nation_cultures = { ##Not sure why this is here? This should be set in title history, or done to everyone and then un-done for the few people to whom it doesn't apply. - Liz
+				if = {
+					limit = {
+						is_ruler = yes
+						is_feudal = yes
+						has_law = succ_gavelkind
+					}
+					any_demesne_title = {
+						add_law = {
+							law = succ_primogeniture
+							cooldown = no
+							opinion_effect = no
+						}
+						add_law = {
+							law = true_cognatic_succession
+							cooldown = no
+							opinion_effect = no
+						}
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = random
+					female = 50
+					religion = ROOT
+					culture = ROOT
+					trait = firebender
+					trait = competent_bender
+				}
+			}
+			air_nomad_cultures = { } #Due to gender segregated courts and universal bendership (or lack thereof), these are excluded.
+		}
+	}
+}
+
+character_event = { #Ruler Designer trait conversions
+	id = ATLA.102
+	is_triggered_only = yes
+	hide_window = yes
+	ai = no
+	
+	trigger = {
+		OR = {
+			trait = waterbender_novice
+			trait = waterbender_trained
+			trait = waterbender_powerful
+			trait = waterbender_master
+			trait = waterbender_legendary
+			trait = firebender_novice
+			trait = firebender_trained
+			trait = firebender_powerful
+			trait = firebender_master
+			trait = firebender_legendary
+			trait = earthbender_novice
+			trait = earthbender_trained
+			trait = earthbender_powerful
+			trait = earthbender_master
+			trait = earthbender_legendary
+			trait = airbender_novice
+			trait = airbender_trained
+			trait = airbender_powerful
+			trait = airbender_master
+			trait = airbender_legendary
+			trait = blueflames_rd
+			trait = innerflame_rd
+			trait = levitation_rd
+			trait = voidbender_rd
+			trait = lavabender_rd
+			trait = sandbender_rd
+			trait = metalbender_rd
+			trait = seismicsense_rd
+			trait = bloodbender_rd
+			trait = healer_rd
+			trait = lightningbender_rd
+			trait = smokebender_rd
+			trait = combustionbender_rd
+		}
+	}
+	
+	immediate = {
+		trigger_switch = {
+			on_trigger = trait
+			waterbender_novice = {
+				remove_trait = waterbender_novice
+				add_trait = waterbender
+				add_trait = incompetent_bender
+			}
+			waterbender_trained = {
+				remove_trait = waterbender_trained
+				add_trait = waterbender
+				add_trait = competent_bender
+			}
+			waterbender_powerful = {
+				remove_trait = waterbender_powerful
+				add_trait = waterbender
+				add_trait = powerful_bender
+			}
+			waterbender_master = {
+				remove_trait = waterbender_master
+				add_trait = waterbender
+				add_trait = master_bender
+			}
+			waterbender_legendary = {
+				remove_trait = waterbender_legendary
+				add_trait = waterbender
+				add_trait = legendary_bender
+			}
+			firebender_novice = {
+				remove_trait = firebender_novice
+				add_trait = firebender
+				add_trait = incompetent_bender
+			}
+			firebender_trained = {
+				remove_trait = firebender_trained
+				add_trait = firebender
+				add_trait = competent_bender
+			}
+			firebender_powerful = {
+				remove_trait = firebender_powerful
+				add_trait = firebender
+				add_trait = powerful_bender
+			}
+			firebender_master = {
+				remove_trait = firebender_master
+				add_trait = firebender
+				add_trait = master_bender
+			}
+			firebender_legendary = {
+				remove_trait = firebender_legendary
+				add_trait = firebender
+				add_trait = legendary_bender
+			}
+			earthbender_novice = {
+				remove_trait = earthbender_novice
+				add_trait = earthbender
+				add_trait = incompetent_bender
+			}
+			earthbender_trained = {
+				remove_trait = earthbender_trained
+				add_trait = earthbender
+				add_trait = competent_bender
+			}
+			earthbender_powerful = {
+				remove_trait = earthbender_powerful
+				add_trait = earthbender
+				add_trait = powerful_bender
+			}
+			earthbender_master = {
+				remove_trait = earthbender_master
+				add_trait = earthbender
+				add_trait = master_bender
+			}
+			earthbender_legendary = {
+				remove_trait = earthbender_legendary
+				add_trait = earthbender
+				add_trait = legendary_bender
+			}
+			airbender_novice = {
+				remove_trait = airbender_novice
+				add_trait = airbender
+				add_trait = incompetent_bender
+			}
+			airbender_trained = {
+				remove_trait = airbender_trained
+				add_trait = airbender
+				add_trait = competent_bender
+			}
+			airbender_powerful = {
+				remove_trait = airbender_powerful
+				add_trait = airbender
+				add_trait = powerful_bender
+			}
+			airbender_master = {
+				remove_trait = airbender_master
+				add_trait = airbender
+				add_trait = master_bender
+			}
+			airbender_legendary = {
+				remove_trait = airbender_legendary
+				add_trait = airbender
+				add_trait = legendary_bender
+			}
+		}
+		trigger_switch = {
+			on_trigger = trait
+			innerflame_rd = {
+				remove_trait = innerflame_rd
+				add_trait = innerflame
+			}
+			blueflames_rd = {
+				remove_trait = blueflames_rd
+				add_trait = blueflames
+			}
+			combustionbender_rd = {
+				remove_trait = combustionbender_rd
+				add_trait = combustionbender
+			}	
+			smokebender_rd = {
+				remove_trait = smokebender_rd
+				add_trait = smokebender
+			}
+			lightningbender_rd = {
+				remove_trait = lightningbender_rd
+				add_trait = lightningbender
+			}
+			healer_rd = {
+				remove_trait = healer_rd
+				add_trait = healer
+			}
+			bloodbender_rd = {
+				remove_trait = bloodbender_rd
+				add_trait = bloodbender
+			}
+			seismicsense_rd = {
+				remove_trait = seismicsense_rd
+				add_trait = seismicsense
+				add_trait = blind
+			}
+			metalbender_rd = {
+				remove_trait = metalbender_rd
+				add_trait = metalbender
+			}
+			sandbender_rd = {
+				remove_trait = sandbender_rd
+				add_trait = sandbender
+			}
+			lavabender_rd = {
+				remove_trait = lavabender_rd
+				add_trait = lavabender
+			}
+			voidbender_rd = {
+				remove_trait = voidbender_rd
+				add_trait = voidbender
+			}
+			levitation_rd = {
+				remove_trait = levitation_rd
+				add_trait = levitation
+			}
+		}
+	}
+}
+
+character_event = { #Asked to convert by special mod decision
+	id = ATLA.104
+	desc = EVTDESCATLA.104
+	picture = GFX_evt_landscape_2
+	is_triggered_only = yes
+	
+	option = { #Convert
+		name = EVTOPTATLAA.104
+		religion = FROMFROM
+	}
+	option = { #No
+		name = EVTOPTATLAB.104
+		trigger = { ai = no }
+		opinion = {
+			modifier = refused_decision
+			who = FROMFROM
+			years = 5
+		}
+	}
+}
+
+character_event = { #Inherit Succession
+	id = ATLA.105
+	is_triggered_only = yes
+	hide_window = yes
+	only_playable = yes
+	culture_group = air_nomad_cultures
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					culture = western_air_nomad
+					culture = eastern_air_nomad
+				}
+			}
+			any_demesne_title = { 
+				add_law = {
+					law = enatic_succession
+					cooldown = no
+					opinion_effect = no
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						culture = northern_air_nomad
+						culture = southern_air_nomad
+					}
+				}
+				any_demesne_title = {
+					add_law = {
+						law = agnatic_succession
+						cooldown = no
+						opinion_effect = no
+					}
+				}
+			}
+		}
+	}
+}
+
+character_event = { #Check Ambition Status
+	id = ATLA.106
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		ROOT = {
+			has_ambition = obj_see_the_realm_grow
+		}
+	}
+	immediate = {
+		ROOT = {
+			export_to_variable = {
+				which = currentRealmSize
+				value = realm_size
+			}
+		}
+		character_event = {
+			id = ATLA.106
+			days = 14
+		}
+	}
+}
+
+character_event = {
+	id = ATLA.11101
+	is_triggered_only = yes
+	hide_window = yes
+	only_independent = yes
+	trigger = {
+		is_save_game = no
+		OR = {
+			has_landed_title = e_earth_kingdom
+			has_landed_title = k_earth_kingdom
+		}
+	}
+	immediate = {
+		trigger_switch = {
+			on_trigger = year
+			602 = {
+				set_variable = {
+					which = global_royalAuthority
+					value = 50
+				}
+			}
+			830 = {
+				set_variable = {
+					which = global_royalAuthority
+					value = 90
+				}
+			}
+			925 = {
+				set_variable = {
+					which = global_royalAuthority
+					value = 10
+				}
+			}
+			931 = {
+				set_variable = {
+					which = global_royalAuthority
+					value = 40
+				}
+			}
+			978 = {
+				set_variable = {
+					which = global_royalAuthority
+					value = 60
+				}
+			}
+			fallback = { #This is for if you're before 602
+				set_variable = {
+					which = global_royalAuthority
+					value = 20
+				}
+			}
+		}
+		if = {
+			limit = { has_landed_title = c_royal_earth_palace }
+			add_character_modifier = {
+				name = supporting_the_earth_kingdom
+				duration = -1
+			}
+		}
+		primary_title = {
+			if = {
+				limit = {
+					year < 610
+				}
+				set_title_flag = ek_ra_set_unity_0
+				set_global_flag = earthking_in_power
+				set_global_flag = dai_li_disbanded
+			}
+			else = { set_title_flag = ek_ra_set_unity_1 }
+		}
+	}
+}
+
+character_event = {
+	id = ATLA.11102
+	is_triggered_only = yes
+	hide_window = yes
+	only_independent = yes
+	trigger = {
+		OR = {
+			has_landed_title = e_earth_kingdom
+			has_landed_title = k_earth_kingdom
+		}
+		has_landed_title = c_royal_earth_palace
+	}
+	immediate = {
+		add_character_modifier = {
+			name = supporting_the_earth_kingdom
+			duration = -1
+		}
+	}
+}

@@ -1,0 +1,338 @@
+one_nation_bloodline = { #World Conquest
+	martial = 2
+	diplomacy = 2
+	intrigue = 2
+	stewardship = 2
+	learning = 2
+	general_opinion = 10
+	monthly_character_prestige = 1
+	
+	inheritance = all_descendants
+	matrilineal_override = yes
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_one_nation
+	flags = { is_one_nation_bloodline created_bloodline }
+	
+	active = {
+		custom_tooltip = { #There are no other conditions. You killed all other conditions. You won, go home now.
+			text = bloodline_relative_or_dynasty_tt
+			OR = {
+				FROM = {
+					founder = { is_close_relative = ROOT }
+				}
+				FROM = {
+					founder = { dynasty = ROOT }
+				}
+			}
+		}
+	}
+}
+
+firelord_bloodline = { #Form Fire Nation/Embrace Fire Imperialism TODO: Decide and delete the culture/faith as appropriate
+	martial = 1
+	stewardship = 2
+	monthly_character_prestige = 0.1
+	fire_imperial_culture_opinion = 15
+	fire_spirituality_opinion = -10
+	fire_benders_offensive = 0.2
+	fire_benders_defensive = 0.1
+
+	inheritance = all_descendants
+	allow_bastards = no
+	picture = GFX_bloodlines_symbol_fire_lord
+	flags = { historical_bloodline is_firelord_bloodline is_firebender_bloodline created_bloodline }
+
+	active = {
+		OR = {
+			custom_tooltip = {
+				text = bloodline_relative_or_dynasty_tt
+				OR = {
+					FROM = {
+						founder = { is_close_relative = ROOT }
+					}
+					FROM = {
+						founder = { dynasty = ROOT }
+					}
+				}
+			}
+			culture = fire_imperial_culture
+			religion = fire_nation_imperialism
+		}
+	}
+}
+
+earth_king_bloodline = { ##Used in deprecated Mandate system #Probably intended to be gained by EK's without a historical bloodline
+	stewardship = 2
+	diplomacy = 3
+	ba_sing_se_culture_opinion = 10
+	monthly_character_prestige = 0.125
+
+	inheritance = all_descendants
+	allow_bastards = no
+	picture = GFX_bloodlines_symbol_earth_king
+	flags = { is_earth_king_bloodline is_earthbender_bloodline created_bloodline }
+	
+	active = {
+		OR = {
+			custom_tooltip = {
+				text = bloodline_relative_or_dynasty_tt
+				OR = {
+					FROM = {
+						founder = { is_close_relative = ROOT }
+					}
+					FROM = {
+						founder = { dynasty = ROOT }
+					}
+				}
+			}
+			culture = ba_sing_se_culture
+		}
+	}
+}
+
+earth_uniter_bloodline = { #Unificationism bloodline for Continental Conquest
+	martial = 1
+	diplomacy = 1
+	vassal_opinion = 10
+	monthly_character_prestige = 0.5
+	combat_rating = 5
+	earth_benders_offensive = 0.2
+	earth_kingdom_cultures_opinion = 5
+	
+	inheritance = all_descendants
+	allow_bastards = no
+	picture = GFX_bloodlines_symbol_earth_king
+	flags = { is_earth_uniter_bloodline is_earthbender_bloodline created_bloodline }
+
+	active = {
+		OR = {
+			custom_tooltip = {
+				text = bloodline_relative_or_dynasty_tt
+				OR = {
+					FROM = {
+						founder = { is_close_relative = ROOT }
+					}
+					FROM = {
+						founder = { dynasty = ROOT }
+					}
+				}
+			}
+			AND = {
+				culture_group = earth_kingdom_cultures
+				religion = unificationism
+			}
+		}
+	}
+}
+
+great_emperor_bloodline = { ##Gained by Chinite who forms the EK without pre-existing Chin bloodline
+	monthly_character_prestige = 1
+	martial = 1
+	diplomacy = 2
+	earth_benders_offensive = 0.2
+	earth_benders_defensive = 0.1
+	way_of_chin_opinion = 10
+
+	inheritance = all_descendants
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_chin
+	flags = { is_earth_king_bloodline is_great_emperor_bloodline is_earthbender_bloodline is_chin_bloodline created_bloodline }
+
+	active = {
+		OR = {
+			custom_tooltip = {
+				text = bloodline_relative_or_dynasty_tt
+				OR = {
+					FROM = {
+						founder = { is_close_relative = ROOT }
+					}
+					FROM = {
+						founder = { dynasty = ROOT }
+					}
+				}
+			}
+			AND = {
+				culture_group = earth_kingdom_cultures
+				religion = way_of_chin
+			}
+		}
+	}
+}
+
+water_nation_bloodline = { #For those who unify North and South tribes
+	diplomacy = 2
+	water_tribe_cultures_opinion = 10
+	monthly_character_prestige = 1
+	water_benders_offensive = 0.2
+	water_benders_defensive = 0.1
+
+	inheritance = all_descendants
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_Illaujait
+	flags = { is_water_nation_bloodline is_waterbender_bloodline created_bloodline }
+
+
+	active = {
+		OR = {
+			custom_tooltip = {
+				text = bloodline_relative_or_dynasty_tt
+				OR = {
+					FROM = {
+						founder = { is_close_relative = ROOT }
+					}
+					FROM = {
+						founder = { dynasty = ROOT }
+					}
+				}
+			}
+			AND = {
+				culture_group = water_tribe_cultures
+				religion_group = water_religions
+			}
+		}
+	}
+}
+
+air_nation_bloodline = { #For those who unify all four air temples
+	diplomacy = 2
+	learning = 3
+	air_nomad_cultures_opinion = 10
+	monthly_character_piety = 1
+	air_benders_defensive = 0.3
+
+	inheritance = all_descendants
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_yangchen
+	flags = { is_air_nation_bloodline is_airbender_bloodline created_bloodline }
+	active = {
+		OR = {
+			custom_tooltip = {
+				text = bloodline_relative_or_dynasty_tt
+				OR = {
+					FROM = {
+						founder = { is_close_relative = ROOT }
+					}
+					FROM = {
+						founder = { dynasty = ROOT }
+					}
+				}
+			}
+			AND = {
+				culture_group = air_nomad_cultures
+				religion_group = air_religions
+			}
+		}
+	}
+}
+
+sun_bloodline = { #Currently just requires you to own Atzlan. Maybe supposed to be reformer bloodline?
+	martial = 1
+	learning = 2
+	monthly_character_piety = 0.5
+	fire_benders_defensive = 0.15
+
+	inheritance = patrilineal
+	matrilineal_override = yes
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_sun_warriors
+	flags = { is_sun_bloodline is_firebender_bloodline created_bloodline }
+
+ 
+	active = {
+		trait = firebender
+		
+		OR = {
+			custom_tooltip = {
+				text = bloodline_relative_or_dynasty_tt
+				OR = {
+					FROM = {
+						founder = { is_close_relative = ROOT }
+					}
+					FROM = {
+						founder = { dynasty = ROOT }
+					}
+				}
+			}
+			AND = {
+				culture = sun_warrior
+				OR = {
+					religion = the_eternal_flame
+					religion = the_eternal_flame_reformed
+				}
+			}
+		}
+	}
+}
+
+metalbending_founder_bloodline = {
+	martial = 1
+	monthly_character_prestige = 0.50
+	combat_rating = 5
+	earth_benders_offensive = 0.2
+	bloodline_effect_metalbending = 1 
+	metal_clan_opinion = 5
+	earth_kingdom_cultures_opinion = 5
+	
+	inheritance = all_descendants
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_metal_bender
+	flags = { is_metalbending_bloodline is_earthbender_bloodline created_bloodline }
+	
+	active = {
+		OR = {
+			custom_tooltip = {
+				text = bloodline_relative_or_dynasty_tt
+				OR = {
+					FROM = {
+						founder = { is_close_relative = ROOT }
+					}
+					FROM = {
+						founder = { dynasty = ROOT }
+					}
+				}
+			}
+			culture_group = earth_kingdom_cultures
+			trait = earthbender
+		}
+	}
+}
+
+avatar_killer_bloodline = { #Given to avatar killers, by any means
+	general_opinion = -25
+	followers_of_kyoshi_opinion = -25
+	way_of_chin_opinion = 30
+	equalism_opinion = 30
+	pirate_culture_opinion = 30
+	fire_nation_imperialism_opinion = 30
+	barbarian_culture_opinion = 30
+	monthly_character_prestige = 0.50
+	global_revolt_risk = 0.05
+	combat_rating = 10
+	bloodline_effect_avatar_killer_consequences = 1
+	
+	#custom_tooltip = {
+	#	text = bloodline_avatar_killer_tt #Avatar-hostile faiths and cultures gain 30 opinion
+	#}
+	
+	
+	inheritance = all_descendants
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_chin
+	flags = { is_avatar_killer_bloodline created_bloodline }
+	
+	active = {
+		OR = {
+			custom_tooltip = {
+				text = bloodline_relative_or_dynasty_tt
+				OR = {
+					FROM = {
+						founder = { is_close_relative = ROOT }
+					}
+					FROM = {
+						founder = { dynasty = ROOT }
+					}
+				}
+			}
+		}
+	}
+}

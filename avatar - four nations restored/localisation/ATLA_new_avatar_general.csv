@@ -1,0 +1,42 @@
+# Minor Titles
+title_waterbending_master;Court Waterbending Master;;;;;;;;;;;x
+title_waterbending_master_desc;The most experienced and skilled waterbender from the court;;;;;;;;;;;x
+
+# Avatar title
+AVATAR_TITLE;Avatar;;;;;;;;;;;x
+
+# Events
+EVTTITLE_new_avatar_general_2_reveal;Avatar [avatar.GetFirstName];;;;;;;;;;;x
+EVTDESC_new_avatar_general_2_reveal;Today, on the day of my 16th birthday, nothing seemed to portend anything out of the ordinary, but suddenly the elders of my nation came and declared me the Avatar. Everyone around me bowed to me, all-around me, friends and teachers, but I didn't bow back to them...;;;;;;;;;;;x
+EVTTITLE_new_avatar_general_3_reveal_roku;Avatar Roku;;;;;;;;;;;x
+EVTDESC_new_avatar_general_3_reveal;Today is a significant day, our 16th birthday with Sozin. In honour of this, the palace arranged a celebration. The most important people from all over the capital came to it. Generals and nobles have come to honour our entry into adulthood.\nOur common friends and acquaintances with Sozin also came. When the whole crowd gathered, Sozin and I went out to general applause. I was dreaming a little and almost fell down the stairs, but Sozin saved me from shame on such an important day.\nSuddenly, the fire sages appeared, Sozin went to meet them, but they said that they had not come because of him. "We're here to announce the identity of the next Avatar". "It is the honour to serve you, Avatar Roku.". Then, the firesages and the crowd knelt down. Even Sozin...;;;;;;;;;;;x
+EVTOPT_new_avatar_general_3_reveal;Is it really me...;;;;;;;;;;;x
+
+# Modifiers
+spirit_oasis_wisdom;Wisdom of Tui and La;;;;;;;;;;;x
+
+# Avatar Journey
+String_Region_Ba_Sing_Se;Ba Sing Se;;;;;;;;;;;x
+String_Region_Upper_Ring;Upper Ring;;;;;;;;;;;x
+String_Region_Middle_Ring;Middle Ring;;;;;;;;;;;x
+String_Region_Lower_Ring;Lower Ring;;;;;;;;;;;x
+String_Region_Agrarian_Zone;Agrarian Zone;;;;;;;;;;;x
+String_Region_Lake_Laogai;Lake Laogai;;;;;;;;;;;x
+String_Region_Earth_Royal_Palace;Royal Palace;;;;;;;;;;;x
+String_Region_Si_Wong_Desert;Si Wong Desert;;;;;;;;;;;x
+String_Region_Southern_Earth_Kingdom;Southern Earth Kingdom;;;;;;;;;;;x
+String_Region_Northern_Water_Tribe;Northern Water Tribe;;;;;;;;;;;x
+String_Region_Southern_Water_Tribe;Southern Water Tribe;;;;;;;;;;;x
+String_Region_Earth_Kingdom;Earth Kingdom;;;;;;;;;;;x
+String_Region_Fire_Nation;Fire Nation;;;;;;;;;;;x
+String_Region_Southern_Air_Temple;Southern Air Temple;;;;;;;;;;;x
+String_Region_Western_Air_Temple;Western Air Temple;;;;;;;;;;;x
+String_Region_Northern_Air_Temple;Northern Air Temple;;;;;;;;;;;x
+String_Region_Eastern_Air_Temple;Eastern Air Temple;;;;;;;;;;;x
+String_Region_Default;[Root.PrimaryTitle.GetName];;;;;;;;;;;x
+
+tooltip_preferred_outcome;Avatar is on the side of the ruler;;;;;;;;;;;x
+tooltip_compromise;Compromise;;;;;;;;;;;x
+tooltip_punishment;Avatar is on the side of the rebels;;;;;;;;;;;x
+
+

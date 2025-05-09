@@ -1,13 +1,13 @@
 507.3.10 = {
 	holder = 11835
 	law = agnatic_succession
-	law = succ_seniority
+	law = succ_air_nomad_elective
 	law = law_voting_power_1
 	law = war_voting_power_1
 	law = revoke_title_voting_power_1
 	law = imprison_voting_power_1
 	law = grant_title_voting_power_1
-	law = banish_voting_power_1 
+	law = banish_voting_power_1
 	law = execution_voting_power_1
 	liege = "k_northern_air_temple"
 }
@@ -36,9 +36,39 @@
 	holder = 11867
 	law = succ_primogeniture
 	liege = 0
+	effect = {
+		location = {
+			add_province_modifier =  {
+				name = air_nomad_genocide_3
+				years = 100
+			}
+		}
+	}
 }
-868.10.10 = {
+870.1.1 = {
+	effect = {
+		location = {
+			remove_province_modifier = air_nomad_genocide_3
+			add_province_modifier =  {
+				name = air_nomad_genocide_2
+				years = 60
+			}
+		}
+	}
+}
+888.10.10 = {
 	holder = 11871
+}
+910.1.1 = {
+	effect = {
+		location = {
+			remove_province_modifier = air_nomad_genocide_2
+			add_province_modifier =  {
+				name = air_nomad_genocide_1
+				years = 20
+			}
+		}
+	}
 }
 919.12.20 = {
 	holder = 11876
@@ -48,6 +78,15 @@
 	law = true_cognatic_succession
 	law = status_of_women_4
 	liege = "e_air_nomads"
+	effect = {
+		location = {
+			remove_province_modifier = air_nomad_genocide_1
+			add_province_modifier =  {
+				name = air_nomads_restored
+				years = 10
+			}
+		}
+	}
 }
 981.5.21 = {
 	holder = 11885

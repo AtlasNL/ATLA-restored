@@ -16,7 +16,7 @@
 # Zuko - 27
 # Kanna - 28
 # Azulon - 29
-# Hou-Ting - 32
+# Cixi(Earth Queen Hou-Ting) - 32
 # Izumi - 33
 # Kyoshi - 34
 # Koko - 36
@@ -37,7 +37,7 @@
 # Kya - 57
 # Katara - 58
 # Aang - 59 & 87
-# Bumi II - 61
+# Bumi, son of Aang - 61
 # Kya II - 62
 # Azula - 63
 # Toph - 68
@@ -59,6 +59,18 @@
 # Teo - 115
 # Yon Rha - 117
 # Zhao - 118
+# Lin - 119
+# Baatar Jr. - 140
+# Jinora - 148
+# Wu - 154
+# Salai - 50500
+# Wan - 51001
+# Mumik - 51002
+# Marpa - 51003
+# Kazumi - 51004
+# He Jin - 51005
+# Ula - 51006
+# Tsering - 51007
 
 1 = {
 	name = "Huan" #49th earth king
@@ -67,13 +79,14 @@
 	intrigue = 8
 	stewardship = 7
 	religion = ba_sing_se_cultural_heritage
-	culture = ba_sing_se
+	culture = ba_sing_se_culture
 	dna = "0000a000d00"
 	properties = "0f0bj000000000"
 	trait = ambitious
 	father = 10
 	725.2.5 = {
 		birth = yes
+		add_trait = born_in_the_purple
 	}
 	731.10.14 = {
 		add_trait = earthkingpuppet
@@ -91,7 +104,7 @@
 	name = "Sozin"
 	dynasty = 7
 	religion = fire_spirituality
-	culture = fire_nation
+	culture = fire_imperial_culture
 	dna = "00a000a0b00"
 	properties = "mh00ce00000000"
 	disallow_random_traits = yes
@@ -100,18 +113,13 @@
 	trait = competent_bender
 	trait = quick
 	trait = canon_character
-	father = 8
-	mother = 11
+	father = 52021 # was 52020 "Old Zuko" but this character canonically cannot exist
 	748.6.7 = {
 		birth = yes
-		effect = {
-			set_character_flag = is_sozin
-		}
+		effect = { set_character_flag = is_sozin }
 	}
 	756.3.13 = {
-		effect = {
-			add_friend = 3
-		}
+		effect = { add_friend = 3 }
 	}
 	764.6.7 = {
 		remove_trait = competent_bender
@@ -125,8 +133,6 @@
 		add_trait = firelord
 		effect = {
 			add_artifact = crownFirelord
-		}
-		effect = {
 			spawn_unit = {
 				province = 61 # Capital City
 				owner = ROOT
@@ -164,6 +170,11 @@
 				maintenance_multiplier = 0.2
 				reinforces = yes
 			}
+		}
+	}
+	830.2.13 = {
+		create_bloodline = {
+			type = burning_curse_bloodline
 		}
 	}
 	830.4.18 = {
@@ -208,11 +219,12 @@
 		death = yes
 	}
 }
+# Need to write more roku history
 3 = {
 	name = "Roku"
 	dynasty = 536
 	religion = "fire_spirituality"
-	culture = "fire_nation"
+	culture = customPortrait_roku_and_ta_min
 	dna = "000000a0b00"
 	properties = "ki0fcg00000000"
 	disallow_random_traits = yes
@@ -221,32 +233,63 @@
 	trait = canon_character
 	748.6.6 = {
 		birth = yes
+		culture = fire_imperial_culture
 		effect = {
-			set_character_flag = avatar_unrevealed
-			clr_global_flag = avatar_earth
-			clr_global_flag = avatar_dead
-			set_global_flag = avatar_fire
-			set_global_flag = avatar_unrevealed
 			set_character_flag = is_roku
+			set_character_flag = is_avatar
+			set_character_flag = no_court_invites
+			clr_global_flag = avatar_earth
+			set_global_flag = avatar_fire
 		}
+	}
+	756.3.13 = {
+		employer = 2
+		effect = { add_friend = 2 }
 	}
 	764.6.6 = {
-		employer = 2
-		effect = {
-			set_character_flag = avatar_revealed
-			clr_character_flag = avatar_unrevealed
-			clr_global_flag = avatar_unrevealed
-			set_global_flag = avatar_revealed
-			add_friend = 2
-			add_trait = avatar
-			add_trait = just
-			add_trait = temperate
-			add_trait = mastermind_theologian
+		employer = 7 #Moves to Gyatso to learn airZending
+		add_trait = roku_learning_airbending #Change portrait
+		
+		remove_trait = firebender
+		add_trait = avatar
+		add_trait = avatar_firebender
+		add_trait = just
+		add_trait = temperate
+		add_trait = mastermind_theologian
+	}
+	767.1.15 = {
+		employer = 5124 #Moves to Northern Water to learn Waterbending
+		add_trait = avatar_airbender
+		
+		remove_trait = roku_learning_airbending
+		add_trait = roku_learning_waterbending
+		
+		effect = { add_friend = 7 }
+	}
+	772.3.21 = {
+		employer = 6 #Moves to Sud to learn Earthbending
+		add_trait = avatar_waterbender
+		
+		remove_trait = roku_learning_waterbending
+		add_trait = roku_learning_earthbending
+	}
+	775.8.4 = {
+		employer = 6727 #Moves to Crescent Island to study Avatar state
+		add_trait = avatar_earthbender
+		effect = { add_friend = 6 }
+		
+		remove_trait = roku_learning_earthbending
+	}
+	776.10.21 = {
+		employer = 2 #Moves home again
+		add_trait = fully_realised_avatar
+		
+		create_bloodline = {
+			type = roku_bloodline
 		}
 	}
-	784.2.13 = {
-		add_spouse = 5
-		add_lover = 5
+	777.1.4 = {
+		add_spouse = 5 # Ta Min
 	}
 	818.7.14 = {
 		death = {
@@ -258,7 +301,7 @@
 	name = "Jang Chun" #49th earth kings son
 	dynasty = 1366
 	religion = "ba_sing_se_cultural_heritage"
-	culture = "ba_sing_se"
+	culture = ba_sing_se_culture
 	father = 1
 	746.2.13 = {
 		birth = yes
@@ -270,22 +313,34 @@
 5 = {
 	name = "Ta Min" #Roku's wife
 	female = yes
-	dynasty =  495
+	dynasty =  1882
 	religion = "fire_spirituality"
-	culture = "fire_nation"
+	culture = customPortrait_roku_and_ta_min
+	father = 7232
+	mother = 7233
 	trait = fair
-	trait = uninterested
+	trait = haughty
+	trait = celibate
 	748.2.5 = {
 		birth = yes
+		culture = fire_imperial_culture
 		effect = {
-			set_character_flag = Ta_Min
+			set_character_flag = is_ta_min
 		}
 	}
-	765.4.4 = {
-		employer = 8
+	764.2.5 = {
+		add_trait = charismatic_negotiator
+		remove_trait = haughty
+		add_trait = chaste
+		add_trait = honest
+		add_trait = groomed
+		add_trait = patient
 	}
+	#765.4.4 = {
+		#employer = 8
+	#}
 	784.2.13 = {
-		remove_trait = uninterested
+		remove_trait = celibate
 	}
 	830.2.5 = {
 		death = yes
@@ -295,11 +350,16 @@
 	name = "Sud" #Roku's earthbending teacher
 	dynasty = 496
 	religion = "earth_spirituality"
-	culture = "western_earth"
+	culture = western_earth_culture
 	trait = earthbender
 	trait = master_bender
 	744.2.5 = {
 		birth = yes
+	}
+	775.8.4 = {
+		effect = {
+			add_friend = 3 # Roku
+		}
 	}
 	823.2.5 = {
 		death = yes
@@ -311,39 +371,84 @@
 	religion = "air_spirituality"
 	culture = "southern_air_nomad"
 	trait = airbender
-	trait = competent_bender
+	trait = powerful_bender
 	trait = airnomad
+	trait = mastermind_theologian
+	trait = paisho
+	trait = airnomad_tattoos
+
 	749.5.3 = {
 		birth = yes
+		effect = {
+			set_character_flag = is_gyatso
+		}
+	}
+	767.1.15 = {
+		effect = {
+			add_friend = 3 # Gyatso
+		}
 	}
 	830.2.13 = {
+		remove_trait = powerful_bender
+		add_trait = legendary_bender
 		death = yes
 	}
 }
 8 = {
-	name = "Zair"
-	dynasty = 7
-	religion = "fire_spirituality"
-	culture = "fire_nation"
-	father = 14
-	mother = 16
-	disallow_random_traits = yes
-	trait = firebender
-	trait = master_bender
-	718.6.6 = {
+	name = "Taqukaq" #Roku's waterbending teacher
+	dynasty = 3962 # Quana
+	religion = "tui_and_la"
+	culture = northern_water_culture
+	trait = waterbender
+	dna = "blbgzhdpfax"
+	properties = "fijad000000000" 
+	712.2.17 = {
 		birth = yes
+		employer = 5112
 	}
-	734.6.6 = {
-		add_trait = charismatic_negotiator
-		add_trait = ambitious
-		add_trait = temperate
-		add_trait = positive_jing
-		add_trait = tea_master
+	722.2.17 = {
+		effect = {
+			change_diplomacy = 10
+			change_learning = 5
+			change_martial = 12
+		}
+		add_trait = enlightened
+		add_trait = competent_bender
 	}
-	742.8.12 = {
-		add_trait = firelord
+	728.2.17 = {
+		add_trait = just
+		add_trait = proud
+		add_trait = paisho
+		add_trait = deceitful
+		add_trait = intricate_webweaver
 	}
-	772.3.31 = {
+	732.2.17 = {
+		remove_trait = competent_bender
+		add_trait = powerful_bender
+	}
+	742.2.17 = {
+		remove_trait = powerful_bender
+		add_trait = master_bender
+		effect = {
+			give_minor_title = title_waterbending_master
+		}
+	}
+	752.2.17 = {
+		add_trait = zealous
+		add_trait = paranoid
+	}
+	753.12.23 = {
+		employer = 5124
+		effect = {
+			give_minor_title = title_waterbending_master
+		}	
+	}
+	772.3.21 = {
+		effect = {
+			add_friend = 3 # Roku
+		}
+	}
+	792.2.5 = {
 		death = yes
 	}
 }
@@ -351,12 +456,13 @@
 	name = "Goung" #47th earth king
 	dynasty = 1366
 	religion = "ba_sing_se_cultural_heritage"
-	culture = "ba_sing_se"
+	culture = ba_sing_se_culture
 	dna = "00d000d0a00"
 	properties = "0c0bc000000000"
 	father = 35
 	573.3.12 = {
 		birth = yes
+		add_trait = born_in_the_purple
 	}
 	626.9.23 = {
 		add_trait = earthkingpuppet
@@ -369,12 +475,13 @@
 	name = "Tian" #48th earth king
 	dynasty = 1366
 	religion = "ba_sing_se_cultural_heritage"
-	culture = "ba_sing_se"
+	culture = ba_sing_se_culture
 	dna = "000000c0b00"
 	properties = "0e0bd000000000"
 	father = 9
 	640.3.16 = {
 		birth = yes
+		add_trait = born_in_the_purple	
 	}
 	669.8.14 = {
 		add_trait = earthkingpuppet
@@ -387,7 +494,7 @@
 	name = "Zara"
 	dynasty = 281
 	religion = "fire_spirituality"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	female = yes
 	father = 12
 	mother = 17
@@ -402,9 +509,10 @@
 		add_trait = ambitious
 		add_trait = temperate
 	}
-	741.11.13 = {
-		add_spouse = 8
-	}
+	# 8 doesn't exist
+	# 741.11.13 = { 
+	# 	add_spouse = 8 
+	# }
 	770.1.14 = {
 		death = yes
 	}
@@ -413,7 +521,7 @@
 	name = "Zaiun"
 	dynasty = 281
 	religion = "fire_spirituality"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	disallow_random_traits = yes
 	trait = firebender
 	trait = competent_bender
@@ -433,7 +541,7 @@
 	name = "Zaio"
 	dynasty = 281
 	religion = "fire_spirituality"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	father = 12
 	mother = 17
 	716.3.14 = {
@@ -443,37 +551,11 @@
 		death = yes
 	}
 }
-14 = {
-	name = "Aeko"
-	dynasty = 7
-	religion = "fire_spirituality"
-	culture = "fire_nation"
-	father = 43
-	disallow_random_traits = yes
-	trait = firebender
-	trait = master_bender
-	trait = quick
-	671.5.13 = {
-		birth = yes
-	}
-	687.5.13 = {
-		add_trait = charismatic_negotiator
-		add_trait = ambitious
-		add_trait = temperate
-		add_trait = kind
-	}
-	692.2.16 = {
-		add_trait = firelord
-	}
-	742.8.12 = {
-		death = yes
-	}
-}
 15 = {
 	name = "Kazumi"
 	dynasty = 236
 	religion = "fire_spirituality"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	female = yes
 	disallow_random_traits = yes
 	trait = firebender
@@ -496,7 +578,7 @@
 16 = {
 	name = "Feiyan"
 	religion = "fire_spirituality"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	female = yes
 	673.2.12 = {
 		birth = yes
@@ -511,7 +593,7 @@
 17 = {
 	name = "Tashi"
 	religion = "fire_spirituality"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	female = yes
 	689.12.3 = {
 		birth = yes
@@ -528,13 +610,12 @@
 	disallow_random_traits = yes
 	dynasty = 536
 	religion = "fire_spirituality"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	female = yes
 	father = 3
 	mother = 5
 	trait = firebender
 	trait = competent_bender
-	trait = directdescendantavatar
 	801.6.17 = {
 		birth = yes
 		effect = {
@@ -557,7 +638,7 @@
 	disallow_random_traits = yes
 	dynasty = 1393
 	religion = "fire_spirituality"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	trait = firebender
 	trait = competent_bender
 	802.5.13 = {
@@ -574,7 +655,7 @@
 	name = "Ilah"
 	dynasty = 1394
 	religion = "fire_nation_imperialism"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	female = yes
 	trait = firebender
 	trait = competent_bender
@@ -592,7 +673,7 @@
 	name = "Malu"
 	dynasty = 1395
 	religion = earth_spirituality
-	culture = eastern_earth
+	culture = eastern_earth_culture
 	female = yes
 	830.12.21 = {
 		birth = yes
@@ -634,10 +715,11 @@
 			set_character_flag = is_iroh
 			set_global_flag = Iroh
 		}
-		culture = fire_nation
+		culture = fire_imperial_culture
 	}
 	894.5.3 = {
 		add_trait = brilliant_strategist
+		add_trait = lightningbender
 		add_trait = proud
 		add_trait = diligent
 		add_trait = siege_leader
@@ -772,29 +854,47 @@
 	properties = "me00fd00000000"
 	disallow_random_traits = yes
 	trait = strong
+	trait = firebender
+	trait = incompetent_bender
+	trait = haughty
 	trait = canon_character
 	father = 29
 	mother = 20
 	884.5.3 = {
 		birth = yes
-		culture = fire_nation
+		culture = fire_imperial_culture
 		effect = {
 			set_character_flag = is_ozai
 			set_global_flag = Ozai
 		}
 	}
-	888.5.3 = {
-		add_trait = firebender
+	890.5.3 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		add_trait = playful
+	}
+	894.5.3 = {
+		remove_trait = haughty
+		remove_trait = competent_bender
+		add_trait = powerful_bender
+		add_trait = proud
+		add_trait = willful
+	}
+	896.5.3 = {
+		remove_trait = powerful_bender
 		add_trait = master_bender
+		remove_trait = willful
+		add_trait = ambitious
 	}
 	900.5.3 = {
-		add_trait = proud
-		add_trait = tough_soldier
+		add_trait = flamboyant_schemer
+		add_trait = aggressive_leader
 		remove_trait = master_bender
 		add_trait = legendary_bender
+		add_trait = lightningbender
+		remove_trait = playful
 		add_trait = cruel
 		add_trait = wroth
-		add_trait = ambitious
 	}
 	911.8.8 = {
 		add_spouse = 26
@@ -825,23 +925,42 @@
 	dna = "00b000b0b00"
 	properties = "0i0b0000000000"
 	disallow_random_traits = yes
-	trait = craven
+	trait = timid
+	trait = idolizer
 	father = 30
 	905.6.14 = {
 		birth = yes
-		culture = ba_sing_se
+		culture = ba_sing_se_culture
+		add_trait = born_in_the_purple		
+	}
+	911.6.14 = {
+		remove_trait = timid
+		add_trait = craven
+		add_trait = trusting
+		add_trait = affectionate
+		add_trait = conscientious
 	}
 	921.6.14 = {
-		add_trait = bear
+		effect = {
+			add_artifact = petBear
+		}
 		add_trait = naive_appeaser
+		remove_trait = affectionate
+		remove_trait = idolizer
+		remove_trait = conscientious
+		add_trait = kind
+		add_trait = content
+		add_trait = temperate
 	}
 	925.5.13 = {
 		add_trait = earthkingpuppet
 	}
 	930.8.26 = {
 		remove_trait = earthkingpuppet
+		remove_trait = naive_appeaser
 		add_trait = earthking
 		add_trait = fortune_builder
+		remove_trait = craven
 	}
 	978.3.12 = {
 		death = yes
@@ -856,11 +975,11 @@
 	disallow_random_traits = yes
 	894.11.13 = {
 		birth = yes
-		culture = southern_water
+		culture = southern_water_culture
 	}
 	894.11.14 = {
 		create_bloodline = {
-			type = bloodline_taima
+			type = taima_bloodline
 		}
 	}
 	910.11.13 = {
@@ -882,7 +1001,6 @@
 	female = yes
 	religion = "fire_spirituality"
 	culture = customPortrait_iroh
-	trait = descendantavatar
 	trait = canon_character
 	mother = 18
 	father = 19
@@ -892,7 +1010,7 @@
 			set_character_flag = is_ursa
 			set_global_flag = Ursa
 		}
-		culture = fire_nation
+		culture = fire_imperial_culture
 	}
 	888.8.8 = {
 		add_trait = kind
@@ -933,7 +1051,7 @@
 			set_character_flag = is_zuko
 			set_global_flag = Zuko
 		}
-		culture = fire_nation
+		culture = fire_imperial_culture
 	}
 	925.12.13 = {
 		add_trait = wroth
@@ -942,22 +1060,38 @@
 		add_trait = agnikaiburnt
 		effect = {
 			set_global_flag = has_banished_son
+			add_friend = 22
 		}
 	}
 	929.4.12 = {
 		add_trait = tough_soldier
 	}
+	930.6.1 = {
+		effect = {
+			add_lover = 73
+		}
+	}
+	930.8.2 = {
+		remove_trait = wroth
+		add_trait = just
+		add_trait = innerflame
+		effect = {
+			add_friend = 87
+			add_friend = 47
+			add_friend = 58
+			add_friend = 68
+		}
+	}
+			
 	931.2.5 = {
 		religion = fire_spirituality
 		remove_trait = agnikaiburnt
-		remove_trait = wroth
 		remove_trait = competent_bender
 		remove_trait = tough_soldier
 		add_trait = charismatic_negotiator
 		add_trait = master_bender
 		add_trait = firelord
 		add_trait = agnikaihonor
-		add_trait = just
 	}
 	934.12.6 = {
 		add_spouse = 73
@@ -973,7 +1107,7 @@
 	name = "Kanna"
 	dynasty = 1396
 	religion = tui_and_la
-	culture = northern_water
+	culture = northern_water_culture
 	female = yes
 	disallow_random_traits = yes
 	trait = kind
@@ -988,11 +1122,14 @@
 	}
 	884.9.7 = {
 		employer = 2063
-		culture = southern_water
+		culture = southern_water_culture
 		religion = southern_spirituality
 		add_trait = charismatic_negotiator
 		add_trait = brave
 		add_trait = patient
+		effect = {
+			break_betrothal = 108
+		}
 	}
 	941.3.21 = {
 		death = yes
@@ -1006,7 +1143,7 @@
 	intrigue = 1
 	stewardship = 4
 	religion = "fire_nation_imperialism"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	dna = "00c000c0a00"
 	properties = "me00dd00000000"
 	disallow_random_traits = yes
@@ -1042,12 +1179,13 @@
 	name = "Wei Hung" #51st earth king
 	dynasty = 1366
 	religion = "ba_sing_se_cultural_heritage"
-	culture = "ba_sing_se"
+	culture = ba_sing_se_culture
 	dna = "00g000b0000"
 	properties = "0e00f000000000"
 	mother = 31
 	833.2.6 = {
 		birth = yes
+		add_trait = born_in_the_purple
 	}
 	889.9.15 = {
 		add_trait = earthkingpuppet
@@ -1061,12 +1199,13 @@
 	dynasty = 1366
 	female = yes
 	religion = "ba_sing_se_cultural_heritage"
-	culture = "ba_sing_se"
+	culture = ba_sing_se_culture
 	dna = "00a000f0000"
 	properties = "0f0b0000000000"
 	father = 1
 	799.2.14 = {
 		birth = yes
+		add_trait = born_in_the_purple	
 	}
 	809.6.17 = {
 		add_trait = earthkingpuppet
@@ -1076,18 +1215,41 @@
 	}
 }
 32 = {
-	name = "Hou-Ting" #53rd earth king
+	name = "Cixi" #53rd earth king
 	dynasty = 1366
 	female = yes
 	religion = "ba_sing_se_cultural_heritage"
-	culture = "ba_sing_se"
+	culture = ba_sing_se_culture
 	disallow_random_traits = yes
 	father = 24
+	trait = fussy
 	943.2.5 = {
 		birth = yes
+		add_trait = born_in_the_purple	
+	}
+	949.2.5 = {
+		remove_trait = fussy
+		add_trait = haughty
+		add_trait = playful
+		add_trait = greedy
+	}
+	955.2.5 = {
+		remove_trait = haughty
+		remove_trait = playful
+		add_trait = brooding
+		add_trait = proud
+	}
+	959.2.5 = {
+		add_trait = flamboyant_schemer
+		remove_trait = brooding
+		remove_trait = playful
+		add_trait = deceitful
+		add_trait = arbitrary
+		add_trait = groomed
 	}
 	978.3.12 = {
 		add_trait = earthking
+		add_trait = gardener
 		religion = earth_monarchism
 	}
 	1001.12.6 = {
@@ -1101,7 +1263,7 @@
 	dynasty = 7
 	female = yes
 	religion = fire_spirituality
-	culture = fire_nation
+	culture = fire_imperial_culture
 	disallow_random_traits = yes
 	trait = firebender
 	trait = competent_bender
@@ -1140,12 +1302,12 @@
 	culture = customPortrait_kyoshi
 	female = yes
 	disallow_random_traits = yes
-	trait = fullyrealisedavatar
-	trait = earthbender
-	trait = avatar_firebender
-	trait = avatar_airbender
-	trait = avatar_waterbender
-	trait = powerful_bender
+	trait = avatar
+	trait = fully_realised_avatar
+	trait = giant
+	trait = master_bender
+	trait = healer
+	trait = lavabender
 	trait = brave
 	trait = just
 	trait = brilliant_strategist
@@ -1153,22 +1315,28 @@
 		birth = yes
 		effect = {
 			set_character_flag = is_kyoshi
+			set_character_flag = is_avatar
+			set_character_flag = no_court_invites
 			set_global_flag = avatar_earth
-			set_character_flag = avatar_revealed
-			set_global_flag = avatar_revealed
 		}
 		culture = earth_islander
 	}
 	518.2.14 = {
 		create_bloodline = {
-			type= takahama
+			type = takahama_bloodline
 		}
+	}
+	518.2.15 = {
+		effect = {
+			add_artifact = kyoshifan
+		}
+	}
+	537.8.17 = {
+		trait = immortal
+		immortal_age = 22 #She learns to *perform* the technique far younger, but it lets her choose which age to remain at, and she sure doesn't look like a teenager
 	}
 	555.3.12 = {
 		effect = {
-			d_avatar = {
-				make_primary_title = yes
-			}
 			spawn_unit = {
 				province = 389 # Kyoshi Island
 				owner = ROOT
@@ -1184,6 +1352,7 @@
 				maintenance = no
 				reinforces = yes
 			}
+			set_character_flag = avatar_settled #Makes sure Kyoshi doesn't wander off
 		}
 	}
 	748.6.6 = {
@@ -1198,9 +1367,10 @@
 	martial = 9
 	stewardship = 12
 	religion = earth_monarchism
-	culture = ba_sing_se
+	culture = ba_sing_se_culture
 	dna = "00e000b0000"
 	properties = "0e00g000000000"
+	father = 246
 	disallow_random_traits = yes
 	trait = earthking
 	trait = greedy
@@ -1210,11 +1380,7 @@
 	trait = ambitious
 	549.5.14 = {
 		birth = yes
-	}
-	549.5.15 = {
-		create_bloodline = {
-			type = houting
-		}
+		add_trait = born_in_the_purple
 	}
 	565.5.14 = {
 		add_trait = skilled_tactician
@@ -1223,8 +1389,10 @@
 		religion = ba_sing_se_cultural_heritage
 		remove_trait = earthking
 		remove_trait = ambitious
+		remove_trait = proud
+		remove_trait = greedy
 		add_trait = earthkingpuppet
-		add_trait = apathetic
+		add_trait = depressed
 	}
 	626.9.23 = {
 		death = yes
@@ -1240,7 +1408,6 @@
 	disallow_random_traits = yes
 	trait = earthbender
 	trait = powerful_bender
-	trait = directdescendantavatar
 	683.10.21 = {
 		birth = yes
 	}
@@ -1261,7 +1428,6 @@
 	mother = 36
 	trait = earthbender
 	trait = powerful_bender
-	trait = descendantavatar
 	713.6.12 = {
 		birth = yes
 	}
@@ -1280,23 +1446,20 @@
 	religion = tui_and_la
 	culture = customPortrait_kyoshi
 	disallow_random_traits = yes
-	trait = fullyrealisedavatar
-	trait = waterbender
-	trait = avatar_earthbender
-	trait = avatar_firebender
-	trait = avatar_airbender
+	trait = fully_realised_avatar
 	trait = powerful_bender
 	trait = proud
 	trait = strong
 	trait = slothful
 	trait = misguided_warrior
+	trait = assign_mission_target
 	485.9.3 = {
 		birth = yes
-		culture = northern_water
+		culture = northern_water_culture
 	}
 	485.9.3 = {
 		create_bloodline = {
-			type = kuruk
+			type = kuruk_bloodline
 		}
 	}
 	517.5.7 = {
@@ -1317,22 +1480,19 @@
 	properties = "00000000000000"
 	female = yes
 	disallow_random_traits = yes
-	trait = fullyrealisedavatar
-	trait = airbender
-	trait = avatar_waterbender
-	trait = avatar_earthbender
-	trait = avatar_firebender
+	trait = fully_realised_avatar
 	trait = powerful_bender
 	trait = just
 	trait = airnomad
 	trait = mastermind_theologian
-	1.1.1 = {
+	trait = assign_mission_target
+	415.1.1 = {
 		birth = yes
 		culture = western_air_nomad
 	}
-	1.1.1 = {
+	421.1.1 = {
 		create_bloodline = {
-			type = yangchen
+			type = yangchen_bloodline
 		}
 	}
 	485.1.3 = {
@@ -1342,8 +1502,9 @@
 40 = {
 	name = "Chin"
 	dynasty = 336
+        father = 50505
 	religion = "way_of_chin"
-	culture = "northern_earth"
+	culture = northern_earth_culture
 	dna = 00eb00c0000
 	properties = eg0aga00000000
 	diplomacy = 4
@@ -1359,6 +1520,7 @@
 	trait = strong
 	trait = wroth
 	trait = proud
+	trait = folk_legend
 	498.12.21 = {
 		birth = yes
 	}
@@ -1386,7 +1548,7 @@
 	name = "Kuzon"
 	dynasty = 531
 	religion = "fire_spirituality"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	disallow_random_traits = yes
 	trait = firebender
 	trait = powerful_bender
@@ -1416,29 +1578,57 @@
 	culture = customPortrait_toph
 	disallow_random_traits = yes
 	trait = earthbender
-	trait = master_bender
-	trait = neutral_jing
+	trait = incompetent_bender
+	trait = strong
 	trait = genius
 	trait = canon_character
+	trait = playful
 	818.10.16 = {
 		birth = yes
 		effect = {
 			set_character_flag = is_bumi
 			set_global_flag = Bumi
 		}
-		culture = western_earth
+		culture = omashuan
+	}
+	824.10.16 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		remove_trait = playful
+		add_trait = rowdy
+		add_trait = lunatic
+		add_trait = uncouth
+	}
+	830.10.16 = {
+		remove_trait = competent_bender
+		add_trait = powerful_bender
+		remove_trait = rowdy
+		add_trait = curious
+		add_trait = indolent
+		add_trait = brave
 	}
 	834.10.16 = {
-		add_trait = patient
-		add_trait = brave
 		add_trait = brilliant_strategist
 		add_trait = trickster
+		add_trait = defensive_leader
+		add_trait = unyielding_leader
+		remove_trait = powerful_bender
+		add_trait = master_bender
+		add_trait = duelist
+		remove_trait = curious
+		remove_trait = indolent
+		add_trait = neutral_jing
+		add_trait = patient
+		add_trait = gluttonous
 	}
 	848.2.5 = {
-		add_trait = goatgorilla
 		remove_trait = master_bender
 		add_trait = legendary_bender
+		create_bloodline = {
+			type = mad_genius_bloodline
+		}
 		effect = {
+			add_artifact = petGoatGorilla
 			spawn_unit = {
 				province = 309 # Omashu
 				owner = ROOT
@@ -1490,83 +1680,11 @@
 		death = yes
 	}
 }
-43 = {
-	name = "Kazuhiro"
-	dynasty = 7
-	religion = "fire_spirituality"
-	culture = "fire_islander"
-	father = 44
-	disallow_random_traits = yes
-	trait = firebender
-	trait = legendary_bender
-	trait = quick
-	621.4.21 = {
-		birth = yes
-	}
-	636.4.21 = {
-		add_trait = brilliant_strategist
-		add_trait = ambitious
-		add_trait = temperate
-	}
-	643.1.17 = {
-		add_trait = firelord
-		culture = fire_nation
-	}
-	692.2.16 = {
-		death = yes
-	}
-}
-44 = {
-	name = "Akizada"
-	dynasty = 7
-	religion = "fire_spirituality"
-	culture = "fire_islander"
-	father = 45
-	disallow_random_traits = yes
-	trait = firebender
-	trait = master_bender
-	trait = quick
-	584.12.24 = {
-		birth = yes
-	}
-	600.12.24 = {
-		add_trait = brilliant_strategist
-		add_trait = ambitious
-		add_trait = patient
-	}
-	638.9.21 = {
-		death = yes
-	}
-}
-45 = {
-	name = "Mazaharu"
-	dynasty = 7
-	religion = "fire_spirituality"
-	culture = "fire_islander"
-	mother = 112
-	disallow_random_traits = yes
-	trait = firebender
-	trait = competent_bender
-	trait = quick
-	549.10.13 = {
-		birth = yes
-	}
-	565.10.13 = {
-		remove_trait = competent_bender
-		add_trait = brilliant_strategist
-		add_trait = ambitious
-		add_trait = brave
-		add_trait = master_bender
-	}
-	607.3.14 = {
-		death = yes
-	}
-}
 46 = {
 	name = "Tonraq" #Tonraq, Chief of the South
 	dynasty = 163
 	religion = "southern_spirituality"
-	culture = "southern_water"
+	culture = southern_water_culture
 	father = 51
 	mother = 4220
 	disallow_random_traits = yes
@@ -1602,25 +1720,36 @@
 	mother = 57
 	disallow_random_traits = yes
 	trait = brave
-	trait = boomerang
+	trait = fair
 	914.2.15 = {
 		birth = yes
 		effect = {
 			set_character_flag = is_sokka
 		}
-		culture = southern_water
+		culture = southern_water_culture
 	}
 	924.11.16 = {
 		add_trait = cynical
+		effect = {
+			add_artifact = waterBoomerangWeapon
+		}
 	}
 	930.2.15 = {
 		add_trait = skilled_tactician
-		add_trait = weapon_master
-		add_trait = space_sword
+		add_trait = weapons_expert
 		add_trait = diligent
 		add_trait = inspiring_leader
 		add_trait = organizer
 		remove_trait = cynical
+		
+		effect = {
+			add_artifact = swordSpaceSword
+		}
+	}
+	930.6.1 = {
+		effect = {
+			add_lover = 100
+		}
 	}
 	969.6.14 = {
 		add_trait = just
@@ -1633,7 +1762,7 @@
 	name = "Gilak" #Gilak, Rebel Chieftain
 	dynasty = 2099
 	religion = "southern_spirituality"
-	culture = "southern_water"
+	culture = southern_water_culture
 	disallow_random_traits = yes
 	father = 2163
 	mother = 2166
@@ -1662,7 +1791,7 @@
 	disallow_random_traits = yes
 	892.6.10 = {
 		birth = yes
-		culture = northern_water
+		culture = northern_water_culture
 	}
 	908.6.10 = {
 		add_trait = fortune_builder
@@ -1707,7 +1836,7 @@
 	name = "Batu" #Ancestor
 	dynasty = 163
 	religion = "tui_and_la"
-	culture = "northern_water"
+	culture = northern_water_culture
 	father = 5151
 	mother = 5155
 	896.12.17 = {
@@ -1726,7 +1855,7 @@
 	name = "Manirak" #Unknown Chief of the North
 	dynasty = 163
 	religion = "tui_and_la"
-	culture = "northern_water"
+	culture = northern_water_culture
 	father = 50
 	mother = 4548
 	disallow_random_traits = yes
@@ -1771,7 +1900,7 @@
 	name = "Unalaq" #Unalaq, Chief of the North
 	dynasty = 163
 	religion = "tui_and_la"
-	culture = "northern_water"
+	culture = northern_water_culture
 	father = 51
 	mother = 4220
 	disallow_random_traits = yes
@@ -1822,7 +1951,7 @@
 	name = "Eska" #Eska, Chief of the North
 	dynasty = 163
 	religion = "tui_and_la"
-	culture = "northern_water"
+	culture = northern_water_culture
 	father = 52
 	mother = 4999
 	female = yes
@@ -1869,7 +1998,7 @@
 	name = "Desna" #Desna, Chief of the North
 	dynasty = 163
 	religion = "tui_and_la"
-	culture = "northern_water"
+	culture = northern_water_culture
 	father = 52
 	mother = 4999
 	disallow_random_traits = yes
@@ -1909,7 +2038,10 @@
 		effect = {
 			set_character_flag = is_yue
 		}
-		culture = northern_water
+		culture = northern_water_culture
+	}
+	916.7.4 = {
+		add_trait = spirit_healed
 	}
 	922.6.14 = {
 		add_trait = charitable
@@ -1930,39 +2062,58 @@
 	intrigue = 4
 	stewardship = 2
 	religion = "southern_spirituality"
-	culture = "southern_water"
+	culture = customPortrait_korra
 	father = 46
 	mother = 2614
 	disallow_random_traits = yes
 	female = yes
-	trait = waterbender
-	trait = legendary_bender
+	trait = avatar_waterbender
+	trait = master_bender
 	trait = strong
-	983.2.16 = {
+	trait = healer
+	trait = robust
+	982.6.28 = {
 		birth = yes
 		add_trait = fussy
 		add_trait = rowdy
 		add_trait = haughty
 		add_trait = willful
+		effect = {
+			set_character_flag = is_korra
+			set_character_flag = is_avatar
+			set_character_flag = no_court_invites
+			clr_global_flag = avatar_air
+			set_global_flag = avatar_water
+		}
+		culture = southern_water_culture
 	}
 	989.2.16 = {
 		add_trait = avatar
 		add_trait = avatar_firebender
+		create_bloodline = { type = korra_bloodline }
 	}
 	992.5.14 = {
 		add_trait = avatar_earthbender
-		add_trait = polarbeardog
+		effect = {
+			add_artifact = petPolarBearDog
+		
+			new_artifact = {
+				set_name = "Naga"
+			}
+		}
 	}
 	999.2.16 = {
 		add_trait = tough_soldier
 		add_trait = proud
 		add_trait = wroth
 		add_trait = brave
+		add_trait = avatar_airbender
 	}
 	1000.12.6 = {
-		add_trait = avatar_airbender
-		remove_trait = avatar
-		add_trait = fullyrealisedavatar
+		add_trait = fully_realised_avatar
+	}
+	1001.5.21 = {
+		add_trait = metalbender
 	}
 	1001.12.6 = {
 		remove_trait = wroth
@@ -1985,7 +2136,7 @@
 	trait = kind
 	895.3.17 = {
 		birth = yes
-		culture = southern_water
+		culture = southern_water_culture
 	}
 	911.3.16 = {
 		add_trait = thrifty_clerk
@@ -2014,7 +2165,7 @@
 		effect = {
 			set_character_flag = is_katara
 		}
-		culture = southern_water
+		culture = southern_water_culture
 	}
 	920.2.13 = {
 		add_trait = waterbender
@@ -2025,10 +2176,15 @@
 		add_trait = master_bender
 		add_trait = healer
 	}
-	932.8.21 = {
+	931.1.1 = {
 		remove_trait = master_bender
+		remove_trait = healer
+		add_trait = master_healer
 		add_trait = charitable
 		add_trait = legendary_bender
+		add_trait = bloodbender
+	}
+	932.8.21 = {
 		add_trait = underhanded_rogue
 	}
 	1009.4.15 = {
@@ -2039,8 +2195,8 @@
 	name = "Aang"
 	dynasty = 1504
 	religion = air_spirituality
-	culture = southern_air_nomad
-	father = 7
+	culture = customPortrait_aang
+	# father = 7
 	disallow_random_traits = yes
 	trait = airbender
 	trait = powerful_bender
@@ -2050,14 +2206,24 @@
 		birth = yes
 		effect = {
 			set_character_flag = is_aang
+			set_character_flag = is_avatar
+			set_character_flag = no_court_invites
+			clr_global_flag = avatar_fire
+			set_global_flag = avatar_air
+			culture = southern_air_nomad
 		}
 	}
 	828.3.14 = {
 		effect = {
+			add_artifact = staffGlider
 			add_artifact = petSkybison
+
+			new_artifact = {
+				set_name = "Appa"
+			}
 		}
 	}
-	830.2.13 = {
+	830.2.13 = { ##TODO: Change this to make Aang alive & inaccessible when we have somewhere to put him. - Liz
 		death = {
 			death_reason = death_missing
 		}
@@ -2067,7 +2233,7 @@
 	name = "Bato" #Bato of the Water Tribe
 	dynasty = 14
 	religion = "southern_spirituality"
-	culture = "southern_water"
+	culture = southern_water_culture
 	disallow_random_traits = yes
 	trait = strong
 	896.2.26 = {
@@ -2089,8 +2255,7 @@
 	father = 87
 	mother = 58
 	disallow_random_traits = yes
-	trait = shrewd
-	trait = haughty
+	trait = curious
 	trait = rowdy
 	trait = willful
 	943.11.5 = {
@@ -2100,11 +2265,15 @@
 			set_global_flag = bumiTwo
 		}
 	}
+	949.11.5 = {
+		remove_trait = rowdy
+		add_trait = haughty
+	}
 	959.11.5 = {
 		remove_trait = haughty
-		remove_trait = rowdy
 		remove_trait = willful
-		add_trait = skilled_tactician
+		add_trait = tough_soldier
+		add_trait = shrewd
 		add_trait = envious
 		add_trait = proud
 		add_trait = brave
@@ -2132,7 +2301,8 @@
 	father = 87
 	mother = 58
 	disallow_random_traits = yes
-	trait = shrewd
+	trait = waterbender
+	trait = incompetent_bender
 	trait = conscientious
 	trait = idolizer
 	trait = curious
@@ -2143,31 +2313,40 @@
 			set_global_flag = kyaTwo
 		}
 	}
-	952.2.13 = {
-		add_trait = waterbender
+	952.7.4 = {
+		remove_trait = incompetent_bender
 		add_trait = competent_bender
 	}
+	958.7.4 = {
+		add_trait = temperate
+		add_trait = homosexual
+		add_trait = healer
+		add_trait = cynical
+	}
 	962.7.4 = {
+		add_trait = scholarly_theologian
 		remove_trait = conscientious
 		remove_trait = idolizer
 		remove_trait = curious
 		remove_trait = competent_bender
+		add_trait = powerful_bender
+		add_trait = shrewd
 		add_trait = envious
-		add_trait = cynical
 		add_trait = gregarious
 		add_trait = slothful
-		add_trait = temperate
-		add_trait = powerful_bender
-		add_trait = healer
-		add_trait = homosexual
+		add_trait = adventurer
 		add_trait = hedonist
 	}
 	982.6.28 = {
+		remove_trait = powerful_bender
+		add_trait = master_bender
 		remove_trait = envious
 		remove_trait = slothful
 		remove_trait = hedonist
-		remove_trait = powerful_bender
-		add_trait = master_bender
+		remove_trait = adventurer
+		add_trait = chaste
+		add_trait = just
+		add_trait = physician
 	}
 	1025.2.13 = {
 		death = yes
@@ -2185,29 +2364,68 @@
 	female = yes
 	disallow_random_traits = yes
 	trait = genius
+	trait = fair
 	trait = firebender
-	trait = legendary_bender
+	trait = incompetent_bender
+	trait = haughty
+	trait = playful
 	father = 23
 	mother = 26
-	917.1.24 = {
+	916.1.24 = {
 		birth = yes
 		effect = {
 			set_character_flag = is_azula
 			set_global_flag = Azula
 		}
-		culture = fire_nation
+		culture = fire_imperial_culture
 	}
-	923.1.24 = {
-		add_trait = wroth
+	922.1.24 = {
+		remove_trait = haughty
+		remove_trait = playful
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		add_trait = conscientious
 		add_trait = cruel
-		add_trait = shrewd
+		add_trait = proud
 		add_trait = deceitful
+		effect = {
+			add_friend = 73
+			add_friend = 101
+		}
 	}
-	931.1.24 = {
-		religion = bhanti_spirituality
+	924.1.24 = {
+		remove_trait = conscientious
+		remove_trait = competent_bender
+		add_trait = powerful_bender
+		add_trait = diligent
+		add_trait = curious
+	}
+	926.1.24 = {
+		remove_trait = powerful_bender
+		add_trait = master_bender
+	}
+	928.1.24 = {
+		remove_trait = master_bender
+		add_trait = legendary_bender
+		add_trait = blueflames
 		remove_trait = cruel
 	}
-	933.1.24 = {
+	930.1.24 = {
+		remove_trait = curious
+		add_trait = cynical
+		add_trait = light_foot_leader
+		add_trait = lightningbender
+		add_trait = schemer
+	}
+	930.7.10 = {
+		add_trait = paranoid
+		add_trait = lunatic
+		effect = {
+			remove_friend = 73
+			remove_friend = 101
+		}
+	}
+	932.1.24 = {
 		add_trait = elusive_shadow
 	}
 	998.3.15 = {
@@ -2218,7 +2436,7 @@
 	name = "Gunn"
 	dynasty = 1400
 	religion = "ba_sing_se_cultural_heritage"
-	culture = "ba_sing_se"
+	culture = ba_sing_se_culture
 	disallow_random_traits = yes
 	958.7.16 = {
 		birth = yes
@@ -2238,14 +2456,30 @@
 	name = "Oma"
 	dynasty = 2741
 	religion = "omashuan_ethics"
-	culture = "western_earth"
-	disallow_random_traits = yes
+	culture = "omashuan"
 	trait = earthbender
-	trait = master_bender
-	trait = patient
-	trait = brave
+	trait = incompetent_bender
+	trait = curious
+	trait = willful
 	911.3.12 = {
 		birth = yes
+	}
+	917.3.12 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+	}
+	923.3.12 = {
+		remove_trait = competent_bender
+		add_trait = powerful_bender
+		remove_trait = curious
+		add_trait = patient
+	}
+	927.3.12 = {
+		add_trait = intricate_webweaver
+		remove_trait = powerful_bender
+		add_trait = master_bender
+		remove_trait = willful
+		add_trait = brave
 	}
 	945.6.4 = {
 		add_spouse = 66
@@ -2257,7 +2491,7 @@
 66 = {
 	name = "Sai"
 	religion = "omashuan_ethics"
-	culture = "western_earth"
+	culture = "omashuan"
 	female = yes
 	912.8.4 = {
 		birth = yes
@@ -2270,19 +2504,30 @@
 	name = "Lihua"
 	dynasty = 2741
 	religion = "omashuan_ethics"
-	culture = "western_earth"
+	culture = "omashuan"
 	father = 65
 	mother = 66
 	female = yes
 	disallow_random_traits = yes
 	trait = earthbender
-	trait = master_bender
+	trait = incompetent_bender
 	trait = quick
 	956.4.15 = {
 		birth = yes
 	}
-	972.4.15 = {
+	962.4.15 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+	}
+	962.4.15 = {
+		remove_trait = competent_bender
+		add_trait = powerful_bender
 		add_trait = patient
+	}
+	972.4.15 = {
+		add_trait = grey_eminence
+		remove_trait = powerful_bender
+		add_trait = master_bender
 		add_trait = brave
 	}
 	1011.5.4 = {
@@ -2305,29 +2550,65 @@
 	trait = rowdy
 	trait = willful
 	trait = earthbender
-	trait = legendary_bender
-	trait = seismicsense
+	trait = incompetent_bender
 	918.11.4 = {
 		birth = yes
 		effect = {
 			set_character_flag = is_toph
 		}
-		culture = southern_earth
+		culture = southern_earth_culture
+	}
+	922.11.4 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		add_trait = seismicsense
+		add_trait = uncouth
+	}
+	925.11.4 = {
+		remove_trait = competent_bender
+		add_trait = powerful_bender
+		remove_trait = haughty
+		add_trait = proud
+	}
+	927.11.4 = {
+		remove_trait = powerful_bender
+		add_trait = master_bender
+		remove_trait = rowdy
+		add_trait = brave
+		add_trait = cynical
+	}
+	929.11.4 = {
+		remove_trait = master_bender
+		add_trait = legendary_bender
+		remove_trait = willful
+		add_trait = neutral_jing
+		add_trait = stubborn
+		add_trait = duelist
+	}
+	930.3.13 = {
+		effect = {
+			add_friend = 58
+			add_friend = 47
+			add_friend = 87
+		}
 	}
 	930.5.8 = {
 		add_trait = metalbender
 	}
+	930.5.8 = {
+		create_bloodline = {
+			type = metalbending_founder_bloodline
+		}
+	}
 	930.8.1 = {
-		add_trait = meteorite_braclet
+		effect = {
+		add_artifact = wristMeteoriteBracelet
+		}
+		add_trait = sandbender
 	}
 	934.11.4 = {
-		remove_trait = haughty
-		remove_trait = rowdy
-		remove_trait = willful
 		add_trait = skilled_tactician
-		add_trait = proud
-		add_trait = brave
-		add_trait = cynical
+		add_trait = unyielding_leader
 	}
 	1011.8.13 = {
 		death = yes
@@ -2337,33 +2618,47 @@
 	name = "Suyin"
 	dynasty = 1
 	religion = modernism
-	culture = southern_earth
+	culture = southern_earth_culture
 	mother = 68
 	female = yes
 	disallow_random_traits = yes
+	trait = fair
 	trait = earthbender
-	trait = master_bender
-	trait = metalbender
-	trait = seismicsense_nonblind
+	trait = incompetent_bender
 	trait = haughty
-	trait = rowdy
-	trait = willful
+	trait = playful
 	956.3.13 = {
 		birth = yes
 	}
-	972.3.13 = {
+	962.3.13 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
 		remove_trait = haughty
-		remove_trait = rowdy
-		remove_trait = willful
+		add_trait = proud
+		add_trait = indolent
+	}
+	968.3.13 = {
+		remove_trait = competent_bender
+		add_trait = powerful_bender
+		add_trait = seismicsense_nonblind
+		add_trait = metalbender
+		add_trait = deceitful
+	}
+	972.3.13 = {
+		culture = republic_city
+		remove_trait = powerful_bender
+		add_trait = master_bender
+		remove_trait = playful
+		remove_trait = indolent
 		add_trait = fortune_builder
 		add_trait = charitable
-		add_trait = proud
-		add_trait = deceitful
 		add_trait = gregarious
 	}
 	974.10.24 = {
 		culture = metal_clan
 		add_trait = aggressive_leader
+		add_trait = architect
+		add_matrilineal_spouse = 139
 	}
 	1046.4.14 = {
 		death = yes
@@ -2456,20 +2751,37 @@
 	female = yes
 	disallow_random_traits = yes
 	trait = quick
+	trait = brooding
 	915.1.16 = {
 		birth = yes
 	}
-	920.1.16 = {
+	921.1.16 = {
+		remove_trait = brooding
+		add_trait = indolent
+		add_trait = curious
 		add_trait = temperate
-		add_trait = brave
+	}
+	922.1.24 = {
+		effect = {
+			add_friend = 101
+		}
+	}
+	925.1.16 = {
+		remove_trait = indolent
+		remove_trait = curious
+		add_trait = slothful
 		add_trait = cynical
-		add_trait = paranoid
+		add_trait = patient
 	}
 	928.1.16 = {
+		add_trait = brave
 		add_trait = weapon_master
 	}
 	931.1.16 = {
 		add_trait = elusive_shadow
+	}
+	931.2.5 = {
+		religion = fire_spirituality
 	}
 	975.6.13 = {
 		death = yes
@@ -2518,30 +2830,59 @@
 }
 76 = {
 	name = "Kuvira"
-	dynasty = 1
 	religion = earth_spirituality
-	culture = southern_earth
-	mother = 69
+	culture = southern_earth_culture
 	female = yes
 	disallow_random_traits = yes
+	trait = quick
+	trait = fair
 	trait = earthbender
-	trait = legendary_bender
-	982.2.4 = {
+	trait = incompetent_bender
+	980.2.4 = {
 		birth = yes
 	}
-	990.9.13 = {
+	986.2.4 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		add_trait = haughty
+	}
+	988.2.4 = {
+		remove_trait = competent_bender
+		add_trait = powerful_bender
+		add_trait = willful
+	}
+	989.9.13 = {
 		culture = metal_clan
 		religion = modernism
+		remove_trait = willful
+		remove_trait = powerful_bender
+		add_trait = master_bender
 		add_trait = seismicsense_nonblind
 		add_trait = brave
 		add_trait = metalbender
+		add_trait = deceitful
 	}
-	998.2.4 = {
+	996.2.4 = {
 		add_trait = brilliant_strategist
+		add_trait = inspiring_leader
+		remove_trait = haughty
+		remove_trait = master_bender
+		add_trait = legendary_bender
+		add_trait = robust
 		add_trait = proud
+		add_trait = ambitious
+		add_trait = gregarious
 	}
 	1002.3.17 = {
 		religion = unificationism
+		effect = {
+		add_rival = 69
+		add_lover = 140
+		add_betrothal = 140
+		}
+		create_bloodline = {
+			type = earth_uniter_bloodline
+		}
 	}
 	1067.3.9 = {
 		death = yes
@@ -2690,23 +3031,44 @@
 			set_global_flag = tenzin
 		}
 	}
-	965.2.13 = {
+	958.2.13 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
 		remove_trait = idolizer
+		add_trait = erudite
+	}
+	961.2.13 = {
+		remove_trait = competent_bender
+		add_trait = powerful_bender
 		remove_trait = conscientious
+		add_trait = temperate
+	}
+	965.2.13 = {
+		add_trait = scholarly_theologian
+		remove_trait = powerful_bender
+		add_trait = master_bender
 		remove_trait = brooding
 		remove_trait = timid
-		remove_trait = incompetent_bender
-		add_trait = scholarly_theologian
-		add_trait = master_bender
+		add_trait = shrewd
 		add_trait = scholar
-		add_trait = temperate
 		add_trait = brave
 		add_trait = stubborn
-		add_trait = glider
+		add_trait = just
+
+		effect = {
+			add_artifact = staffGlider
+			add_artifact = petSkybison
+
+			new_artifact = {
+				set_name = "Oogi"
+			}
+		}
 	}
 	986.3.13 = {
-		add_lover = 99
 		add_spouse = 99
+		effect = {
+			spouse = { add_lover = ROOT }
+		}
 	}
 	1001.5.14 = {
 		religion = neo-nomadism
@@ -2720,7 +3082,7 @@
 	name = "Tao"
 	dynasty = 1503
 	religion = "barbarism"
-	culture = "ba_sing_se"
+	culture = ba_sing_se_culture
 	disallow_random_traits = yes
 	trait = earthbender
 	trait = competent_bender
@@ -2745,7 +3107,7 @@
 	intrigue = 8
 	stewardship = 7
 	religion = "ba_sing_se_cultural_heritage"
-	culture = "ba_sing_se"
+	culture = ba_sing_se_culture
 	female = yes
 	904.9.8 = {
 		birth = yes
@@ -2768,18 +3130,29 @@
 	culture = customPortrait_aang
 	disallow_random_traits = yes
 	trait = airbender
-	trait = powerful_bender
+	trait = master_bender
 	trait = airnomad
+	trait = airnomad_tattoos
 	trait = playful
 	trait = conscientious
 	trait = affectionate
 	trait = curious
+	trait = canon_character
 	918.1.13 = {
 		birth = yes
 		culture = southern_air_nomad
 		effect = {
 			add_artifact = petSkybison
+			new_artifact = {
+				set_name = "Appa"
+			}
+
+			add_artifact = staffGlider
+
 			set_character_flag = is_aang
+			set_character_flag = is_avatar
+			set_character_flag = no_court_invites
+			set_global_flag = avatar_air
 		}
 	}
 	929.11.4 = {
@@ -2787,6 +3160,7 @@
 		effect = {
 			add_friend = 58
 			add_friend = 47
+			add_friend = 42
 		}
 	}
 	930.1.23 = {
@@ -2794,22 +3168,30 @@
 	}
 	930.3.13 = {
 		add_trait = avatar_earthbender
+		add_trait = seismicsense_nonblind
 		effect = {
 			add_friend = 68
 		}
 	}
+	930.5.8 = {
+		add_trait = spirit_healed
+	}
 	930.8.2 = {
 		add_trait = avatar_firebender
+		add_trait = innerflame
 		effect = {
 			add_friend = 27
 			add_friend = 100
 		}
 	}
 	930.8.26 = {
-		remove_trait = avatar
-		add_trait = fullyrealisedavatar
+		add_trait = fully_realised_avatar
+		create_bloodline = {
+			type = aang_bloodline
+		}
 	}
 	934.1.13 = {
+		add_trait = mastermind_theologian
 		remove_trait = playful
 		remove_trait = conscientious
 		remove_trait = affectionate
@@ -2827,6 +3209,7 @@
 	936.11.8 = {
 		religion = air_acolytism
 		culture = air_acolytes
+		effect = { set_character_flag = avatar_settled } #Makes sure Aang doesn't wander off
 	}
 	939.12.16 = {
 		add_spouse = 58
@@ -2839,10 +3222,13 @@
 	name = "Leiong"
 	dynasty = 1
 	religion = "earth_spirituality"
-	culture = "southern_earth"
-	mother = 91
+	culture = southern_earth_culture
+	father = 91
 	852.3.14 = {
 		birth = yes
+	}
+	868.3.14 = {
+		add_trait = thrifty_clerk
 	}
 	915.7.3 = {
 		death = yes
@@ -2852,11 +3238,18 @@
 	name = "Lao"
 	dynasty = 1
 	religion = "earth_spirituality"
-	culture = "southern_earth"
+	culture = southern_earth_culture
 	disallow_random_traits = yes
 	father = 88
 	896.12.4 = {
 		birth = yes
+	}
+	912.12.4 = {
+		add_trait = midas_touched
+		add_trait = diligent
+		add_trait = temperate
+		add_trait = proud
+		add_trait = stubborn
 	}
 	916.4.13 = {
 		add_spouse = 90
@@ -2869,29 +3262,39 @@
 	name = "Poppy"
 	dynasty = 1500
 	religion = "earth_spirituality"
-	culture = "southern_earth"
+	culture = southern_earth_culture
 	disallow_random_traits = yes
-	trait = earthbender
-	trait = incompetent_bender
 	female = yes
 	897.3.13 = {
 		birth = yes
+	}
+	913.3.13 = {
+		add_trait = charismatic_negotiator
+		add_trait = feeble
+		add_trait = kind
+		add_trait = content
+		add_trait = temperate
+		add_trait = craven
 	}
 	977.2.6 = {
 		death = yes
 	}
 }
 91 = {
-	name = "Nuan"
+	name = "Lu"
 	dynasty = 1
 	religion = "earth_spirituality"
-	culture = "southern_earth"
+	culture = southern_earth_culture
 	father = 92
 	trait = earthbender
-	trait = powerful_bender
-	female = yes
+	trait = incompetent_bender
 	821.6.3 = {
 		birth = yes
+	}
+	837.6.3 = {
+		add_trait = fortune_builder
+		remove_trait = incompetent_bender
+		add_trait = powerful_bender
 	}
 	878.3.14 = {
 		death = yes
@@ -2901,11 +3304,17 @@
 	name = "Nobuyasu"
 	dynasty = 1
 	religion = "earth_spirituality"
-	culture = "southern_earth"
+	culture = southern_earth_culture
+	father = 138
 	trait = earthbender
-	trait = powerful_bender
+	trait = incompetent_bender
 	792.11.13 = {
 		birth = yes
+	}
+	808.11.13 = {
+		add_trait = indulgent_wastrel
+		remove_trait = incompetent_bender
+		add_trait = powerful_bender
 	}
 	849.8.14 = {
 		death = yes
@@ -2932,11 +3341,10 @@
 	stewardship = 7
 	learning = 11
 	religion = tui_and_la
-	culture = northern_water
+	culture = northern_water_culture
 	disallow_random_traits = yes
 	trait = waterbender
 	trait = powerful_bender
-	trait = bloodbender
 	trait = shrewd
 	963.4.15 = {
 		birth = yes
@@ -2948,6 +3356,9 @@
 		add_trait = diligent
 		add_trait = wroth
 		add_trait = deceitful
+		remove_trait = powerful_bender
+		add_trait = master_bender
+		add_trait = bloodbender
 	}
 	1000.12.6 = {
 		death = yes
@@ -2961,7 +3372,7 @@
 	intrigue = 3
 	stewardship = 8
 	religion = fire_nation_imperialism
-	culture = fire_nation
+	culture = fire_imperial_culture
 	disallow_random_traits = yes
 	trait = firebender
 	trait = powerful_bender
@@ -2997,11 +3408,10 @@
 	disallow_random_traits = yes
 	872.8.8 = {
 		birth = yes
-		culture = fire_nation
+		culture = fire_imperial_culture
 	}
 	925.4.3 = {
 		add_spouse = 97
-		add_lover = 97
 		add_trait = kind
 		add_trait = intricate_webweaver
 		add_trait = poison_expert
@@ -3015,7 +3425,10 @@
 	932.10.13 = {
 		effect = {
 			set_name = "Ursa"
-			add_trait = descendantavatar
+			random_bloodline = {
+				limit = { has_bloodline_flag = is_roku_bloodline }
+				add_bloodline_member = ROOT
+			}
 		}
 		employer = 27
 		dynasty = 1393
@@ -3032,7 +3445,6 @@
 	disallow_random_traits = yes
 	873.1.4 = {
 		birth = yes
-		employer = 6407
 	}
 	889.1.4 = {
 		add_trait = thrifty_clerk
@@ -3045,6 +3457,9 @@
 		effect = {
 			set_name = "Noren"
 		}
+	}
+	924.5.15 = {
+		employer = 6407 # when this char gets titles
 	}
 	931.12.13 = {
 		religion = fire_spirituality
@@ -3061,7 +3476,7 @@
 	dynasty = 1506
 	female = yes
 	religion = "fire_nation_imperialism"
-	culture = "fire_nation"
+	culture = fire_imperial_culture
 	father = 97
 	mother = 96
 	disallow_random_traits = yes
@@ -3103,6 +3518,9 @@
 		add_trait = kind
 		add_trait = humble
 	}
+	1001.5.14 = {
+		religion = neo-nomadism
+	}
 	1042.5.14 = {
 		death = yes
 	}
@@ -3127,6 +3545,13 @@
 		}
 		culture = earth_islander
 	}
+	930.8.2 = {
+		effect = {
+			add_friend = 58
+			add_friend = 68
+			add_friend = 27
+		}
+	}
 	931.1.14 = {
 		add_trait = tough_soldier
 		add_trait = chi_blocker
@@ -3141,11 +3566,12 @@
 	female = yes
 	disallow_random_traits = yes
 	religion = fire_nation_imperialism
-	culture = fire_nation
+	culture = fire_imperial_culture
 	father = 9542
 	mother = 9544
 	trait = twin
 	trait = gregarious
+	trait = fair
 	915.12.3 = {
 		birth = yes
 		effect = {
@@ -3171,7 +3597,7 @@
 	dynasty = 2039
 	female = yes
 	religion = fire_nation_imperialism
-	culture = fire_nation
+	culture = fire_imperial_culture
 	father = 9542
 	mother = 9544
 	trait = twin
@@ -3187,7 +3613,7 @@
 	dynasty = 2039
 	female = yes
 	religion = fire_nation_imperialism
-	culture = fire_nation
+	culture = fire_imperial_culture
 	father = 9542
 	mother = 9544
 	trait = twin
@@ -3203,7 +3629,7 @@
 	dynasty = 2039
 	female = yes
 	religion = fire_nation_imperialism
-	culture = fire_nation
+	culture = fire_imperial_culture
 	father = 9542
 	mother = 9544
 	trait = twin
@@ -3219,7 +3645,7 @@
 	dynasty = 2039
 	female = yes
 	religion = fire_nation_imperialism
-	culture = fire_nation
+	culture = fire_imperial_culture
 	father = 9542
 	mother = 9544
 	trait = twin
@@ -3235,7 +3661,7 @@
 	dynasty = 2039
 	female = yes
 	religion = fire_nation_imperialism
-	culture = fire_nation
+	culture = fire_imperial_culture
 	father = 9542
 	mother = 9544
 	trait = twin
@@ -3251,7 +3677,7 @@
 	dynasty = 2039
 	female = yes
 	religion = fire_nation_imperialism
-	culture = fire_nation
+	culture = fire_imperial_culture
 	father = 9542
 	mother = 9544
 	trait = twin
@@ -3266,7 +3692,7 @@
 	name = "Pakku"
 	dynasty = 3963
 	religion = tui_and_la
-	culture = northern_water
+	culture = northern_water_culture
 	disallow_random_traits = yes
 	trait = proud
 	866.4.13 = {
@@ -3288,6 +3714,9 @@
 		add_trait = master_bender
 		add_trait = quick
 		add_trait = scholar
+		effect = {
+			add_betrothal = 28
+		}
 	}
 	948.6.13 = {
 		death = yes
@@ -3297,7 +3726,7 @@
 	name = "Yakone"
 	dynasty = 3964
 	religion = tui_and_la
-	culture = northern_water
+	culture = northern_water_culture
 	disallow_random_traits = yes
 	trait = cruel
 	928.3.16 = {
@@ -3325,7 +3754,7 @@
 	}
 	958.2.4 = {
 		religion = tui_and_la
-		culture = northern_water
+		culture = northern_water_culture
 		remove_trait = proud
 		remove_trait = waterbender
 		remove_trait = legendary_bender
@@ -3336,82 +3765,11 @@
 		death = yes
 	}
 }
-110 = {
-	name = "Mitsuo"
-	dynasty = 7
-	religion = "fire_spirituality"
-	culture = "fire_islander"
-	disallow_random_traits = yes
-	trait = tough_soldier
-	trait = firebender
-	trait = master_bender
-	trait = strong
-	trait = honest
-	trait = cynical
-	489.4.14 = {
-		birth = yes
-	}
-	539.10.13  = {
-		death = yes
-	}
-}
-111 = {
-	name = "Adachi"
-	dynasty = 7
-	religion = "fire_spirituality"
-	culture = "fire_islander"
-	father = 110
-	disallow_random_traits = yes
-	trait = skilled_tactician
-	trait = firebender
-	trait = powerful_bender
-	trait = brave
-	trait = gregarious
-	trait = kind
-	515.3.21 = {
-		birth = yes
-	}
-	535.7.16  = {
-		death = {
-			death_reason = death_battle
-		}
-	}
-}
-112 = {
-	name = "Miyaki"
-	dynasty = 7
-	religion = "fire_spirituality"
-	culture = "fire_islander"
-	dna = "00a000h0d00"
-	properties = "bd0c0b0a000000"
-	diplomacy = 9
-	intrigue = 8
-	stewardship = 7
-	martial = 11
-	learning = 4
-	father = 110
-	female = yes
-	disallow_random_traits = yes
-	trait = underhanded_rogue
-	trait = firebender
-	trait = master_bender
-	trait = lightningbender
-	trait = patient
-	trait = proud
-	trait = ambitious
-	trait = paranoid
-	521.6.17 = {
-		birth = yes
-	}
-	584.3.12  = {
-		death = yes
-	}
-}
 114 = {
 	name = "Kenji"
 	dynasty = 3968
 	religion = "earth_spirituality"
-	culture = "northern_earth"
+	culture = northern_earth_culture
 	disallow_random_traits = yes
 	trait = genius
 	diplomacy = 7
@@ -3428,6 +3786,8 @@
 		add_trait = inventor
 		add_trait = humble
 		add_trait = diligent
+		add_trait = erudite
+		add_trait = cynical
 		give_nickname = nick_the_mechanist
 	}
 	911.3.13 = {
@@ -3435,6 +3795,12 @@
 	}
 	920.11.3 = {
 		add_trait = deceitful
+	}
+
+	921.11.3 = {
+		create_bloodline = {
+			type = mechanist_bloodline
+		}
 	}
 	964.5.15 = {
 		death = yes
@@ -3444,20 +3810,31 @@
 	name = "Teo"
 	dynasty = 3968
 	religion = "earth_spirituality"
-	culture = "northern_earth"
+	culture = northern_earth_culture
 	disallow_random_traits = yes
 	father = 114
 	mother = 116
 	trait = quick
+	trait = rowdy
 	917.6.14 = {
 		birth = yes
 	}
 	920.11.3 = {
-		add_trait = paraplegic
+		remove_trait = rowdy
+		add_trait = infirm
 		add_trait = brave
+		add_trait = honest
+		add_trait = affectionate
+	}
+	929.6.14 = {
+		remove_trait = affectionate
+		add_trait = kind
+		add_trait = conscientious
 	}
 	933.6.14 = {
 		add_trait = thrifty_clerk
+		remove_trait = conscientious
+		add_trait = just
 	}
 	983.2.1 = {
 		death = yes
@@ -3466,7 +3843,7 @@
 116 = {
 	name = "Ranisa"
 	religion = "earth_spirituality"
-	culture = "northern_earth"
+	culture = northern_earth_culture
 	female = yes
 	trait = quick
 	894.5.12 = {
@@ -3507,7 +3884,7 @@
 	intrigue = 9
 	stewardship = 5
 	religion = fire_nation_imperialism
-	culture = fire_nation
+	culture = fire_imperial_culture
 	dna = "00b000c0c00"
 	properties = "pg00ka00000000"
 	disallow_random_traits = yes
@@ -3538,3 +3915,1478 @@
 		}
 	}
 }
+119 = {
+	name = "Lin"
+	dynasty = 1
+	religion = modernism
+	culture = southern_earth_culture
+	mother = 68
+	female = yes
+	disallow_random_traits = yes
+	trait = earthbender
+	trait = incompetent_bender
+	trait = rowdy
+	950.6.11 = {
+		birth = yes
+	}
+	956.6.11 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		add_trait = haughty
+		add_trait = willful
+	}
+	962.6.11 = {
+		remove_trait = competent_bender
+		remove_trait = willful
+		add_trait = powerful_bender
+		add_trait = seismicsense_nonblind
+		add_trait = metalbender
+		add_trait = stubborn
+		add_trait = just
+	}
+	966.6.11 = {
+		culture = republic_city
+		remove_trait = powerful_bender
+		remove_trait = rowdy
+		remove_trait = haughty
+		add_trait = master_bender
+		add_trait = skilled_tactician
+		add_trait = aggressive_leader
+		add_trait = brave
+		add_trait = proud
+		add_trait = robust
+		add_trait = wroth
+	}
+	971.8.4 = {
+		add_trait = scarred
+	}
+	986.3.13 = {
+		add_trait = celibate
+		add_trait = cynical
+	}
+	1040.4.14 = {
+		death = yes
+	}
+}
+120 = {
+	name = "Lu"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	trait = midas_touched
+	trait = genius
+	trait = earthbender
+	trait = legendary_bender
+	trait = administrator
+	trait = ambitious
+	trait = proud
+	trait = diligent
+	trait = stubborn
+	466.3.3 = {
+		birth = yes
+	}
+	492.3.3 = {
+		create_bloodline = {
+			type = beifong_bloodline
+		}
+	}
+	496.5.7 = {
+		add_spouse = 121
+	}
+	535.8.20 = {
+		death = yes
+	}
+}
+121 = {
+	name = "Wumai"
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	female = yes
+	trait = charismatic_negotiator
+	trait = quick
+	trait = gregarious
+	trait = kind
+	trait = charitable
+	trait = temperate
+	480.5.7 = {
+		birth = yes
+	}
+	521.11.30 = {
+		death = yes
+	}
+}
+122 = {
+	name = "Wuyu"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	father = 120
+	mother = 121
+	trait = thrifty_clerk
+	trait = earthbender
+	trait = competent_bender
+	498.6.24 = {
+		birth = yes
+	}
+	562.2.1 = {
+		death = yes
+	}
+}
+123 = {
+	name = "shirin"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	female = yes
+	father = 120
+	mother = 121
+	trait = amateurish_plotter
+	trait = earthbender
+	trait = incompetent_bender
+	501.9.19 = {
+		birth = yes
+	}
+	569.4.8 = {
+		death = yes
+	}
+}
+124 = {
+	name = "Ling-Ling"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	father = 120
+	mother = 121
+	trait = naive_appeaser
+	512.2.21 = {
+		birth = yes
+	}
+	574.3.30 = {
+		death = yes
+	}
+}
+125 = {
+	name = "Roi"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	father = 122
+	trait = flamboyant_schemer
+	527.4.18 = {
+		birth = yes
+	}
+	586.10.3 = {
+		death = yes
+	}
+}
+126 = {
+	name = "Ya"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	female = yes
+	father = 122
+	trait = naive_appeaser
+	529.7.19 = {
+		birth = yes
+	}
+	580.5.13 = {
+		death = yes
+	}
+}
+127 = {
+	name = "Lubugu"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	female = yes
+	father = 124
+	trait = indulgent_wastrel
+	532.4.26 = {
+		birth = yes
+	}
+	591.4.11 = {
+		death = yes
+	}
+}
+128 = {
+	name = "Dang"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	father = 124
+	trait = tough_soldier
+	539.6.8 = {
+		birth = yes
+	}
+	561.1.13 = {
+		death = yes
+	}
+}
+129 = {
+	name = "Chong"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	father = 124
+	trait = thrifty_clerk
+	543.12.2 = {
+		birth = yes
+	}
+	601.4.14 = {
+		death = yes
+	}
+}
+130 = {
+	name = "Pong"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	father = 129
+	trait = twin
+	579.2.10 = {
+		birth = yes
+	}
+	595.2.10 = {
+		add_trait = fortune_builder
+	}
+	637.7.29 = {
+		death = yes
+	}
+}
+131 = {
+	name = "Ping"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	female = yes
+	father = 129
+	trait = twin
+	579.2.10 = {
+		birth = yes
+	}
+	595.2.10 = {
+		add_trait = intricate_webweaver
+	}
+	634.3.15 = {
+		death = yes
+	}
+}
+132 = {
+	name = "Kong"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	father = 130
+	612.6.19 = {
+		birth = yes
+	}
+	628.6.19 = {
+		add_trait = midas_touched
+	}
+	701.7.7 = {
+		death = yes
+	}
+}
+133 = {
+	name = "Xian"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	father = 132
+	654.3.15 = {
+		birth = yes
+	}
+	670.3.15 = {
+		add_trait = thrifty_clerk 
+	}
+	712.5.8 = {
+		death = yes
+	}
+}
+134 = {
+	name = "Ryo"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	father = 133
+	691.11.18 = {
+		birth = yes
+	}
+	707.11.18 = {
+		add_trait = fortune_builder
+	}
+	777.7.7 = {
+		death = yes
+	}
+}
+135 = {
+	name = "Daisy"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	female = yes
+	father = 134
+	739.12.30 = {
+		birth = yes
+	}
+	755.12.30 = {
+		add_trait = charismatic_negotiator
+	}
+	778.1.7 = {
+		death = yes
+	}
+}
+136 = {
+	name = "Macao"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	father = 134
+	744.9.1 = {
+		birth = yes
+	}
+	760.9.1 = {
+		add_trait = thrifty_clerk
+	}
+	802.2.8 = {
+		death = yes
+	}
+}
+137 = {
+	name = "Poppy"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	female = yes
+	father = 134
+	trait = earthbender
+	trait = incompetent_bender
+	747.7.21 = {
+		birth = yes
+	}
+	763.7.21 = {
+		add_trait = indulgent_wastrel
+	}
+	808.1.12 = {
+		death = yes
+	}
+}
+138 = {
+	name = "Godan"
+	dynasty = 1
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	father = 136
+	773.3.14 = {
+		birth = yes
+	}
+	789.3.14 = {
+		add_trait = fortune_builder
+	}
+	836.11.1 = {
+		death = yes
+	}
+}
+139 = {
+	name = "Baatar"
+	religion = earth_spirituality
+	culture = southern_earth_culture
+	trait = quick
+	disallow_random_traits = yes
+	957.2.4 = {
+		birth = yes
+	}
+	973.2.4 = {
+		add_trait = fortune_builder
+		add_trait = architect
+		add_trait = temperate
+		add_trait = diligent
+		add_trait = erudite
+		add_trait = just
+	}
+	974.10.24 = {
+		culture = metal_clan
+		religion = modernism
+	}
+	1044.4.4 = {
+		death = yes
+	}
+}
+140 = {
+	name = "Baatar" # Baatar Jr.
+	dynasty = 1
+	religion = modernism
+	culture = metal_clan
+	father = 139
+	mother = 69
+	trait = quick
+	trait = brooding
+	trait = idolizer
+	disallow_random_traits = yes
+	979.10.28 = {
+		birth = yes
+	}
+	985.10.28 = {
+		remove_trait = idolizer
+		add_trait = erudite
+		add_trait = willful
+	}
+	991.10.28 = {
+		remove_trait = brooding
+		add_trait = envious
+		add_trait = playful
+	}
+	995.10.28 = {
+		add_trait = fortune_builder
+		remove_trait = willful
+		remove_trait = playful
+		add_trait = architect
+		add_trait = proud
+		add_trait = deceitful
+	}
+	1002.3.17 = {
+		religion = unificationism
+		employer = 76
+	}
+	1067.3.9 = {
+		death = yes
+	}
+}
+141 = {
+	name = "Huan"
+	dynasty = 1
+	religion = modernism
+	culture = metal_clan
+	father = 139
+	mother = 69
+	trait = earthbender
+	trait = incompetent_bender
+	trait = idolizer
+	trait = timid
+	disallow_random_traits = yes
+	982.12.17 = {
+		birth = yes
+	}
+	988.12.17 = {
+		remove_trait = timid
+		add_trait = shy
+		add_trait = haughty
+	}
+	994.12.17 = {
+		remove_trait = idolizer
+		add_trait = feeble
+	}
+	998.12.17 = {
+		add_trait = indulgent_wastrel
+		remove_trait = haughty
+		add_trait = metalbender
+		add_trait = proud
+		add_trait = chaste
+		add_trait = groomed
+	}
+	1031.7.1 = {
+		death = yes
+	}
+}
+142 = {
+	name = "Opal"
+	dynasty = 1
+	religion = modernism
+	culture = metal_clan
+	female = yes
+	father = 139
+	mother = 69
+	trait = fair
+	trait = affectionate
+	trait = timid
+	disallow_random_traits = yes
+	984.9.1 = {
+		birth = yes
+	}
+	990.9.1 = {
+		remove_trait = affectionate
+		add_trait = kind
+		add_trait = content
+		add_trait = idolizer
+	}
+	996.9.1 = {
+		remove_trait = timid
+		add_trait = shy
+	}
+	1000.9.1 = {
+		add_trait = charismatic_negotiator
+		remove_trait = idolizer
+		add_trait = humble
+		add_trait = erudite
+	}
+	1001.5.14 = {
+		religion = neo-nomadism
+		add_trait = airbender
+		add_trait = competent_bender
+		remove_trait = shy
+	}
+	1061.6.12 = {
+		death = yes
+	}
+}
+143 = {
+	name = "Wing"
+	dynasty = 1
+	dna="degcaqgjeal"
+	religion = modernism
+	culture = metal_clan
+	father = 139
+	mother = 69
+	trait = fair
+	trait = twin
+	trait = earthbender
+	trait = incompetent_bender
+	trait = rowdy
+	trait = affectionate
+	disallow_random_traits = yes
+	985.5.22 = {
+		birth = yes
+	}
+	992.5.22 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		remove_trait = affectionate
+		add_trait = kind
+		add_trait = willful
+		add_trait = conscientious
+	}
+	999.5.22 = {
+		remove_trait = competent_bender
+		remove_trait = rowdy
+		remove_trait = willful
+		add_trait = powerful_bender
+		add_trait = metalbender
+		add_trait = robust
+		add_trait = brave
+	}
+	1001.5.22 = {
+		add_trait = tough_soldier
+		remove_trait = conscientious
+		add_trait = athlete
+		add_trait = cynical
+		add_trait = just
+	}
+	1066.6.9 = {
+		death = yes
+	}
+}
+144 = {
+	name = "Wei"
+	dynasty = 1
+	dna="degcaqgjeal"
+	religion = modernism
+	culture = metal_clan
+	father = 139
+	mother = 69
+	trait = fair
+	trait = twin
+	trait = earthbender
+	trait = incompetent_bender
+	trait = rowdy
+	trait = affectionate
+	disallow_random_traits = yes
+	985.5.22 = {
+		birth = yes
+	}
+	992.5.22 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		remove_trait = affectionate
+		add_trait = kind
+		add_trait = willful
+		add_trait = conscientious
+	}
+	999.5.22 = {
+		remove_trait = competent_bender
+		remove_trait = rowdy
+		remove_trait = willful
+		add_trait = powerful_bender
+		add_trait = metalbender
+		add_trait = robust
+		add_trait = brave
+		add_trait = homosexual
+	}
+	1001.5.22 = {
+		add_trait = tough_soldier
+		remove_trait = conscientious
+		add_trait = athlete
+		add_trait = cynical
+		add_trait = just
+		add_trait = lustful
+	}
+	1066.6.6 = {
+		death = yes
+	}
+}
+145 = {
+	name = "Aiwei"
+	religion = omashuan_ethics
+	culture = omashuan
+	trait = earthbender
+	trait = incompetent_bender
+	disallow_random_traits = yes
+	942.10.5 = {
+		birth = yes
+	}
+	954.10.5 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		add_trait = deceitful
+		add_trait = homosexual
+	}
+	958.10.5 = {
+		add_trait = intricate_webweaver
+		remove_trait = competent_bender
+		add_trait = powerful_bender
+		add_trait = seismicsense_nonblind
+		add_trait = patient
+		add_trait = humble
+		add_trait = envious
+		add_trait = schemer
+	}
+	974.10.24 = {
+		culture = metal_clan
+		religion = modernism
+		employer = 69
+		add_trait = metalbender
+	}
+	1001.5.22 = {
+		death = yes
+	}
+}
+146 = {
+	name = "Guo"
+	religion = earth_spirituality
+	culture = western_earth_culture
+	trait = earthbender
+	trait = incompetent_bender
+	disallow_random_traits = yes
+	962.4.17 = {
+		birth = yes
+	}
+	974.10.24 = {
+		culture = metal_clan
+		religion = modernism
+		employer = 69
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		add_trait = metalbender
+	}
+	978.4.17 = {
+		add_trait = martial_cleric
+		add_trait = kind
+		add_trait = temperate
+		add_trait = erudite
+		add_trait = content
+		add_trait = physician
+	}
+	1012.12.8 = {
+		death = yes
+	}
+}
+147 = {
+	name = "Hong Li"
+	religion = modernism
+	culture = metal_clan
+	trait = earthbender
+	trait = incompetent_bender
+	disallow_random_traits = yes
+	983.11.4 = {
+		birth = yes
+		employer = 69
+	}
+	994.11.4 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		add_trait = metalbender
+		add_trait = honest
+		add_trait = trusting
+	}
+	999.11.4 = {
+		add_trait = tough_soldier
+		add_trait = brave
+		add_trait = content
+	}
+	1028.2.7 = {
+		death = yes
+	}
+}
+148 = {
+	name = "Jinora"
+	dynasty = 1023
+	female = yes
+	religion = air_acolytism
+	culture = air_acolytes
+	father = 84
+	mother = 99
+	disallow_random_traits = yes
+	trait = quick
+	trait = idolizer
+	trait = airbender
+	trait = incompetent_bender
+	990.1.21 = {
+		birth = yes
+	}
+	996.1.21 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		remove_trait = idolizer
+		add_trait = erudite
+		add_trait = conscientious
+		add_trait = curious
+		effect = {
+			add_friend = 62
+		}
+	}
+	1000.1.21  = {
+		remove_trait = competent_bender
+		add_trait = powerful_bender
+		remove_trait = conscientious
+		add_trait = just
+		add_trait = brave
+		add_trait = scholar
+	}
+	1001.5.14 = {
+		religion = neo-nomadism
+	}
+	1001.10.1 = {
+		remove_trait = powerful_bender
+		add_trait = master_bender
+		add_trait = airnomad_tattoos
+	}
+	1072.11.30 = {
+		death = yes
+	}
+}
+149 = {
+	name = "Ikki"
+	dynasty = 1023
+	female = yes
+	religion = air_acolytism
+	culture = air_acolytes
+	father = 84
+	mother = 99
+	disallow_random_traits = yes
+	trait = playful
+	trait = airbender
+	trait = incompetent_bender
+	993.4.12 = {
+		birth = yes
+	}
+	999.4.12 = {
+		remove_trait = incompetent_bender
+		add_trait = competent_bender
+		remove_trait = playful
+		add_trait = gregarious
+		add_trait = fussy
+		add_trait = affectionate
+	}
+	1001.5.14 = {
+		religion = neo-nomadism
+	}
+	1066.6.6 = {
+		death = yes
+	}
+}
+150 = {
+	name = "Meelo"
+	dynasty = 1023
+	religion = air_acolytism
+	culture = air_acolytes
+	father = 84
+	mother = 99
+	disallow_random_traits = yes
+	trait = rowdy
+	trait = airbender
+	trait = incompetent_bender
+	995.10.3 = {
+		birth = yes
+	}
+	998.10.3 = {
+		add_trait = uncouth
+		add_trait = dull
+		add_trait = willful
+		add_trait = playful
+	}
+	1001.5.14 = {
+		religion = neo-nomadism
+	}
+	1031.3.17 = {
+		death = yes
+	}
+}
+151 = {
+	name = "Rohan"
+	dynasty = 1023
+	religion = air_acolytism
+	culture = air_acolytes
+	father = 84
+	mother = 99
+	disallow_random_traits = yes
+	trait = indolent
+	1000.11.28 = {
+		birth = yes
+	}
+	1001.5.14 = {
+		religion = neo-nomadism
+	}
+	1059.7.23 = {
+		death = yes
+	}
+}
+152 = {
+	name = "Wanzhen"
+	dynasty = 1366
+	female = yes
+	religion = "ba_sing_se_cultural_heritage"
+	culture = ba_sing_se_culture
+	father = 24
+	945.7.27 = {
+		birth = yes
+		add_trait = born_in_the_purple	
+	}
+	961.7.17 = {
+		add_trait = underhanded_rogue
+	}
+	962.8.30 = {
+		death = {
+			death_reason = death_childbirth
+		}
+	}
+}
+153 = {
+	name = "Xingzhen"
+	dynasty = 1366
+	female = yes
+	religion = "ba_sing_se_cultural_heritage"
+	culture = ba_sing_se_culture
+	mother = 152
+	962.8.30 = {
+		birth = yes
+	}
+	978.8.30 = {
+		add_trait = thrifty_clerk
+	}
+	982.1.5 = {
+		death = {
+			death_reason = death_childbirth
+		}
+	}
+}
+154 = {
+	name = "Wu"
+	dynasty = 1366
+	religion = "ba_sing_se_cultural_heritage"
+	culture = ba_sing_se_culture
+	mother = 153
+	disallow_random_traits = yes
+	trait = affectionate
+	982.1.5 = {
+		birth = yes
+	}
+	988.1.5 = {
+		remove_trait = affectionate
+		add_trait = fussy
+		add_trait = idolizer
+		add_trait = trusting
+	}
+	992.1.5 = {
+		remove_trait = fussy
+		remove_trait = idolizer
+		add_trait = indolent
+		add_trait = patient
+		add_trait = kind
+	}
+	998.8.30 = {
+		add_trait = naive_appeaser
+		remove_trait = indolent
+		add_trait = gregarious
+		add_trait = content
+	}
+	1028.12.25 = {
+		death = yes
+	}
+}
+155 = {
+	name = "Deta"
+	dynasty = 3968
+	religion = "earth_spirituality"
+	culture = northern_earth_culture
+	father = 115
+	948.3.11 = {
+		birth = yes
+	}
+	999.1.1 = {
+		death = yes
+	}
+}
+156 = {
+	name = "Zei"
+	dynasty = 3968
+	religion = "earth_spirituality"
+	culture = northern_earth_culture
+	father = 155
+	972.3.11 = {
+		birth = yes
+	}
+	1009.3.17 = {
+		death = yes
+	}
+}
+157 = {
+	name = "Lian"
+	dynasty = 3968
+	female = yes
+	religion = "earth_spirituality"
+	culture = northern_earth_culture
+	father = 155
+	974.7.8 = {
+		birth = yes
+	}
+	1011.7.9 = {
+		death = yes
+	}
+}
+158 = {
+	name = "Akira"
+	dynasty = 3968
+	female = yes
+	religion = "earth_spirituality"
+	culture = northern_earth_culture
+	father = 155
+	979.10.3 = {
+		birth = yes
+	}
+	1029.7.9 = {
+		death = yes
+	}
+}
+159 = {
+	name = "Iroh" # General Iroh
+	dynasty = 7
+	religion = fire_spirituality
+	culture = fire_imperial_culture
+	disallow_random_traits = yes
+	trait = fair
+	trait = firebender
+	trait = incompetent_bender
+	trait = conscientious
+	mother = 33
+	972.7.22 = {
+		birth = yes
+	}
+	979.7.22 = {
+	        remove_trait = incompetent_bender
+		add_trait = competent_bender
+		add_trait = willful
+	}
+	984.7.22 = {
+	        remove_trait = competent_bender
+		add_trait = powerful_bender
+	        remove_trait = conscientious
+		remove_trait = willful
+		add_trait = brave
+		add_trait = diligent
+		add_trait = curious
+	}
+	986.7.22 = {
+		add_trait = skilled_tactician
+		add_trait = experimenter
+		add_trait = inspiring_leader
+	        remove_trait = powerful_bender
+		add_trait = master_bender
+		add_trait = lightningbender
+	        remove_trait = curious
+		add_trait = robust
+		add_trait = humble
+		add_trait = patient
+	}
+	1058.8.13 = {
+		death = yes
+	}
+}
+160 = {
+	# Izumi's daughter
+	name = "Ta Min"
+	dynasty = 7
+	female = yes
+	religion = fire_spirituality
+	culture = fire_imperial_culture
+	trait = firebender
+	trait = incompetent_bender
+	trait = indolent
+	mother = 33
+	977.11.7 = {
+		birth = yes
+	}
+	989.11.7 = {
+	        remove_trait = incompetent_bender
+		add_trait = competent_bender
+		add_trait = curious
+	}
+	993.11.7 = {
+		add_trait = charismatic_negotiator
+	        remove_trait = indolent
+		remove_trait = curious
+		add_trait = patient
+		add_trait = gregarious
+	}
+	1066.12.18 = {
+		death = yes
+	}
+}
+161 = {
+	name = "Jeong Jeong"
+	religion = fire_nation_imperialism
+	culture = fire_imperial_culture
+	disallow_random_traits = yes
+	trait = firebender
+	trait = incompetent_bender
+	trait = conscientious
+	865.8.6 = {
+		birth = yes
+	}
+	871.8.6 = {
+	        remove_trait = incompetent_bender
+		add_trait = competent_bender
+		add_trait = willful
+		add_trait = brooding
+	}
+	877.8.6 = {
+	        remove_trait = competent_bender
+		add_trait = powerful_bender
+	        remove_trait = conscientious
+		remove_trait = willful
+		add_trait = brave
+		add_trait = temperate
+		add_trait = curious
+	}
+	881.8.6 = {
+		add_trait = brilliant_strategist
+		add_trait = defensive_leader
+		add_trait = narrow_flank_leader
+		add_trait = rough_terrain_leader
+	        remove_trait = powerful_bender
+		add_trait = master_bender
+	        remove_trait = brooding
+	        remove_trait = curious
+		add_trait = envious
+		add_trait = patient
+	}
+	922.11.3 = {
+		add_trait = scarred
+		religion = fire_spirituality
+		employer = 29012
+		create_bloodline = {
+			type = deserter_bloodline
+		}
+	}
+	936.1.28 = {
+		death = yes
+	}
+}
+162 = {
+	name = "Piandao"
+	dynasty = 495
+	religion = fire_nation_imperialism
+	culture = fire_islander
+	disallow_random_traits = yes
+	trait = fussy
+	trait = conscientious
+	884.3.19 = {
+		birth = yes
+	}
+	890.3.19 = {
+	        remove_trait = conscientious
+		add_trait = diligent
+		add_trait = willful
+		add_trait = curious
+	}
+	896.3.19 = {
+	        remove_trait = fussy
+		remove_trait = willful
+		add_trait = idolizer
+		add_trait = brave
+		add_trait = patient
+		add_trait = weapons_expert
+	}
+	900.7.22 = {
+		add_trait = brilliant_strategist
+		add_trait = organizer
+		add_trait = narrow_flank_leader
+		add_trait = rough_terrain_leader
+	        remove_trait = idolizer
+	        remove_trait = curious
+	        remove_trait = weapons_expert
+		add_trait = weapon_master
+		add_trait = erudite
+		add_trait = shrewd
+		add_trait = duelist
+	}
+	926.11.3 = {
+		religion = fire_spirituality
+		create_bloodline = {
+			type = swordmaster_bloodline
+		}
+	}
+	959.12.28 = {
+		death = yes
+	}
+}
+163 = {
+	name = "Noren"
+	dynasty = 495
+	religion = fire_spirituality
+	culture = fire_islander
+	father = 162
+	934.4.3 = {
+		birth = yes
+	}
+	981.8.11 = {
+		death = yes
+	}
+}
+164 = {
+	name = "Qin Lee"
+	dynasty = 495
+	religion = fire_spirituality
+	culture = fire_islander
+	father = 163
+	957.9.1 = {
+		birth = yes
+	}
+	1012.7.23 = {
+		death = yes
+	}
+}
+165 = {
+	name = "Lo"
+	dynasty = 495
+	female = yes
+	religion = fire_spirituality
+	culture = fire_islander
+	father = 163
+	964.6.4 = {
+		birth = yes
+	}
+	1022.5.27 = {
+		death = yes
+	}
+}
+166 = {
+	name = "Ding"
+	dynasty = 495
+	religion = fire_spirituality
+	culture = fire_islander
+	father = 164
+	984.10.15 = {
+		birth = yes
+	}
+	1029.3.9 = {
+		death = yes
+	}
+}
+167 = {
+	name = "Izumi"
+	dynasty = 495
+	female = yes
+	religion = fire_spirituality
+	culture = fire_islander
+	father = 164
+	987.2.7 = {
+		birth = yes
+	}
+	1032.9.27 = {
+		death = yes
+	}
+}
+300 = {
+	name = "Guru Laghima"
+	dynasty = 3974
+	culture = northern_air_nomad
+	religion = air_spirituality
+	martial = 2
+	diplomacy = 10
+	intrigue = 4
+	stewardship = 4
+	learning = 25
+	trait = airbender
+	trait = powerful_bender
+	trait = levitation
+	trait = humble
+	trait = diligent
+	trait = erudite
+	trait = patient
+	1.1.1 = {
+		birth = yes
+	}
+	1.1.2 = {
+		create_bloodline = {
+			type = guru_laghima_bloodline
+		}
+	}
+	127.5.28 = {
+		death = yes
+	}
+}
+# Additional Avatars. Salai, Szeto, and Wan are known, rest are based off of statues
+
+50500 = {
+	name = "Salai"
+	dynasty = 336
+	father = 237
+	culture = ba_sing_se_culture
+	religion = earth_spirituality
+	disallow_random_traits = yes
+	trait = twin
+	trait = avatar
+	trait = fully_realised_avatar
+	trait = bastard
+	trait = master_bender
+	trait = neutral_jing
+	trait = robust
+	trait = shrewd
+	trait = proud
+	trait = born_in_the_purple
+	trait = tough_soldier
+	322.4.9 = {
+		birth = yes
+	}
+	322.4.9 = {
+		create_bloodline = {
+			type = salai_bloodline
+		}
+	}
+	375.8.30 = {
+		death = yes
+	}
+}
+51000 = {
+	name = "Szeto"
+	dynasty = 3976
+	culture = fire_imperial_culture
+	religion = fire_spirituality
+	disallow_random_traits = yes
+	trait = avatar
+	trait = fully_realised_avatar
+	trait = master_bender
+	trait = midas_touched
+	trait = humble
+	trait = charitable
+	trait = just
+	trait = lavabender
+	trait = strong
+	trait = erudite
+	trait = shrewd
+	trait = diligent
+	trait = innerflame
+	trait = assign_mission_target
+	376.2.16 = {
+		birth = yes
+	}
+	376.2.16 = {
+		create_bloodline = {
+			type = szeto_bloodline
+		}
+	}
+	414.5.10 = {
+		death = yes
+	}
+}
+51001 = {
+name = "Wan"
+      dynasty = 4008
+      culture = fire_islander
+      religion = bhanti_spirituality
+	  disallow_random_traits = yes
+	  trait = grey_eminence
+      trait = fully_realised_avatar
+      trait = avatar
+      trait = master_bender
+      trait = innerflame
+	  trait = just
+	  trait = quick
+	  trait = humble
+	  trait = honest
+	  trait = charitable
+	  trait = gregarious
+	  trait = inspiring_leader
+	  trait = brave
+      1.1.1 = {
+    		birth = yes
+      }
+      52.1.11 = {
+      	death = {
+			death_reason = death_battle
+			}
+      }
+}
+51002 = {
+	name = "Mumik"
+	dynasty = 4009
+	culture = southern_water_culture
+	religion = southern_spirituality
+	disallow_random_traits = yes
+	trait = fully_realised_avatar
+	trait = avatar
+	trait = master_bender
+	trait = skilled_tactician
+	trait = winter_soldier
+	trait = defensive_leader
+	trait = honest
+	trait = stubborn
+	trait = wroth
+	trait = temperate
+	trait = humble
+	trait = just
+	trait = diligent
+	269.12.2 = {
+		birth = yes
+	}
+	321.4.2 = {
+		death = yes
+	}
+}
+51003 = {
+	name = "Marpa"
+	dynasty = 4010
+	religion = air_spirituality
+	culture = northern_air_nomad
+	disallow_random_traits = yes
+	trait = fully_realised_avatar
+	trait = avatar
+	trait = powerful_bender
+	trait = just
+	trait = airnomad_tattoos
+	trait = airelder
+	trait = mastermind_theologian
+	trait = chef
+	trait = gregarious
+	trait = kind
+	trait = gluttonous
+	trait = erudite
+	trait = paisho
+	trait = tea_master
+	trait = is_fat
+	trait = content
+	220.1.1 = {
+		birth = yes
+	}
+	268.5.17 = {
+		death = yes
+	}
+}
+51004 = {
+name = "Kazumi"
+      dynasty = 4011
+      culture = fire_islander
+      religion = fire_spirituality
+	  female = yes
+	  disallow_random_traits = yes
+      trait = fully_realised_avatar
+      trait = avatar
+      trait = powerful_bender
+      trait = martial_cleric
+      trait = proud
+      trait = brave
+      trait = just
+      trait = ambitious
+      trait = stutter
+	  trait = feeble
+      trait = innerflame
+	  trait = patient
+      191.2.25 = {
+    		birth = yes
+      }
+      219.7.11 = {
+      	death = yes
+      }
+}
+51005 = {
+	name = "Jin"
+      dynasty = 4012
+      culture = northern_earth_culture
+      religion = earth_spirituality
+	  disallow_random_traits = yes
+	  diplomacy = 6
+	  martial = 3
+	  stewardship = 4
+	  intrigue = 3
+      trait = fully_realised_avatar
+      trait = avatar
+      trait = powerful_bender
+      trait = neutral_jing
+      trait = tough_soldier
+	  trait = zealous
+	  trait = charitable
+	  trait = holy_warrior
+	  trait = patient
+	  trait = trusting
+      150.4.9 = {
+    		birth = yes
+      }
+      190.8.30 = {
+      	death = yes
+      }
+}
+51006 = {
+	name = "Ula"
+	dynasty = 4013
+	culture = northern_water_culture
+	religion = tui_and_la
+	female = yes
+	disallow_random_traits = yes
+	trait = fully_realised_avatar
+	trait = avatar
+	trait = master_bender
+	trait = grey_eminence
+	trait = kind
+	trait = humble
+	trait = just
+	trait = healer
+	trait = physician
+	trait = shy
+	112.12.2 = {
+		birth = yes
+	}
+	149.4.2 = {
+		death = yes
+	}
+}
+51007 = {
+	name = "Tsering"
+	dynasty = 4014
+	religion = air_spirituality
+	culture = northern_air_nomad
+	disallow_random_traits = yes
+	trait = fully_realised_avatar
+	trait = avatar
+	trait = powerful_bender
+	trait = just
+	trait = airnomad_tattoos
+	trait = airelder
+	trait = mastermind_theologian
+	trait = content
+	trait = erudite
+	trait = zealous
+	trait = greedy
+	trait = shrewd
+	trait = paranoid
+	trait = diligent
+	trait = chaste
+	trait = temperate
+	trait = celibate
+	53.1.1 = {
+		birth = yes
+	}
+	111.8.12 = {
+		death = yes
+	}
+}
+#There are 6 more statue avatars we can add but there isn't enough time in years... im mad -G.M

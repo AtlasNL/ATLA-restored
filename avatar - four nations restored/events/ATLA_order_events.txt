@@ -77,14 +77,14 @@ character_event = { # Kyoshi Warriors Leader
 	
 	option = {
 		create_character = {
-				random_traits = yes
-				dynasty = random
-				religion = ROOT
-				culture = ROOT
-				female = yes
-				age = 16
-				trait = tough_soldier
-				trait = kyoshiwarrior
+			random_traits = yes
+			dynasty = random
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+			trait = tough_soldier
+			trait = kyoshiwarrior
 		}
 		new_character = {
 			d_kyoshi_warriors = {
@@ -92,7 +92,7 @@ character_event = { # Kyoshi Warriors Leader
 			}
 		}
 		any_courtier = {
-			add_trait = kyoshiwarrior 
+			add_trait = kyoshiwarrior
 			limit = {
 				prisoner = no
 				is_ruler = no
@@ -100,54 +100,54 @@ character_event = { # Kyoshi Warriors Leader
 			}
 		}
 		create_character = {
-				random_traits = yes
-				dynasty = random
-				religion = ROOT
-				culture = ROOT
-				female = yes
-				age = 19
-				trait = tough_soldier
-				trait = kyoshiwarrior
+			random_traits = yes
+			dynasty = random
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 19
+			trait = tough_soldier
+			trait = kyoshiwarrior
 		}
 		create_character = {
-				random_traits = yes
-				dynasty = random
-				religion = ROOT
-				culture = ROOT
-				female = yes
-				age = 18
-				trait = tough_soldier
-				trait = kyoshiwarrior
+			random_traits = yes
+			dynasty = random
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+			trait = tough_soldier
+			trait = kyoshiwarrior
 		}
 		create_character = {
-				random_traits = yes
-				dynasty = random
-				religion = ROOT
-				culture = ROOT
-				female = yes
-				age = 16
-				trait = tough_soldier
-				trait = kyoshiwarrior
+			random_traits = yes
+			dynasty = random
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+			trait = tough_soldier
+			trait = kyoshiwarrior
 		}
 		create_character = {
-				random_traits = yes
-				dynasty = random
-				religion = ROOT
-				culture = ROOT
-				female = yes
-				age = 14
-				trait = tough_soldier
-				trait = kyoshiwarrior
+			random_traits = yes
+			dynasty = random
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 14
+			trait = tough_soldier
+			trait = kyoshiwarrior
 		}
 		create_character = {
-				random_traits = yes
-				dynasty = random
-				religion = ROOT
-				culture = ROOT
-				female = yes
-				age = 15
-				trait = tough_soldier
-				trait = kyoshiwarrior
+			random_traits = yes
+			dynasty = random
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 15
+			trait = tough_soldier
+			trait = kyoshiwarrior
 		}
 	}
 }
@@ -161,7 +161,7 @@ character_event = { # Dai Li take regency - ROOT
 		primary_title = {
 			title = d_dai_li
 		}
-		e_earth_kingdom = {
+		k_earth_kingdom = {
 			holder_scope = {
 				war = no
 				has_regent = yes
@@ -173,7 +173,7 @@ character_event = { # Dai Li take regency - ROOT
 	}
 	
 	option = {
-		e_earth_kingdom = {
+		k_earth_kingdom = {
 			holder_scope = {
 				character_event = { id = ATLAE.1004 days = 9 }
 			}
@@ -202,22 +202,22 @@ character_event = { # Dai Li take regency - EARTH KING
 			give_job_title = job_spymaster
 		}
 		create_character = {
-				random_traits = yes
-				dynasty = random
-				religion = ROOT
-				culture = ROOT
-				age = 23
-				trait = tough_soldier
-				trait = daili
+			random_traits = yes
+			dynasty = random
+			religion = ROOT
+			culture = ROOT
+			age = 23
+			trait = tough_soldier
+			trait = daili
 		}
 		create_character = {
-				random_traits = yes
-				dynasty = random
-				religion = ROOT
-				culture = ROOT
-				age = 27
-				trait = tough_soldier
-				trait = daili
+			random_traits = yes
+			dynasty = random
+			religion = ROOT
+			culture = ROOT
+			age = 27
+			trait = tough_soldier
+			trait = daili
 		}
 	}
 }
@@ -240,133 +240,127 @@ character_event = { # Dai Li Event Handler
 		# Take Regency
 		character_event = { id = ATLAE.1003 }
 	}
-
 }
 
-character_event = { # Dai Li uncover faction member
-	id = ATLAE.1006
-	desc = "EVTDESCORDER.6"
-	is_triggered_only = yes
-	picture = "GFX_evt_dai_li_2"
+# character_event = { # Dai Li uncover faction member
+	# id = ATLAE.1006
+	# desc = "EVTDESCORDER.6"
+	# is_triggered_only = yes
+	# picture = "GFX_evt_dai_li_2"
 	
-	trigger = {
-		OR = {
-			trait = earthkingpuppet
-			trait = earthking
-		}
-		liege = {
-			any_realm_character = {
-				NOT = { character = ROOT }
-				NOT = { character = PREV }
-				OR = {
-					in_faction = faction_succ_seniority
-					in_faction = faction_succ_primogeniture
-					in_faction = faction_succ_gavelkind
-					in_faction = faction_succ_feudal_elective
-					in_faction = faction_lower_crown_authority
-					in_faction = faction_independence
-					in_faction = faction_increase_council_power
-					in_faction = faction_antiking
-				}
-			}
-		}
-	}
+	# trigger = {
+		# OR = {
+			# trait = earthkingpuppet
+			# trait = earthking
+		# }
+		# liege = {
+			# any_realm_character = {
+				# NOT = { character = ROOT }
+				# NOT = { character = PREV }
+				# OR = {
+					# in_faction = faction_succ_seniority
+					# in_faction = faction_succ_primogeniture
+					# in_faction = faction_succ_gavelkind
+					# in_faction = faction_succ_feudal_elective
+					# in_faction = faction_lower_crown_authority
+					# in_faction = faction_independence
+					# in_faction = faction_increase_council_power
+				# }
+			# }
+		# }
+	# }
 	
-	option = { # Bring them in!
-		name = EVTOPTORDERA.6
-		liege = {
-			random_realm_character = {
-				limit = {
-					NOT = { character = ROOT }
-					NOT = { character = PREV }
-					OR = {
-						in_faction = faction_succ_seniority
-						in_faction = faction_succ_primogeniture
-						in_faction = faction_succ_gavelkind
-						in_faction = faction_succ_feudal_elective
-						in_faction = faction_lower_crown_authority
-						in_faction = faction_independence
-						in_faction = faction_increase_council_power
-						in_faction = faction_antiking
-					}
-				}
-				random_list = {
-					33 = { # Blackmail
-						character_event = { id = ATLAE.1007 }
-					}
-					33 = { # Capture
-						character_event = { id = ATLAE.1008 }
-					}
-					33 = { # Hand Over
-						character_event = { id = ATLAE.1009 }
-					}
-				}
-			}
-		}
-	}
-}
+	# option = { # Bring them in!
+		# name = EVTOPTORDERA.6
+		# liege = {
+			# random_realm_character = {
+				# limit = {
+					# NOT = { character = ROOT }
+					# NOT = { character = PREV }
+					# OR = {
+						# in_faction = faction_succ_seniority
+						# in_faction = faction_succ_primogeniture
+						# in_faction = faction_succ_gavelkind
+						# in_faction = faction_succ_feudal_elective
+						# in_faction = faction_lower_crown_authority
+						# in_faction = faction_independence
+						# in_faction = faction_increase_council_power
+					# }
+				# }
+				# random_list = {
+					# 33 = { # Blackmail
+						# character_event = { id = ATLAE.1007 }
+					# }
+					# 33 = { # Capture
+						# character_event = { id = ATLAE.1008 }
+					# }
+					# 33 = { # Hand Over
+						# character_event = { id = ATLAE.1009 }
+					# }
+				# }
+			# }
+		# }
+	# }
+# }
 
-character_event = { # Dai Li blackmail Faction Member
-	id = ATLAE.1007
-	desc = "EVTDESCORDER.7"
-	is_triggered_only = yes
-	picture = "GFX_evt_dai_li_2"
+# character_event = { # Dai Li blackmail Faction Member
+	# id = ATLAE.1007
+	# desc = "EVTDESCORDER.7"
+	# is_triggered_only = yes
+	# picture = "GFX_evt_dai_li_2"
 	
-	option = {
-		name = EVTOPTORDERA.7
-		opinion = {
-			modifier = opinion_coerced_into_leaving_faction
-			who = ROOT
-		}
-		clr_character_flag = faction_member
-	}
+	# option = {
+		# name = EVTOPTORDERA.7
+		# opinion = {
+			# modifier = opinion_coerced_into_leaving_faction
+			# who = ROOT
+		# }
+		# clr_character_flag = faction_member
+	# }
 	
-	option = {
-		name = EVTOPTORDERB.7
-		hidden_tooltip = {
-			character_event = { id = ATLAE.1010 }
-		}
-	}
-}
+	# option = {
+		# name = EVTOPTORDERB.7
+		# hidden_tooltip = {
+			# character_event = { id = ATLAE.1010 }
+		# }
+	# }
+# }
 
-character_event = { # Dai Li capture Faction Member
-	id = ATLAE.1008
-	desc = "EVTDESCORDER.8"
-	is_triggered_only = yes
-	picture = "GFX_evt_dai_li_2"
+# character_event = { # Dai Li capture Faction Member
+	# id = ATLAE.1008
+	# desc = "EVTDESCORDER.8"
+	# is_triggered_only = yes
+	# picture = "GFX_evt_dai_li_2"
 	
-	option = {
-		name = EVTOPTORDER.8
-		imprison = FROM
-	}
-	
-}
+	# option = {
+		# name = EVTOPTORDER.8
+		# imprison = FROM
+	# }
+# }
 
-character_event = { # Dai Li arrest Faction Member
-	id = ATLAE.1009
-	desc = "EVTDESCORDER.9"
-	is_triggered_only = yes
-	picture = "GFX_evt_dai_li_2"
+# character_event = { # Dai Li arrest Faction Member
+	# id = ATLAE.1009
+	# desc = "EVTDESCORDER.9"
+	# is_triggered_only = yes
+	# picture = "GFX_evt_dai_li_2"
 	
-	option = {
-		name = EVTOPTORDERA.9
-	}
+	# option = {
+		# name = EVTOPTORDERA.9
+	# }
 	
-	option = {
-		name = EVTOPTORDERB.9
-	}
-	
-}
+	# option = {
+		# name = EVTOPTORDERB.9
+	# }
+# }
 
-character_event = { # Dai Li capture Faction Member
-	id = ATLAE.1010
-	desc = "EVTDESCORDER.8"
-	is_triggered_only = yes
-	picture = "GFX_evt_dai_li_2"
+# character_event = { # Dai Li capture Faction Member
+	# id = ATLAE.1010
+	# desc = "EVTDESCORDER.8"
+	# is_triggered_only = yes
+	# picture = "GFX_evt_dai_li_2"
 	
-	option = {
-		name = EVTOPTORDER.8
-		imprison = FROMFROM
-	}
-	
-}
+	# option = {
+		# name = EVTOPTORDER.8
+		# imprison = FROMFROM
+	# }
+# }

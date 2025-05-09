@@ -12,8 +12,9 @@ b_takamagahara = castle
 #b_numazu = castle
 
 # Misc
-culture = northern_earth
+culture = northern_earth_culture
 religion = fortune_telling
+terrain = hills
 
 #History
 647.8.5 = { religion = earth_spirituality }

@@ -10,8 +10,9 @@ b_xiahongtu = castle
 #b_xiaohua = city
 
 # Misc
-culture = eastern_earth
+culture = eastern_earth_culture
 religion = the_great_serpent
+terrain = desert
 
 #History
 612.2.1 = { b_xiaohua = temple }

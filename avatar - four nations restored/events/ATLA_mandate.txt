@@ -1,0 +1,1338 @@
+####														 ####
+## Written for Avatar Four Nations restored by TypicalCrusader ##
+####														 ####
+
+namespace = mandate
+###
+#Event List
+#1 - Change admin law to left
+#2 - Spawn Pretender
+#3 - Dynasty chooser ( barbarians )
+#4 - Dynasty Chooser
+#5 - Turn Weak EK into puppet
+#6 - Change Bureaocracy law to left
+#7 - Gib mandate modifer
+#8-28 - Random Mandate RA gain/loss events
+#29 - Declare Mandate War
+#30 - Fate of Earth Kingdom (Peasant and Noble Claimant)
+#31 - New Dynasty Ascends ( news event )
+#32 - Dismantlement of Earth Kingdom ( news event )
+###
+#Used Flags
+#noble_pretender
+#peasant_leader
+#mandate_revolt_prepare
+#given_temple_name_by_script
+###
+
+#law change to left (admin)
+character_event = {
+	id = mandate.1
+	desc = EVTDESCMAND1
+	picture = GFX_evt_chinese_bureaucrat
+	is_triggered_only = yes
+	only_playable = yes
+	
+	trigger = {
+		government = chinese_imperial_government
+		check_variable = { which = global_royalAuthority value <= -11 }
+		NOT = { has_character_modifier = ek_law_low_mandate_change }
+		primary_title = {
+			NOT = { has_law = ze_admin_anarchy }
+		}
+	}
+	
+	option = {
+		name = mandate.1
+		primary_title = {
+			change_variable = { which = global_royalAuthority value = -10 }
+		}
+		add_character_modifier = {
+			name = ek_law_low_mandate_change 
+			years = 10
+		}
+		primary_title = {
+			trigger_switch = {
+				on_trigger = has_law
+				ze_admin_territories = { add_law_w_cooldown = ze_admin_anarchy }
+				ze_admin_province = { add_law_w_cooldown = ze_admin_territories }
+				ze_admin_balance = { add_law_w_cooldown = ze_admin_province }
+				ze_admin_slight_central = { add_law_w_cooldown = ze_admin_balance }
+				ze_admin_central = { add_law_w_cooldown = ze_admin_slight_central }
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 15
+			check_variable = { which = global_royalAuthority value <= -60 }
+		}
+		modifier = {
+			factor = 10
+			check_variable = { which = global_royalAuthority value <= -40 }
+		}
+		modifier = {
+			factor = 5
+			check_variable = { which = global_royalAuthority value <= -20 }
+		}
+	}
+}
+
+character_event = { #make rebellion leader
+	id = mandate.2
+	desc = EVTDESCMAND2
+	picture = GFX_evt_china_expansionist
+	is_triggered_only = yes
+	only_playable = yes
+
+	trigger = {
+		has_landed_title = c_royal_earth_palace
+		government = chinese_imperial_government
+		OR = {
+			check_variable = { which = global_royalAuthority value <= -80 }
+			AND = {
+				stewardship <= 3
+				diplomacy <= 3
+				check_variable = { which = global_royalAuthority value <= -30 }
+			}
+		}
+		NOT = {
+			any_war = {
+				defender = { character = ROOT }
+				attacker = { has_character_flag = mandate_revolter } #Already under mandate revolt
+			}
+		}
+	}
+	
+	option = {
+		name = mandate.2
+		change_variable = { which = global_royalAuthority value = 50 }
+
+		random_realm_province = {
+			location = {
+				random_list = {
+					50 = { #peasant
+						custom_tooltip = {
+							text = MANDATE_PEASANT_REVOLT
+						}
+						hidden_tooltip = {
+							create_character = {
+								random_traits = yes
+								religion = earth_monarchism
+								culture = ba_sing_se_culture
+								attributes = { martial = 16 }
+								age = 16
+								add_trait = brilliant_strategist
+								add_trait = uncouth
+								add_trait = peasant_leader
+								add_trait = earthbender
+								add_trait = powerful_bender
+							}
+						}
+					}
+					50 = { #noble
+						custom_tooltip = {
+							text = MANDATE_NOBLE_REVOLT
+						}
+						hidden_tooltip = {
+
+							create_character = {
+								random_traits = yes
+								religion = earth_monarchism
+								culture = ba_sing_se_culture
+								attributes = { martial = 13 }
+								age = 35
+								trait = brilliant_strategist
+								trait = groomed
+								trait = earthbender
+								trait = powerful_bender
+							}
+						}
+					}
+				}
+				new_character = {
+					hidden_tooltip = {
+						set_character_flag = mandate_revolter
+						create_title = {
+							tier = KING
+							landless = yes
+							temporary = yes
+							culture = ROOT
+							name = "CLAIMANT_ADVENTURE"
+							holder = THIS
+						}
+						add_claim = c_royal_earth_palace
+						add_claim = k_earth_kingdom
+						add_claim = e_earth_kingdom
+
+						wealth = 1500
+						spawn_unit = {
+							province = PREV
+							home = PREV
+							owner = THIS
+							leader = THIS
+							match_character = ROOT
+							match_mult = 0.2
+							earmark = decadence_revolters
+							reinforces = yes
+							reinforce_rate_multiplier = 0.25
+						}
+						create_character = {
+							random_traits = yes
+							dynasty = THIS
+							religion = THIS
+							culture = THIS
+							female = 40
+							age = 18
+							attributes = { martial = 7 }
+							trait = skilled_tactician
+							trait = earthbender
+							trait = powerful_bender
+						}
+						new_character = {
+							set_father = PREV
+							spawn_unit = {
+								province = PREVPREV
+								home = PREVPREV
+								owner = PREV
+								match_character = ROOT
+								match_mult = 0.2
+								reinforces = yes
+								reinforce_rate_multiplier = 0.25
+							}
+						}
+
+						create_character = {
+							random_traits = yes
+							dynasty = THIS
+							religion = THIS
+							culture = THIS
+							female = 40
+							age = 20
+							attributes = { martial = 7 }
+							trait = skilled_tactician
+							trait = earthbender
+							trait = powerful_bender
+						}
+						new_character = {
+							set_father = PREV
+							spawn_unit = {
+								province = PREVPREV
+								home = PREVPREV
+								owner = PREV
+								match_character = ROOT
+								match_mult = 0.2
+								reinforces = yes
+								reinforce_rate_multiplier = 0.25
+							}
+						}
+
+						spawn_good_commander_effect = yes
+						new_character = {
+							spawn_unit = {
+								province = PREVPREV
+								home = PREVPREV
+								owner = PREV
+								match_character = ROOT
+								match_mult = 0.2
+								reinforces = yes
+								reinforce_rate_multiplier = 0.25
+							}
+						}
+						spawn_good_commander_effect = yes
+						new_character = {
+							spawn_unit = {
+								province = PREVPREV
+								home = PREVPREV
+								owner = PREV
+								match_character = ROOT
+								match_mult = 0.2
+								reinforces = yes
+								reinforce_rate_multiplier = 0.25
+							}
+						}
+						spawn_good_commander_effect = yes
+						new_character = {
+							spawn_unit = {
+								province = PREVPREV
+								home = PREVPREV
+								owner = PREV
+								match_character = ROOT
+								match_mult = 0.2
+								reinforces = yes
+								reinforce_rate_multiplier = 0.25
+							}
+						}
+					}
+
+					unsafe_war = {
+						target = ROOT
+						casus_belli = claim_all
+					}
+				}
+			}
+		}
+	}
+}
+
+#turn weak ek to puppet
+character_event = {
+	id = mandate.5
+	desc = EVTDESCMAND5
+	picture = GFX_evt_accused
+	is_triggered_only = yes
+
+	only_playable = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				stewardship <= 3
+				diplomacy <= 3
+				check_variable = { which = global_royalAuthority value <= -75 }
+			}
+			trait = earthking
+		}
+		OR = {
+			AND = {
+				ROOT = {
+					stewardship <= 3
+					diplomacy <= 3
+					OR = {
+						check_variable = { which = global_royalAuthority value <= -75 }
+						has_character_flag = weak_ek
+					}
+				}
+			}
+			AND = {
+				is_adult = no
+				OR = {
+					diplomacy <= 3
+					stewardship <= 3
+				}
+				is_title_active = d_dai_li
+			}
+		}
+	}
+	
+	option = {
+		name = mandatepuppet
+		
+		trigger = { trait = earthking }
+		
+		clr_global_flag = earth_king_in_power
+		remove_trait = earthking
+		add_trait = earthkingpuppet
+	}
+	
+	option = {
+		name = mandatepuppetcons
+		
+		trigger = { trait = earthkingconstitution }
+		
+		clr_global_flag = ek_gave_some_power
+		clr_global_flag = ek_forced_give_power
+		remove_trait = earthkingconstitution
+		add_trait = earthkingpuppet
+	}
+}
+
+#change Bureaocracy law to left
+character_event = {
+	id = mandate.6
+	desc = EVTDESCMAND6
+	picture = GFX_evt_chinese_bureaucrat
+	is_triggered_only = yes
+
+	only_playable = yes
+	
+	trigger = {
+		government = chinese_imperial_government
+		check_variable = { which = global_royalAuthority value <= -11 }
+		NOT = { has_character_modifier = ek_law_low_mandate_change }
+		primary_title = {
+			NOT = { has_law = bureaucracy_anarchy }
+		}
+	}
+	
+	option = {
+		name = mandate.6
+		change_variable = { which = global_royalAuthority value = -10 }
+		add_character_modifier = {
+			name = ek_law_low_mandate_change 
+			years = 10
+		}
+		primary_title = {
+			trigger_switch = {
+				on_trigger = has_law
+				underfunded_bureaucracy = { add_law_w_cooldown = bureaucracy_anarchy }
+				balanced_bureaucracy = { add_law_w_cooldown = underfunded_bureaucracy }
+				good_bureaucracy = { add_law_w_cooldown = balanced_bureaucracy }
+				slight_bureaucratic_dominance = { add_law_w_cooldown = good_bureaucracy }
+				bureaucratic_dominance = { add_law_w_cooldown = slight_bureaucratic_dominance }
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 1000
+			check_variable = { which = global_royalAuthority value <= -60 }
+		}
+		modifier = {
+			factor = 100
+			check_variable = { which = global_royalAuthority value <= -40 }
+		}
+		modifier = {
+			factor = 10
+			check_variable = { which = global_royalAuthority value <= -20 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.7
+	is_triggered_only = yes #Fired on_yearly_pulse
+	hide_window = yes
+
+	only_playable = yes
+	
+	trigger = {
+		government = chinese_imperial_government
+	}
+	
+	immediate = { ##Adjusted to use else_if. We start at the highest value, then work downward. Trigger switch would be more efficient, but variables are incompatible with it. - Liz
+		if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value = 100 }
+			}
+			add_character_modifier = {
+				name = mandateposituvemodifier6
+				years = 1 ##If you lose the Earth King this means it'll wear off
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value = 80 }
+			}
+			add_character_modifier = {
+				name = mandateposituvemodifier5
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value = 60 }
+			}
+			add_character_modifier = {
+				name = mandateposituvemodifier4
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value = 40 }
+			}
+			add_character_modifier = {
+				name = mandateposituvemodifier3
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value = 20 }
+			}
+			add_character_modifier = {
+				name = mandateposituvemodifier2
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value = 1 }
+			}
+			add_character_modifier = {
+				name = mandateposituvemodifier1
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value == 0 } ##This is to stop the game deleting the authority value
+			}
+			set_variable = { which = global_royalAuthority value = 1 }
+			add_character_modifier = {
+				name = mandateposituvemodifier1
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value = -10 }
+			}
+			add_character_modifier = {
+				name = mandatenegativemodifier1
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value = -20 }
+			}
+			add_character_modifier = {
+				name = mandatenegativemodifier2
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value = -40 }
+			}
+			add_character_modifier = {
+				name = mandatenegativemodifier3
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value = -60 }
+			}
+			add_character_modifier = {
+				name = mandatenegativemodifier4
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value = -80 }
+			}
+			add_character_modifier = {
+				name = mandatenegativemodifier5
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = global_royalAuthority value < -80 }
+			}
+			add_character_modifier = {
+				name = mandatenegativemodifier6
+				years = 1
+			}
+		}
+	}
+}
+
+character_event = {
+	id = mandate.8
+	desc = EVTDESCMAND8
+	picture = GFX_evt_china_open
+	is_triggered_only = yes
+
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		stewardship >= 15
+	}
+	
+	option = {
+		name = mandate.8a
+		change_variable = { which = global_royalAuthority value = 2 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.9
+	desc = EVTDESCMAND9
+	picture = GFX_evt_china_golden_age
+	is_triggered_only = yes
+
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		diplomacy >= 15
+	}
+	
+	option = {
+		name = mandate.9a
+		change_variable = { which = global_royalAuthority value = 2 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.10
+	desc = EVTDESCMAND10
+	picture = GFX_evt_china_invades
+	is_triggered_only = yes
+
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		learning >=15
+		religion = earth_monarchism
+	}
+	
+	option = {
+		name = mandate.10a
+		change_variable = { which = global_royalAuthority value = 1 }
+	}
+		
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.11
+	desc = EVTDESCMAND11
+	picture = GFX_evt_bloodlines
+	is_triggered_only = yes
+
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = just
+	}
+	
+	option = {
+		name = mandate.11a
+		change_variable = { which = global_royalAuthority value = 1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.12
+	desc = EVTDESCMAND11
+	picture = GFX_evt_holy_emperor
+	is_triggered_only = yes
+
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = arbitrary
+	}
+	
+	option = {
+		name = mandate.12a
+		change_variable = { which = global_royalAuthority value = -1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.13
+	desc = EVTDESCMAND11
+	picture = GFX_evt_scandal
+	is_triggered_only = yes
+
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = ambitious
+	}
+	
+	option = {
+		name = mandate.13a
+		change_variable = { which = global_royalAuthority value = 1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.14
+	desc = EVTDESCMAND11
+	picture = GFX_evt_recovery
+	is_triggered_only = yes
+
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = slothful
+	}
+	
+	option = {
+		name = mandate.14a
+		change_variable = { which = global_royalAuthority value = -1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.15
+	desc = EVTDESCMAND11
+	picture = GFX_evt_open_book_hf
+	is_triggered_only = yes
+
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = diligent
+	}
+	
+	option = {
+		name = mandate.15a
+		change_variable = { which = global_royalAuthority value = 1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.16
+	desc = EVTDESCMAND11
+	picture = GFX_evt_feast
+	is_triggered_only = yes
+
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = content
+	}
+	
+	option = {
+		name = mandate.16a
+		change_variable = { which = global_royalAuthority value = -1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+character_event = {
+	id = mandate.17
+	desc = EVTDESCMAND11
+	picture = GFX_evt_china_diplomatic_success
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = gregarious
+	}
+	
+	option = {
+		name = mandate.17a
+		change_variable = { which = global_royalAuthority value = 1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.18
+	desc = EVTDESCMAND11
+	picture = GFX_evt_china_diplomatic_incident
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = shy
+	}
+	
+	option = {
+		name = mandate.18a
+		change_variable = { which = global_royalAuthority value = -1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+
+character_event = {
+	id = mandate.21
+	desc = EVTDESCMAND11
+	picture = GFX_evt_china_diplomatic_incident
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = stutter
+	}
+	
+	option = {
+		name = mandate.21a
+		change_variable = { which = global_royalAuthority value = -1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.22
+	desc = EVTDESCMAND11
+	picture = GFX_evt_china_diplomatic_incident
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = lisp
+	}
+	
+	option = {
+		name = mandate.21a
+		
+		custom_tooltip = {
+			text = mandate11b
+			hidden_tooltip = {
+				change_variable = { which = global_royalAuthority value = -1 }
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.23
+	desc = EVTDESCMAND11
+	is_triggered_only = yes
+	picture = GFX_evt_tribal_shrine
+
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = kind
+	}
+	
+	option = {
+		name = mandate.23a
+		change_variable = { which = global_royalAuthority value = 1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.24
+	desc = EVTDESCMAND11
+	picture = GFX_evt_beheading
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = cruel
+	}
+	
+	option = {
+		name = mandate.24a
+		change_variable = { which = global_royalAuthority value = -1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.25
+	desc = EVTDESCMAND11
+	picture = GFX_evt_bad_news
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = trusting
+	}
+	
+	option = {
+		name = mandate.25a
+		change_variable = { which = global_royalAuthority value = -1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.26
+	desc = EVTDESCMAND11
+	picture = GFX_evt_bleeding_from_neck_hf
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = paranoid
+	}
+	
+	option = {
+		name = mandate.25a
+		
+		custom_tooltip = {
+			text = mandate11b
+			hidden_tooltip = {
+				change_variable = { which = global_royalAuthority value = -1 }
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.27
+	desc = EVTDESCMAND11
+	picture = GFX_evt_sultan
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = lustful
+	}
+	
+	option = {
+		name = mandate.28a
+		change_variable = { which = global_royalAuthority value = 1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}
+
+character_event = {
+	id = mandate.28
+	picture = GFX_evt_end_of_days
+	desc = EVTDESCMAND11
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+
+	trigger = {
+		government = chinese_imperial_government
+		trait = depressed
+	}
+	
+	option = {
+		name = mandate.28a
+		change_variable = { which = global_royalAuthority value = -1 }
+	}
+	
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 0.05
+			check_variable = { which = global_royalAuthority value <= -80 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = global_royalAuthority value >= -80 }
+			check_variable = { which = global_royalAuthority value < -10 }
+		}
+		modifier = {
+			factor = 2
+			check_variable = { which = global_royalAuthority value > 10 }
+			check_variable = { which = global_royalAuthority value <= 80 }
+		}
+		modifier = {
+			factor = 3
+			check_variable = { which = global_royalAuthority value = 80 }
+		}
+	}
+}

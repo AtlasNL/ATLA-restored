@@ -11,8 +11,9 @@ b_yixie = tribal
 #b_yixie_nage = temple
 
 # Misc
-culture = barbarians
+culture = barbarian_culture
 religion = barbarism
+terrain = forest
 
 #History
 684.10.9 = { b_ni_jissai = temple }

@@ -13,8 +13,9 @@ b_baowo = temple
 #b_lingshan = city
 
 # Misc
-culture = northern_earth
+culture = northern_earth_culture
 religion = fortune_telling
+terrain = forest
 
 #History
 835.6.16 = { culture = colonial }

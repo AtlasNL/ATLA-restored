@@ -3,7 +3,7 @@ decisions = {
 	employ_soldier = {
 		ai = no
 		only_playable = yes
-
+		
 		potential = {
 			
 		}
@@ -43,102 +43,63 @@ decisions = {
 			custom_tooltip = { text = promoted_commander_TT }
 			character_event = { id = NE.1 }
 		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0
-		}
 	}
 	employ_bender = {
+		ai = no
+		
 		potential = {
-			ai = no
 			OR = {
-				culture_group = earth_kingdom_culture
-				culture_group = fire_nation_culture
-				culture_group = water_tribe_culture
-				culture_group = air_nomad_culture
+				culture_group = earth_kingdom_cultures
+				culture_group = fire_nation_cultures
+				culture_group = water_tribe_cultures
+				culture_group = air_nomad_cultures
 			}
 		}
 		allow = {
 			prestige = 20
 			scaled_wealth = 0.3
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
 		}
 		effect = {
 			prestige = -20
 			scaled_wealth = -0.3
-			if = {
-				limit = {
-					culture_group = earth_kingdom_culture
-				}
-				create_random_soldier = {
-					random_traits = yes
-					dynasty = random
-					trait = earthbender
-					trait = competent_bender
-				}
-				character_event = { id = NE.1 }
+			create_random_soldier = {
+				random_traits = yes
+				female = 50 #50/50 to be a woman, bending doesn't discriminate
+				dynasty = actually_culture
+				culture = ROOT
+				religion = ROOT
 			}
-			if = {
-				limit = {
-					culture_group = fire_nation_culture
-				}
-				create_random_soldier = {
-					random_traits = yes
-					dynasty = random
-					trait = firebender
-					trait = competent_bender
-				}
-				character_event = { id = NE.1 }
+			trigger_switch = {
+				on_trigger = culture_group
+				earth_kingdom_cultures = { new_character = { add_trait = earthbender } }
+				fire_nation_cultures = { new_character = { add_trait = firebender } }
+				water_tribe_cultures = { new_character = { add_trait = waterbender } }
+				air_nomad_cultures = { new_character = { add_trait = airbender } }
 			}
-			if = {
-				limit = {
-					culture_group = water_tribe_culture
-				}
-				create_random_soldier = {
-					random_traits = yes
-					dynasty = random
-					trait = waterbender
-					trait = competent_bender
-				}
-				character_event = { id = NE.1 }
-			}
-			if = {
-				limit = {
-					culture_group = air_nomad_culture
-				}
+			new_character = {
+				add_trait = competent_bender
+				remove_trait = weak
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				remove_trait = craven	
 				if = {
 					limit = {
-						ROOT = { is_female = yes }
+						trait = misguided_warrior
 					}
-					create_random_soldier = {
-						random_traits = yes
-						dynasty = random
-						female = yes
-						trait = airbender
-						trait = competent_bender
-					}
-					character_event = { id = NE.1 }
+					remove_trait = misguided_warrior
+					add_trait = tough_soldier
 				}
-				if = {
-					limit = {
-						ROOT = { is_female = no }
-					}
-					create_random_soldier = {
-						random_traits = yes
-						dynasty = random
-						trait = airbender
-						trait = competent_bender
-					}
-					character_event = { id = NE.1 }
+				random = {
+					chance = 20
+					upgrade_bending_effect = yes
 				}
+				save_event_target_as = invited_character
 			}
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0
+			character_event = { id = NE.1 }
 		}
 	}
 
@@ -147,7 +108,7 @@ decisions = {
 		only_playable = yes
 
 		potential = {
-			NOT = { has_religion_feature = religion_matriarchal }
+			NOT = { has_religion_feature = religion_matriarchal } 
 		}
 		allow = {
 			piety = 25
@@ -227,9 +188,7 @@ decisions = {
 			}
 			character_event = { id = NE.1 }
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 0
 		}
@@ -239,7 +198,7 @@ decisions = {
 		only_playable = yes
 
 		potential = {
-			has_religion_feature = religion_matriarchal
+			NOT = { has_religion_feature = religion_patriarchal }
 		}
 		allow = {
 			piety = 25
@@ -312,12 +271,6 @@ decisions = {
 				save_event_target_as = invited_character
 			}
 			character_event = { id = NE.1 }
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0
 		}
 	}
 	
@@ -400,19 +353,13 @@ decisions = {
 			}
 			character_event = { id = NE.1 }
 		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0
-		}
 	}
 	employ_stewardess = {
 		ai = no
 		only_playable = yes
 
 		potential = {
-			has_religion_feature = religion_matriarchal
+			NOT = { has_religion_feature = religion_patriarchal }
 		}
 		allow = {
 			scaled_wealth = 0.25
@@ -486,12 +433,6 @@ decisions = {
 			}
 			character_event = { id = NE.1 }
 		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0
-		}
 	}
 	
 	present_debutante = {
@@ -499,9 +440,6 @@ decisions = {
 		only_playable = yes
 
 		potential = {
-			NOT = {
-				has_religion_feature = religion_matriarchal
-			}
 		}
 		allow = {
 			scaled_wealth = 0.20
@@ -527,12 +465,40 @@ decisions = {
 			}
 			character_event = { id = NE.1 }
 		}
-		revoke_allowed = {
-			always = no
+	}
+	
+	present_male_debutante = {
+		ai = no
+		only_playable = yes
+
+		potential = {
 		}
+		allow = {
+			scaled_wealth = 0.20
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
+		}
+		effect = {
+			scaled_wealth = -0.20
+			create_character = {
+				random_traits = yes
+				dynasty = actually_culture
+				age = 17
+			}
+			new_character = {
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				
+				set_character_flag = debutante
+				save_event_target_as = invited_character
+			}
+			character_event = { id = NE.1 }
+		}
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
-	
 }

@@ -35,7 +35,7 @@ religion_nature = {
 				factor = 0
 				has_game_started = no
 				OR = { 
-					religion = fire_spirituality 
+					religion = fire_spirituality
 					religion = fire_nation_imperialism
 					religion_group = outlaw_religions
 				}
@@ -74,12 +74,15 @@ religion_nature = {
 					character = yes
 					OR = { 
 						religion = bhanti_spirituality 
+						religion = bhanti_spirituality_reformed
 						religion = path_of_jin_wei
 						religion = the_great_serpent
 						religion = the_divided
 						religion = fortune_telling
+						religion = fortune_telling_reformed
 						religion = followers_of_kyoshi
 						religion = the_eternal_flame
+						religion = the_eternal_flame_reformed
 						religion = modernism
 					}
 				}
@@ -454,8 +457,11 @@ religion_nature = {
 			modifier = { 	
 				factor = 20
 				FROM = { 
-					character = yes 
-					religion = fortune_telling
+					character = yes
+					OR = {						
+						religion = fortune_telling
+						religion = fortune_telling_reformed
+					}
 				}
 			}
 			modifier = { 	
@@ -560,6 +566,7 @@ religion_doctrine = {
 					character = yes 
 					OR = { 
 						religion = bhanti_spirituality
+						religion = bhanti_spirituality_reformed
 						religion = tui_and_la
 						religion = southern_spirituality
 						religion_group = modern_religions
@@ -616,6 +623,7 @@ religion_doctrine = {
 					character = yes 
 					OR = { 
 						religion = bhanti_spirituality
+						religion = bhanti_spirituality_reformed
 						religion = tui_and_la
 						religion = southern_spirituality
 						religion_group = modern_religions
@@ -785,38 +793,38 @@ religion_doctrine = {
 			}
 		}
 	}
-	#religion_syncretic = { #Gives option for each ruler to pick one of the sympathy_for_traits via decision.
-	#	picture = GFX_religion_feature_syncretic
-	#	trigger = {
-	#		NOR = {
-	#			has_selected_religion_feature = religion_jizya
-	#			has_selected_religion_feature = religion_dogmatic
-	#			has_selected_religion_feature = religion_feature_hellenic # Redundant Doctrine
-	#		}
-	#	}
-	#	effect = {
-	#		custom_tooltip = { text = tooltip_religion_feature_syncretic }
-	#	}
-	#	ai_will_do = {
-	#		factor = 1
-	#		modifier = { 	
-	#			factor = 0.5
-	#			FROM = { 
-	#				character = yes 
-	#				OR = { 
-	#					religion = aztec
-	#					religion_group = air_religions
-	#					religion = bhanti_spirituality
-	#				}
-	#			}
-	#		}
-	#		modifier = { #Handles feature randomization in AltStart to make unreformed pagans still have "paganish" features.
-	#			factor = 0
-	#			has_game_started = no
-	#			religion_group = outlaw_religions
-	#		}
-	#	}
-	#}
+	religion_syncretic = { #Gives option for each ruler to pick one of the sympathy_for_traits via decision.
+		picture = GFX_religion_feature_syncretic
+		trigger = {
+			NOR = {
+				has_selected_religion_feature = religion_jizya
+				has_selected_religion_feature = religion_dogmatic
+				# has_selected_religion_feature = religion_feature_hellenic # Redundant Doctrine
+			}
+		}
+		effect = {
+			custom_tooltip = { text = tooltip_religion_feature_syncretic }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 	
+				factor = 0.5
+				FROM = { 
+					character = yes 
+					OR = { 
+						religion_group = air_religions
+						religion = bhanti_spirituality
+						religion = bhanti_spirituality_reformed
+					}
+				}
+			}
+			modifier = { #Handles feature randomization in AltStart to make unreformed pagans still have "paganish" features.
+				factor = 0
+				has_game_started = no
+				religion_group = outlaw_religions
+			}
+		}
+	}
 	religion_haruspicy = { #Gives option to divinate the future before waging a war.
 		picture = GFX_religion_feature_haruspicy
 		effect = {
@@ -855,7 +863,7 @@ religion_doctrine = {
 				factor = 0.01 
 				FROM = { 
 					character = yes 
-					OR = { #Too Western for them.
+					OR = { #Too Western for them. ##TODO: Someone just find-and-replaced, didn't they? Fire religions would enjoy astrology, predicting comets etc.
 						religion = fire_nation_imperialism
 						religion = fire_spirituality
 						religion_group = air_religions
@@ -870,7 +878,9 @@ religion_doctrine = {
 					character = yes 
 					OR = { 
 						religion = fortune_telling
+						religion = fortune_telling_reformed
 						religion = bhanti_spirituality
+						religion = bhanti_spirituality_reformed
 					}
 				}
 			}
@@ -1123,8 +1133,9 @@ religion_doctrine = {
 						character = yes 
 							NOT = { has_selected_religion_feature = religion_peaceful }
 							OR = { 
-								religion = piracy
+								religion = pirate_faith
 								religion = fortune_telling
+								religion = fortune_telling_reformed
 							}
 						}
 					}
@@ -1194,12 +1205,15 @@ religion_doctrine = {
 						character = yes
 						OR = { 
 							religion = bhanti_spirituality 
+							religion = bhanti_spirituality_reformed
 							religion = path_of_jin_wei
 							religion = the_great_serpent
 							religion = the_divided
 							religion = fortune_telling
+							religion = fortune_telling_reformed
 							religion = followers_of_kyoshi
 							religion = the_eternal_flame
+							religion = the_eternal_flame_reformed
 							religion = modernism
 						}
 					}
@@ -1293,16 +1307,13 @@ religion_doctrine = {
 			has_game_started = yes
 			OR = {
 				religion_group = water_religions
-				religion = piracy
-			}
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
+				religion = pirate_faith
 			}
 		}
 		trigger = {
 			OR = {
 				religion_group = water_religions
-				religion = piracy
+				religion = pirate_faith
 			}
 			NOR = { 
 				has_selected_religion_feature = religion_adventuring
@@ -1329,9 +1340,6 @@ religion_doctrine = {
 		potential = {
 			has_game_started = yes
 			religion_group = earth_religions
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
 		}
 		trigger = {
 			religion_group = earth_religions
@@ -1373,15 +1381,14 @@ religion_doctrine = {
 			OR = {
 				religion_group = air_religions
 				religion = bhanti_spirituality
+				religion = bhanti_spirituality_reformed
 			}	
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
 		}
 		trigger = {
 			OR = {
 				religion_group = air_religions
 				religion = bhanti_spirituality
+				religion = bhanti_spirituality_reformed
 			}	
 			NOR = { 
 				has_selected_religion_feature = religion_meritocratic
@@ -1398,25 +1405,24 @@ religion_doctrine = {
 			factor = 50
 		}
 	}
-	religion_feature_swamp = { # previously religion_feature_slavic
+	religion_feature_old_barbarism = { # previously religion_feature_slavic
 		picture = GFX_religion_feature_slavic
 		potential = {
 			has_game_started = yes
-			religion = the_great_swamp
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
+			religion = barbarism_reformed
 		}
 		trigger = {
-			religion = the_great_swamp
+			religion = barbarism_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_stable
+				has_selected_religion_feature = religion_feature_new_barbarism
 			}
 		}
 		effect = {
 			custom_tooltip = { text = tooltip_religion_feature_rivermovement }
 			custom_tooltip = { text = tooltip_religion_feature_stable }
-			custom_tooltip = { text = tooltip_religion_feature_meliorism } 
+			custom_tooltip = { text = tooltip_religion_feature_meliorism }
+			custom_tooltip = { text = tooltip_religion_feature_old_barbarism }
 			hidden_tooltip = {
 				set_short_reign_opinion_year_mult = 0
 				set_allow_rivermovement = yes
@@ -1432,16 +1438,18 @@ religion_doctrine = {
 			has_game_started = yes
 			OR = {
 				religion = bhanti_spirituality
+				religion = bhanti_spirituality_reformed
 				religion = the_eternal_flame
+				religion = the_eternal_flame_reformed
 			}
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
+
 		}
 		trigger = {
 			OR = {
 				religion = bhanti_spirituality
+				religion = bhanti_spirituality_reformed
 				religion = the_eternal_flame
+				religion = the_eternal_flame_reformed
 			}
 			NOR = { 
 				has_selected_religion_feature = religion_stable
@@ -1468,9 +1476,7 @@ religion_doctrine = {
 				religion = ba_sing_se_cultural_heritage
 				religion = way_of_chin
 			}
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
+
 		}
 		trigger = {
 			OR = {
@@ -1505,9 +1511,7 @@ religion_doctrine = {
 				religion_group = fire_religions
 				religion = the_great_swamp
 			}
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
+
 		}
 		trigger = {
 			OR = {
@@ -1542,9 +1546,7 @@ religion_doctrine = {
 		potential = {
 			has_game_started = yes
 			religion_group = fire_religions
-			NOT = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
+
 		}
 		trigger = {
 			religion_group = fire_religions
@@ -1574,24 +1576,23 @@ religion_doctrine = {
 			factor = 50
 		}
 	}
-	religion_feature_sun_warriors = { # previously religion_feature_aztec
+	religion_feature_new_barbarism = { # previously religion_feature_aztec
 		picture = GFX_religion_feature_aztec
 		potential = {
 			has_game_started = yes
-			religion = the_eternal_flame
-			NOR = {
-				has_alternate_start_parameter = { key = religion_names value = random }
-			}
+			religion = barbarism_reformed
 		}
 		trigger = {
-			religion = the_eternal_flame
+			religion = barbarism_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_seafaring #Redundant
 				has_selected_religion_feature = religion_ritual_sacrifice #Redundant
 				has_selected_religion_feature = religion_relentless #Redundant
+				has_selected_religion_feature = religion_feature_old_barbarism
 			}
 		}
 		effect = {
+			custom_tooltip = { text = tooltip_religion_feature_new_barbarism }
 			custom_tooltip = { text = tooltip_religion_feature_aztec_sacrifices }
 			custom_tooltip = { text = tooltip_religion_feature_bloodthirsty_mechanics }
 			custom_tooltip = { text = tooltip_religion_feature_anti_attrition }
@@ -1660,7 +1661,7 @@ religion_leadership = {
 			modifier = { 	
 				factor = 5
 				FROM = { 
-				religion = water_religions
+				religion_group = water_religions
 				}
 			}
 		}
@@ -1743,7 +1744,7 @@ religion_leadership = {
 						character = yes 
 						OR = { 
 							religion_group = water_religions
-							religion = earth_religions
+							religion_group = earth_religions
 						} 
 					}
 					has_selected_religion_feature = religion_monastic
@@ -1760,7 +1761,7 @@ religion_leadership = {
 						character = yes 
 						OR = { 
 							religion_group = water_religions
-							religion = earth_religions
+							religion_group = earth_religions
 						} 
 					} 
 				}
@@ -1805,7 +1806,10 @@ religion_leadership = {
 				limit = { 
 					FROM = { 
 						character = yes 
-						religion = bhanti_spirituality
+						OR = {
+							religion = bhanti_spirituality
+							religion = bhanti_spirituality_reformed
+						}
 					}
 					has_selected_religion_feature = religion_monastic
 				}
@@ -1819,7 +1823,10 @@ religion_leadership = {
 				limit = { 
 					FROM = { 
 						character = yes 
-						religion = bhanti_spirituality
+						OR = {
+							religion = bhanti_spirituality
+							religion = bhanti_spirituality_reformed
+						}
 					}
 				}
 				set_character_modifier = {
@@ -1869,6 +1876,7 @@ religion_leadership = {
 						character = yes 
 						OR = { 
 							religion = fortune_telling
+							religion = fortune_telling_reformed
 							religion_group = fire_religions
 						}
 					}
@@ -1977,7 +1985,7 @@ religion_leadership = {
 						} 
 						NOR = {
 							religion = air_acolytism
-							religion = piracy
+							religion = pirate_faith
 
 						}
 					}
@@ -2004,9 +2012,7 @@ religion_leadership = {
 				if = {
 					limit = { 
 						religion = the_great_swamp
-						NOT = {
-							has_alternate_start_parameter = { key = religion_names value = random }
-						}
+
 					}
 					set_character_modifier = {
 						stewardship = 2
@@ -2015,9 +2021,7 @@ religion_leadership = {
 				if = {
 					limit = { 
 						religion = air_spirituality
-						NOT = {
-							has_alternate_start_parameter = { key = religion_names value = random }
-						}
+
 					}
 					set_character_modifier = {
 						learning = 4
@@ -2026,7 +2030,6 @@ religion_leadership = {
 				if = {
 					limit = {
 						religion = air_spirituality
-						has_alternate_start_parameter = { key = religion_names value = random }
 					}
 					random_list = {
 						10 = {
@@ -2059,7 +2062,6 @@ religion_leadership = {
 				if = {
 					limit = {
 						religion_group = air_religions
-						has_alternate_start_parameter = { key = religion_names value = random }
 					}
 					random_list = {
 						10 = {

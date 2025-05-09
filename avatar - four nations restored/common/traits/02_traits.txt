@@ -185,8 +185,9 @@ heresiarch = {
 berserker = {
 	potential = {
 		OR = {
-			religion = piracy
+			religion = pirate_faith
 			religion = barbarism
+			religion = barbarism_reformed
 		}
 	}
 	martial = 4
@@ -219,8 +220,6 @@ varangian = {
 }
 
 saoshyant = {
-	zoroastrian_opinion = 10
-	
 	customizer = no
 	
 	combat_rating = 20 #old value: 5
@@ -230,17 +229,15 @@ saoshyant = {
 }
 
 saoshyant_descendant = {
-	
-	zoroastrian_opinion = 5
-	
 	customizer = no
 }
 
 viking = {
 	potential = {
 		OR = {
-			religion = piracy
+			religion = pirate_faith
 			religion = barbarism
+			religion = barbarism_reformed
 		}
 	}
 	opposites =  {
@@ -251,8 +248,9 @@ viking = {
 	martial = 1
 	combat_rating = 10 #old value: 1
 	monthly_character_prestige = 0.3
-	piracy_opinion = 15
+	pirate_faith_opinion = 15
 	barbarism_opinion = 15
+	barbarism_reformed_opinion = 15
 	
 	same_opinion = 5
 	#religious = yes
@@ -344,6 +342,144 @@ ashari = {
 	
 	customizer = no
 	random = no
+}
+
+sympathy_earth_religions = {
+	opposites =  {
+		zealous
+	}
+	
+	potential = {
+		NOT = { religion_group = earth_religions }
+	}
+
+	tolerates_earth_religions = yes		# Tolerates and is tolerated by Christians
+	
+	same_opinion_if_same_religion = 5
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_LOVER_OF_HEATHENS
+	female_insult = INSULT_LOVER_OF_HEATHENS
+	male_insult_adj = INSULT_UNPRINCIPLED
+	female_insult_adj = INSULT_UNPRINCIPLED
+	child_insult_adj = INSULT_STUPID
+}
+
+sympathy_water_religions = {
+	opposites =  {
+		zealous
+	}
+	
+	potential = {
+		NOT = { religion_group = water_religions }
+	}
+
+	tolerates_water_religions = yes		# Tolerates and is tolerated by Christians
+	
+	same_opinion_if_same_religion = 5
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_LOVER_OF_HEATHENS
+	female_insult = INSULT_LOVER_OF_HEATHENS
+	male_insult_adj = INSULT_UNPRINCIPLED
+	female_insult_adj = INSULT_UNPRINCIPLED
+	child_insult_adj = INSULT_STUPID
+}
+
+sympathy_fire_religions = {
+	opposites =  {
+		zealous
+	}
+	
+	potential = {
+		NOT = { religion_group = fire_religions }
+	}
+
+	tolerates_fire_religions = yes		# Tolerates and is tolerated by Christians
+	
+	same_opinion_if_same_religion = 5
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_LOVER_OF_HEATHENS
+	female_insult = INSULT_LOVER_OF_HEATHENS
+	male_insult_adj = INSULT_UNPRINCIPLED
+	female_insult_adj = INSULT_UNPRINCIPLED
+	child_insult_adj = INSULT_STUPID
+}
+
+sympathy_air_religions = {
+	opposites =  {
+		zealous
+	}
+	
+	potential = {
+		NOT = { religion_group = air_religions }
+	}
+
+	tolerates_air_religions = yes		# Tolerates and is tolerated by Christians
+	
+	same_opinion_if_same_religion = 5
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_LOVER_OF_HEATHENS
+	female_insult = INSULT_LOVER_OF_HEATHENS
+	male_insult_adj = INSULT_UNPRINCIPLED
+	female_insult_adj = INSULT_UNPRINCIPLED
+	child_insult_adj = INSULT_STUPID
+}
+
+sympathy_modern_religions = {
+	opposites =  {
+		zealous
+	}
+	
+	potential = {
+		NOT = { religion_group = modern_religions }
+	}
+
+	tolerates_modern_religions = yes		# Tolerates and is tolerated by Christians
+	
+	same_opinion_if_same_religion = 5
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_LOVER_OF_HEATHENS
+	female_insult = INSULT_LOVER_OF_HEATHENS
+	male_insult_adj = INSULT_UNPRINCIPLED
+	female_insult_adj = INSULT_UNPRINCIPLED
+	child_insult_adj = INSULT_STUPID
+}
+
+sympathy_outlaw_religions = {
+	opposites =  {
+		zealous
+	}
+	
+	potential = {
+		NOT = { religion_group = outlaw_religions }
+	}
+
+	tolerates_outlaw_religions = yes		# Tolerates and is tolerated by Christians
+	
+	same_opinion_if_same_religion = 5
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_LOVER_OF_HEATHENS
+	female_insult = INSULT_LOVER_OF_HEATHENS
+	male_insult_adj = INSULT_UNPRINCIPLED
+	female_insult_adj = INSULT_UNPRINCIPLED
+	child_insult_adj = INSULT_STUPID
 }
 
 narrow_flank_leader = {
@@ -1154,7 +1290,6 @@ one_eyed = {
 	is_health = yes
 	
 	sex_appeal_opinion = -5
-	pagan_group_opinion = 10
 	same_opinion = 5
 	
 	combat_rating = -10 #old value: -1
@@ -1420,7 +1555,6 @@ cancer = {
 
 immortal = {
 	health = 10
-	taoist_opinion = 25
 	customizer = no
 	random = no
 	immortal = yes
@@ -1446,7 +1580,6 @@ valhalla_bound  = {
 	martial = 2
 	combat_rating = 10 #old value: 1
 	
-	pagan_group_opinion = 5
 	same_opinion_if_same_religion = 15
 	
 	ai_zeal = 10
@@ -1459,8 +1592,9 @@ valhalla_bound  = {
 ravager = {
 	potential = {
 		OR = {
-			religion = piracy
+			religion = pirate_faith
 			religion = barbarism
+			religion = barbarism_reformed
 			any_owned_bloodline = {
 				has_bloodline_flag = bloodline_viking
 			}
@@ -1471,7 +1605,6 @@ ravager = {
 		}
 	}
 	opposites =  {
-		pirate
 		viking
 		seaking
 		sea_queen
@@ -1479,8 +1612,9 @@ ravager = {
 	martial = 2
 	combat_rating = 20 #old value: 2
 	monthly_character_prestige = 0.4
-	piracy_opinion = 20
+	pirate_faith_opinion = 20
 	barbarism_opinion = 20
+	barbarism_reformed_opinion = 20
 	
 	same_opinion = 5
 	#religious = yes
@@ -1496,8 +1630,9 @@ ravager = {
 seaking = {
 	potential = {
 		OR = {
-			religion = piracy
+			religion = pirate_faith
 			religion = barbarism
+			religion = barbarism_reformed
 			any_owned_bloodline = {
 				has_bloodline_flag = bloodline_viking
 			}
@@ -1508,7 +1643,6 @@ seaking = {
 		}
 	}
 	opposites =  {
-		pirate
 		viking
 		ravager
 		sea_queen
@@ -1516,7 +1650,7 @@ seaking = {
 	martial = 3
 	combat_rating = 20 #old value: 2
 	monthly_character_prestige = 0.5
-	piracy_opinion = 25
+	pirate_faith_opinion = 25
 	barbarism_opinion = 25
 	
 	#religious = yes
@@ -1553,7 +1687,6 @@ dancing_plague = {
 shieldmaiden  = {	
 
 	monthly_character_piety = 0.1
-	pagan_group_opinion = 5
 	same_opinion_if_same_religion = 15
 	
 	combat_rating = 10 #new value!
@@ -1637,8 +1770,9 @@ cannot_marry = {
 sea_queen = {
 	potential = {
 		OR = {
-			religion = piracy
+			religion = pirate_faith
 			religion = barbarism
+			religion = barbarism_reformed
 			any_owned_bloodline = {
 				has_bloodline_flag = bloodline_viking
 			}
@@ -1649,7 +1783,6 @@ sea_queen = {
 		}
 	}
 	opposites =  {
-		pirate
 		viking
 		ravager
 		seaking
@@ -1657,8 +1790,9 @@ sea_queen = {
 	martial = 3
 	combat_rating = 20 #old value: 2
 	monthly_character_prestige = 0.5
-	piracy_opinion = 25
+	pirate_faith_opinion = 25
 	barbarism_opinion = 25
+	barbarism_reformed_opinion = 25
 	
 	#religious = yes
 	customizer = no
@@ -1771,7 +1905,30 @@ otter = {
 	religious = yes
 }
 
+cat = {
+	sex_appeal_opinion = -20
+	fertility = -50.0
+	health = -2
 
+	diplomacy = -10
+	intrigue = -10
+	stewardship = -10
+	martial = -10
+	learning = -10
+
+	inherit_chance = 100
+
+	customizer = no
+	random = no
+	
+	cannot_marry = yes
+	cannot_inherit = yes
+	can_hold_titles = no # Hopefully this will block Glitterhoof from becoming pope again
+
+	potential = {
+		race = cat
+	}
+}
 
 master_of_flame = { # Way of the Dragon
 	leader = yes
@@ -2147,14 +2304,11 @@ is_malnourished = {
 
 baptized_by_pope = {
 	opposites =  {
-		baptized_by_patriarch
 		baptized_by_bishop
-		baptized_by_satan
 	}
 	
 	monthly_character_prestige = 0.05
 	monthly_character_piety = 0.1
-	christian_opinion = 5
 
 	religious = yes
 	customizer = no
@@ -2163,9 +2317,7 @@ baptized_by_pope = {
 
 baptized_by_bishop = {
 	opposites =  {
-		baptized_by_patriarch
 		baptized_by_pope
-		baptized_by_satan
 	}
 	
 	monthly_character_piety = 0.05
@@ -2271,11 +2423,6 @@ pagan_branch_1 = {
 	}
 	religious_branch = pagan_reformation
 
-	christian_opinion = 10
-	muslim_opinion = 10
-	indian_group_opinion = 10
-	jewish_group_opinion = 10
-	zoroastrian_group_opinion = 10
 	same_opinion_if_same_religion = 5
 	opposite_opinion = -5
 	
@@ -2467,7 +2614,6 @@ beatified = {
 blessed_ancestor = {
 	random = no
 	customizer = no
-	pagan_group_opinion = 50
 }
 
 #Zodiac Signs
@@ -2499,6 +2645,7 @@ zodiac_aries = {
 	potential = {
 		OR = {
 			religion = fortune_telling
+			religion = fortune_telling_reformed
 			has_religion_feature = religion_astrology
 		}
 	}
@@ -2522,6 +2669,7 @@ zodiac_cancer = {
 	potential = {
 		OR = {
 			religion = fortune_telling
+			religion = fortune_telling_reformed
 			has_religion_feature = religion_astrology
 		}
 	}
@@ -2543,6 +2691,7 @@ zodiac_capricorn = {
 	potential = {
 		OR = {
 			religion = fortune_telling
+			religion = fortune_telling_reformed
 			has_religion_feature = religion_astrology
 		}
 	}
@@ -2564,6 +2713,7 @@ zodiac_gemini = {
 	potential = {
 		OR = {
 			religion = fortune_telling
+			religion = fortune_telling_reformed
 			has_religion_feature = religion_astrology
 		}
 	}
@@ -2586,6 +2736,7 @@ zodiac_leo = {
 	potential = {
 		OR = {
 			religion = fortune_telling
+			religion = fortune_telling_reformed
 			has_religion_feature = religion_astrology
 		}
 	}
@@ -2610,6 +2761,7 @@ zodiac_libra = {
 	potential = {
 		OR = {
 			religion = fortune_telling
+			religion = fortune_telling_reformed
 			has_religion_feature = religion_astrology
 		}
 	}
@@ -2632,6 +2784,7 @@ zodiac_pisces = {
 	potential = {
 		OR = {
 			religion = fortune_telling
+			religion = fortune_telling_reformed
 			has_religion_feature = religion_astrology
 		}
 	}
@@ -2654,6 +2807,7 @@ zodiac_sagittarius = {
 	potential = {
 		OR = {
 			religion = fortune_telling
+			religion = fortune_telling_reformed
 			has_religion_feature = religion_astrology
 		}
 	}
@@ -2676,6 +2830,7 @@ zodiac_scorpio = {
 	potential = {
 		OR = {
 			religion = fortune_telling
+			religion = fortune_telling_reformed
 			has_religion_feature = religion_astrology
 		}
 	}
@@ -2699,6 +2854,7 @@ zodiac_taurus = {
 	potential = {
 		OR = {
 			religion = fortune_telling
+			religion = fortune_telling_reformed
 			has_religion_feature = religion_astrology
 		}
 	}
@@ -2720,6 +2876,7 @@ zodiac_virgo = {
 	potential = {
 		OR = {
 			religion = fortune_telling
+			religion = fortune_telling_reformed
 			has_religion_feature = religion_astrology
 		}
 	}
@@ -2773,7 +2930,7 @@ dead_crown_zun_fylkir = {
 	customizer = no
 }
 
-dead_scepter_fortune_telling_fylkir = {
+dead_scepter_fortune_telling_fylkir = { ##Fortune Telling has a Fylkir? Someone didn't check that Hellenic was always appropriate... -Liz
 	hidden = yes
 	random = no
 	customizer = no

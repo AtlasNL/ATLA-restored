@@ -1,0 +1,26 @@
+# c_rigsang
+
+# County Title
+title = c_rigsang
+
+# Settlements
+max_settlements = 2
+
+b_rigsang = temple
+#b_wangdue = city
+
+# Misc
+culture = western_air_nomad
+religion = air_spirituality
+
+#History
+830.1.28 = {
+	religion = earth_spirituality
+	culture = earth_islander
+	b_rigsang = tribal
+}
+932.5.3 = {
+	religion = air_acolytism
+	culture = air_acolytes
+	b_rigsang = temple
+}

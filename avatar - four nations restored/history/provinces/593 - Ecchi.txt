@@ -11,8 +11,9 @@ b_ecchi_1 = castle
 #b_yang_1 = city
 
 # Misc
-culture = northern_earth
+culture = northern_earth_culture
 religion = fortune_telling
+terrain = forest
 
 #History
 584.2.9 = { religion = earth_spirituality }

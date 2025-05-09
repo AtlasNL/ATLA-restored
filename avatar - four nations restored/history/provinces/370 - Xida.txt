@@ -12,8 +12,9 @@ b_dubeixiang = city
 #b_ananexia = castle
 
 # Misc
-culture = southern_earth
+culture = southern_earth_culture
 religion = earth_spirituality
+terrain = forest
 
 #History
 615.3.11 = { b_anaxian = temple }

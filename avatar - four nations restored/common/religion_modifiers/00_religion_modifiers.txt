@@ -2,6 +2,11 @@
 # RELIGIOUS AUTHORITY MODIFIERS - fully scriptable
 ##########################################################################
 
+super_bonus = {
+	authority = 100
+	years = 100
+}
+
 won_crusade = {
 	authority = 10
 	years = 30
@@ -187,41 +192,70 @@ strengthened_religion = {
 	years = 50
 }
 
-
-black_market_established = {
-	authority = 5
-}
-
-reinstated_slavery = {
-	authority = 10
-}
-
-forced_instate_slavery = {
+great_tribal_festival_1 = {
 	authority = 1
-	years = 20
+	years = 5
+}
+great_tribal_festival_2 = {
+	authority = 2
+	years = 5
 }
 
-plundered_a_county = {
-	authority = 1
-	years = 20
+dogmatic_religion = {
+	authority = 15
+	years = 1000
 }
 
-established_slave_colony = {
+cosmopolitan_religion = {
+	authority = -15
+	years = 1000
+}
+
+theology_debates = {
+	authority = -10
+	years = 100
+}
+
+bloodthirsty_mass_sacrifice = {
+	authority = 2
+	years = 100
+}
+
+won_flower_war = {
 	authority = 3
-	years = 20
+	years = 30
 }
 
-good_slave = {
+lost_flower_war = {
+	authority = -3
+	years = 30
+}
+
+blood_haruspicy_positive = {
 	authority = 1
-	years = 20
+	years = 100
 }
 
-exceptional_slave = {
-	authority = 5
-	years = 20
+haruspicy_tempted_faith = {
+	authority = -2
+	years = 50
 }
 
-settle_pirates_ma = {
-	authority = 3
-	years = 20
+great_sacrifice_positive = {
+	authority = 1
+	years = 50
+}
+
+great_sacrifice_negative = {
+	authority = -1
+	years = 50
+}
+
+haruspicy_very_good_omen = {
+	authority = 1
+	years = 50
+}
+haruspicy_very_bad_omen = {
+	authority = -1
+	years = 50
 }

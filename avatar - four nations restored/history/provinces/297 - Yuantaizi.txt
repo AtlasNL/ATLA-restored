@@ -11,8 +11,9 @@ b_yuantaizi = castle
 #b_jing_jiaping = temple
 
 # Misc
-culture = eastern_earth
+culture = eastern_earth_culture
 religion = the_great_serpent
+terrain = steppe
 
 #History
 625.3.6 = { b_jing_jiaping = temple }

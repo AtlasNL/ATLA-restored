@@ -88,9 +88,7 @@ targetted_decisions = {
 				death = { death_reason = death_suicide }
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 0
 		}
@@ -98,7 +96,7 @@ targetted_decisions = {
 
 	legitimize_bastard = {
 		only_playable = yes
-		filter = close_relatives
+		filter = close_relative
 		ai_target_filter = close_relatives
 		ai_check_interval = 30
 	
@@ -115,8 +113,17 @@ targetted_decisions = {
 			is_liege_or_above = FROM
 		}
 		allow = {
-			FROM = {
-				piety = 20
+			conditional_tooltip = {
+				trigger = {
+					NOT = {
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_legitimize
+						}
+					}
+				}
+				FROM = {
+					piety = 20
+				}
 			}
 		}
 		effect = {
@@ -124,7 +131,21 @@ targetted_decisions = {
 			remove_trait = bastard
 			add_trait = legit_bastard
 			recalc_succession = yes
-			FROM = { piety = -20 }
+			FROM = { 
+				show_scope_change = no
+				if = {
+					limit = {
+						NOT = {
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_legitimize
+							}
+						}
+					}
+					FROM = {
+						piety = -20
+					}
+				}
+			}
 			if = {
 				limit = {
 					prisoner = yes
@@ -191,9 +212,7 @@ targetted_decisions = {
 			}
 		}
 		
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 0
 		}
@@ -391,14 +410,9 @@ targetted_decisions = {
 			}
 		}
 		
-		revoke_allowed = {
-			always = no
-		}
 		ai_will_do = {
 			factor = 1
-			modifier = {
-				factor = 0.5
-			}
+
 			modifier = {
 				factor = 0.5
 				NOT = { 
@@ -510,9 +524,6 @@ targetted_decisions = {
 			}
 		}
 		
-		revoke_allowed = {
-			always = no
-		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -630,9 +641,7 @@ targetted_decisions = {
 				}
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 1 
 			
@@ -646,9 +655,7 @@ targetted_decisions = {
 					}
 				}
 			}
-			modifier = {
-				factor = 0.5
-			}
+
 			modifier = {
 				factor = 0.1
 				age = 65
@@ -730,9 +737,7 @@ targetted_decisions = {
 				}
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -874,15 +879,10 @@ targetted_decisions = {
 				}
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 1 
 			
-			modifier = {
-				factor = 0.5
-			}
 			modifier = {
 				factor = 0.1
 				spouse = {
@@ -994,9 +994,7 @@ targetted_decisions = {
 				}
 			}
 		}
-		revoke_allowed = {
-			always = no
-		}
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -1022,5 +1020,4 @@ targetted_decisions = {
 			}			
 		}
 	}
-	
 }

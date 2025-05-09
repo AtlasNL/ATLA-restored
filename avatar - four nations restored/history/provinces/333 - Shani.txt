@@ -12,8 +12,9 @@ b_lushui = city
 #b_cima = castle
 
 # Misc
-culture = southern_earth
+culture = southern_earth_culture
 religion = way_of_chin
+terrain = forest
 
 #History
 651.2.3 = { religion = earth_spirituality }

@@ -1,10 +1,9 @@
-###########################################
-#                                         #
-# RoI India tiger hunt events             #
-#                                         #
-# ID RoI.2000-RoI.2999                    #
-#                                         #
-###########################################
+#############################################
+#											#
+#	RoI India tiger hunt events				#
+#	ID RoI.2000-RoI.2999					#
+#											#
+#############################################
 
 # Written by Tobias Bodlund
 
@@ -43,9 +42,10 @@ character_event = {
 letter_event = {
 	id = RoI.2001
 	desc = EVTDESC_RoI_2001
-	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
+
+	trigger = { NOT = { is_inaccessible_trigger = yes } }
 	
 	option = {
 		name = EVTOPTA_RoI_2001 # Go
@@ -57,7 +57,7 @@ letter_event = {
 			}
 			modifier  = {
 				factor = 0.1
-				trait = in_hiding
+				is_inaccessible_trigger = yes
 			}
 			modifier  = {
 				factor = 2
@@ -77,16 +77,7 @@ letter_event = {
 		hidden_tooltip = { character_event = { id = RoI.2019 days = 12 } } # Hidden - arrives to hunt
 		hidden_tooltip = { character_event = { id = RoI.2999 days = 43 } } # Safety event for clearing all flags
 		custom_tooltip = { text = EVTTOOLTIP1_RoI_2001 }
-		if = {
-			limit = { trait = in_hiding	}
-			remove_trait = in_hiding
-			add_character_modifier = {
-				name = went_out_of_hiding_timer
-				duration = 180
-				hidden = yes
-			}
-			hidden_tooltip = { character_event = { id = CM.6400 } } # Notify plotters and family
-		}
+
 #		FROM = {
 #			letter_event = {
 #				id = RoI.2002
@@ -102,7 +93,7 @@ letter_event = {
 			modifier  = {
 				factor = 0
 				opinion = { who = from value = 25 }
-				NOT = { trait = in_hiding }
+				NOT = { is_inaccessible_trigger = yes }
 			}
 		}
 		FROM = {
@@ -132,7 +123,6 @@ letter_event = {
 letter_event = {
 	id = RoI.2003
 	desc = EVTDESC_RoI_2003
-	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
@@ -146,9 +136,9 @@ letter_event = {
 	}
 }
 
-###########################################
-# Hunt begins and ends                    #
-###########################################
+#############################################
+#	Hunt begins and ends					#
+#############################################
 
 
 # Vassal arrives to hunt
@@ -231,6 +221,7 @@ character_event = {
 				limit = { has_character_flag = hunting_tigers }
 				character_event = { id = RoI.2501 }
 			}
+			break = yes
 		}
 		if = {
 			limit = { NOT = { has_character_flag = killed_tiger } }
@@ -282,9 +273,9 @@ character_event = {
 	}
 }
 
-###########################################
-# Flag management events                  #
-###########################################
+#############################################
+#	Flag management events					#
+#############################################
 
 # Clear all character flags and modifiers
 character_event = {
@@ -302,9 +293,9 @@ character_event = {
 	}
 }
 
-###########################################
-# Random events during hunt               #
-###########################################
+#############################################
+#	Random events during hunt				#
+#############################################
 
 # Gets drunk and makes a friend
 character_event = {
@@ -469,7 +460,12 @@ character_event = {
 				character_event = { id = RoI.2105 } # Always loses
 			}
 			if = {
-				limit = { trait = slow }
+				limit = {
+					OR = {
+						trait = slow
+						trait = dull
+					}
+				}
 				random_list = {
 					50 = { character_event = { id = RoI.2105 } } # Loses
 					50 = { character_event = { id = RoI.2106 } } # Breaks even
@@ -477,11 +473,9 @@ character_event = {
 			}
 			if= {
 				limit = {
-					NOT = { trait = imbecile }
+					is_dumb_trigger = no
 					NOT = { trait = inbred }
-					NOT = { trait = slow }
-					NOT = { trait = quick }
-					NOT = { trait = genius }
+					is_smart_trigger = no
 				}
 				random_list = {
 					33 = { character_event = { id = RoI.2105 } } # Loses
@@ -490,7 +484,12 @@ character_event = {
 				}
 			}
 			if = {
-				limit = { trait = quick }
+				limit = {
+					OR = {
+						trait = quick
+						trait = shrewd
+					}
+				}
 				random_list = {
 					10 = { character_event = { id = RoI.2105 } } # Loses
 					30 = { character_event = { id = RoI.2106 } } # Breaks even
@@ -520,7 +519,12 @@ character_event = {
 				character_event = { id = RoI.2105 } # Always loses
 			}
 			if = {
-				limit = { trait = slow }
+				limit = {
+					OR = {
+						trait = slow
+						trait = dull
+					}
+				}
 				random_list = {
 					50 = { character_event = { id = RoI.2105 } } # Loses
 					50 = { character_event = { id = RoI.2106 } } # Breaks even
@@ -528,11 +532,9 @@ character_event = {
 			}
 			if= {
 				limit = {
-					NOT = { trait = imbecile }
 					NOT = { trait = inbred }
-					NOT = { trait = slow }
-					NOT = { trait = quick }
-					NOT = { trait = genius }
+					is_dumb_trigger = no
+					is_smart_trigger = no
 				}
 				random_list = {
 					33 = { character_event = { id = RoI.2105 } } # Loses
@@ -541,7 +543,12 @@ character_event = {
 				}
 			}
 			if = {
-				limit = { trait = quick }
+				limit = {
+					OR = {
+						trait = quick
+						trait = shrewd
+					}
+				}
 				random_list = {
 					10 = { character_event = { id = RoI.2105 } } # Loses
 					30 = { character_event = { id = RoI.2106 } } # Breaks even
@@ -681,7 +688,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_RoI_2112
-		random_realm_character = {                            # Tiger kills AI character
+		random_realm_character = {					# Tiger kills AI character
 			limit = {
 				ai = yes
 				has_character_flag = hunting_tigers
@@ -692,7 +699,7 @@ character_event = {
 				}
 			}
 			death = {
-				death_reason = death_accident
+				death_reason = death_accident_tiger
 			}
 		}
 	}
@@ -710,20 +717,16 @@ character_event = {
 		name = EVTOPTA_RoI_2120 # Kill it myself
 		trigger = {
 			NOT = { trait = wounded }
-			NOT = { trait = maimed }
+			NOT = { is_maimed_trigger = yes }
 			NOT = { trait = craven }
 		}
 		hidden_tooltip = {
 			if = {
 				limit = {
-					NOT = { trait = wounded }
-					NOT = { trait = maimed }
 					OR = {
 						trait = hunter
 						trait = duelist
-						trait = strong
-						trait = varangian
-						trait = berserker
+						is_strong_trigger = yes
 						has_character_modifier = killed_an_old_one
 					}
 				}
@@ -737,9 +740,7 @@ character_event = {
 				limit = {
 					NOT = { trait = hunter }
 					NOT = { trait = duelist }
-					NOT = { trait = strong }
-					NOT = { trait = varangian }
-					NOT = { trait = berserker }
+					is_strong_trigger = no
 					NOT = { has_character_modifier = killed_an_old_one }
 				}
 				random_list = {
@@ -780,9 +781,11 @@ character_event = {
 			add_trait = hunter
 		}
 		set_character_flag = killed_tiger
+		add_blood_splatter_effect = yes
 		if = {
 			limit = {
 				NOT = { has_character_flag = achievement_i_can_see_its_stripes }
+				ai = no
 			}
 			set_character_flag = achievement_i_can_see_its_stripes
 		}
@@ -815,7 +818,7 @@ character_event = {
 		name = EVTOPTA_RoI_2123
 		random_list = {
 			90 = { add_trait = wounded }
-			10 = { add_trait = maimed }
+			10 = { add_maimed_trait_effect = yes }
 		}
 	}
 }
@@ -846,10 +849,3 @@ character_event = {
 		name = EVTOPTA_RoI_2125
 	}
 }
-
-
-
-
-
-
-	

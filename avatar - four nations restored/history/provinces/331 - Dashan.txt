@@ -12,8 +12,9 @@ b_bankao = city
 #b_zhongzhai = castle
 
 # Misc
-culture = southern_earth
+culture = southern_earth_culture
 religion = way_of_chin
+terrain = forest
 
 #History
 618.4.5 = { religion = earth_spirituality }

@@ -184,7 +184,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_province_diplostatus_icon_strip"
 		texturefile = "gfx\\interface\\province_diplostatus_icon_strip.tga"
-		noOfFrames = 11
+		noOfFrames = 12
 	}
 
 	spriteType = {
@@ -3156,5 +3156,15 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_province_terrain_steppe"
 		texturefile = "gfx\\interface\\province_terrain_steppe.dds"
+	}
+
+	spriteType = {
+		name = "GFX_province_terrain_glacial"
+		texturefile = "gfx/interface/province_terrain_glacial.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_province_terrain_urban_basingse"
+		texturefile = "gfx/interface/province_terrain_urban.dds"
 	}
 }
